@@ -1,0 +1,6 @@
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Dominio\bin\Debug\Dominio.dll
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Dominio\bin\Debug\Dominio.pdb
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Dominio\obj\Debug\Dominio.dll
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Dominio\obj\Debug\Dominio.pdb

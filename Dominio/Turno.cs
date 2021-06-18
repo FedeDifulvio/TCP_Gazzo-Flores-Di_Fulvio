@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class Turno
+    public class Turno
     {
         public int ID { get; set; }
 

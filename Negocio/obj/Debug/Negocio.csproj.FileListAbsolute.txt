@@ -1,0 +1,9 @@
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\bin\Debug\Negocio.dll
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\bin\Debug\Negocio.pdb
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\bin\Debug\Dominio.dll
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\bin\Debug\Dominio.pdb
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.dll
+C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.pdb

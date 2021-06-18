@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    class DiaHorarioTrabajo
+   public class DiaHorarioTrabajo
     {
         public string Dia { get; set; }
 
