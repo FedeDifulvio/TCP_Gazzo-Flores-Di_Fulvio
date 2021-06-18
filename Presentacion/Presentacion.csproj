@@ -67,11 +67,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AltaPaciente.aspx" />
+    <Content Include="CalendarioTurnos.aspx" />
+    <Content Include="Configuracion.aspx" />
+    <Content Include="Contacto.aspx" />
+    <Content Include="Favoritos.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="JavaScript\navLateral.js" />
+    <Content Include="MisTurnos.aspx" />
+    <Content Include="NuevoTurno.aspx" />
+    <Content Include="SobreNosotros.aspx" />
     <Content Include="Styles\Styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaPaciente.aspx.cs">
+      <DependentUpon>AltaPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AltaPaciente.aspx.designer.cs">
+      <DependentUpon>AltaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarioTurnos.aspx.cs">
+      <DependentUpon>CalendarioTurnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CalendarioTurnos.aspx.designer.cs">
+      <DependentUpon>CalendarioTurnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion.aspx.cs">
+      <DependentUpon>Configuracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuracion.aspx.designer.cs">
+      <DependentUpon>Configuracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Favoritos.aspx.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Favoritos.aspx.designer.cs">
+      <DependentUpon>Favoritos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -86,7 +130,28 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="MisTurnos.aspx.cs">
+      <DependentUpon>MisTurnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisTurnos.aspx.designer.cs">
+      <DependentUpon>MisTurnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoTurno.aspx.cs">
+      <DependentUpon>NuevoTurno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevoTurno.aspx.designer.cs">
+      <DependentUpon>NuevoTurno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SobreNosotros.aspx.cs">
+      <DependentUpon>SobreNosotros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SobreNosotros.aspx.designer.cs">
+      <DependentUpon>SobreNosotros.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPage.Master" />
@@ -97,6 +162,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="img\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

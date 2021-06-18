@@ -15,32 +15,37 @@
 
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light " style="background-color:#F5A962">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar w/ text</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">Navbar text with an inline element
-                </span>
-            </div>
+    <nav class="navbar navbar-light" style="background-color: #ace6f6">
+        <div class="container-fluid"> 
+            <div class="icono-menu">
+                <img src="img/desplegable.png" alt="" id="icono-menu"> 
+            </div> 
+            <div >
+               <h1>Clínica San Flores</h1>
+            </div> 
+            <div>
+                <h2>Iniciar Sesión</h2>
+             </div>
         </div>
-    </nav>
-
-
+      </nav>
+   
+    <div class="cont-menu active" id="menu"> 
+        <div style="display: flex; justify-content: flex-end; padding: 40px;">
+             <img src="img/arrow-pointing-left.png" class="arrowLeft" alt="Alternate Text" id="arrow" />
+        </div>
+        <ul> 
+            <li><a class="item-nav" href="Home.aspx">Home</a></li> <!-- Todos-->
+            <li><a class="item-nav" href="NuevoTurno.aspx">Nuevo Turno</a></li> <!--Paciente-->
+            <li> <a class="item-nav" href="MisTurnos.aspx">Mis Turnos</a></li> <!--Paciente, Medico-->
+            <li><a class="item-nav" href="CalendarioTurnos.aspx" >Calendario de Turnos</a></li> <!--Secretaria-->
+            <li><a class="item-nav" href="AltaPaciente.aspx" >Dar de Alta Paciente</a></li> 
+            <li><a class="item-nav" href="Favoritos.aspx" >Favoritos</a></li> <!--Paciente-->
+            <li><a class="item-nav" href="SobreNosotros.aspx" >Sobre Nosotros</a></li>  <!--Lista de medicos y obras sociales -->
+            <li><a class="item-nav" href="Contacto.aspx" >Contacto</a></li> 
+            <li><a class="item-nav" href="Configuracion.aspx" >Configuración</a></li>  <!--Solo administrador-->
+        </ul>
+    </div> 
+    
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -51,11 +56,11 @@
 
     <footer class="bg-light text-center text-lg-start">
         <div class="text-center p-3 fw-bold foot" >
-            © 2021 Proyecto ASP.NET Di Fulvio- Rodriguez Olsavsky
+            © 2021 Proyecto Clínica Di Fulvio-Flores-Gazzo
         </div>
     </footer>
 
 
-
+   <script src="JavaScript/navLateral.js"></script>
 </body>
 </html>
