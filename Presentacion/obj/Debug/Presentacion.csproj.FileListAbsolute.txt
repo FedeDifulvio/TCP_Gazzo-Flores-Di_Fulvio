@@ -179,3 +179,7 @@ C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulv
 C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Presentacion\bin\Negocio.dll
 C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Presentacion\bin\Dominio.pdb
 C:\Users\AleGazzo\Desktop\UTN\3er cuatri\Programacion 3\TPC_Gazzo-Flores-Di_Fulvio\Presentacion\bin\Negocio.pdb
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Presentacion\bin\Dominio.dll
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Presentacion\bin\Negocio.dll
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Presentacion\bin\Dominio.pdb
+E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Presentacion\bin\Negocio.pdb

@@ -21,7 +21,7 @@
                 <img src="img/desplegable.png" alt="" id="icono-menu"> 
             </div> 
             <div >
-               <h1>Clínica San Flores</h1>
+                <img src="img/logotipo.png" alt="Alternate Text" />
             </div> 
             <div>
                 <h2>Iniciar Sesión</h2>
@@ -38,7 +38,7 @@
             <li><a class="item-nav" href="NuevoTurno.aspx">Nuevo Turno</a></li> <!--Paciente-->
             <li> <a class="item-nav" href="MisTurnos.aspx">Mis Turnos</a></li> <!--Paciente, Medico-->
             <li><a class="item-nav" href="CalendarioTurnos.aspx" >Calendario de Turnos</a></li> <!--Secretaria-->
-            <li><a class="item-nav" href="AltaPaciente.aspx" >Dar de Alta Paciente</a></li> 
+            <li><a class="item-nav" href="RegistrosPaciente.aspx" >Registro de Pacientes</a></li> 
             <li><a class="item-nav" href="Favoritos.aspx" >Favoritos</a></li> <!--Paciente-->
             <li><a class="item-nav" href="SobreNosotros.aspx" >Sobre Nosotros</a></li>  <!--Lista de medicos y obras sociales -->
             <li><a class="item-nav" href="Contacto.aspx" >Contacto</a></li> 

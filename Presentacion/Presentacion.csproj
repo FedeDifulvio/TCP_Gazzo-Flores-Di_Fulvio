@@ -76,6 +76,7 @@
     <Content Include="JavaScript\navLateral.js" />
     <Content Include="MisTurnos.aspx" />
     <Content Include="NuevoTurno.aspx" />
+    <Content Include="RegistrosPaciente.aspx" />
     <Content Include="SobreNosotros.aspx" />
     <Content Include="Styles\Styles.css" />
     <Content Include="Web.config" />
@@ -145,6 +146,13 @@
       <DependentUpon>NuevoTurno.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrosPaciente.aspx.cs">
+      <DependentUpon>RegistrosPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrosPaciente.aspx.designer.cs">
+      <DependentUpon>RegistrosPaciente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SobreNosotros.aspx.cs">
       <DependentUpon>SobreNosotros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

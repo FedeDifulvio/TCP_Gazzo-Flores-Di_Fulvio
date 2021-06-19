@@ -6,9 +6,9 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-4" style="justify-content: center; display: flex">
-                    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                    <h1>Contacto</h1>
                 </div>
             </div>
         </div>
-    </div>
+       </div> 
 </asp:Content>
