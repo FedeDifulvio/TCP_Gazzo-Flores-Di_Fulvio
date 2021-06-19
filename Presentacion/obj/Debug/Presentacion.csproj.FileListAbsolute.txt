@@ -183,3 +183,7 @@ E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Presentacion\bin\Dominio.dll
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Presentacion\bin\Negocio.dll
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Presentacion\bin\Dominio.pdb
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Presentacion\bin\Negocio.pdb
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Presentacion\bin\Dominio.dll
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Presentacion\bin\Negocio.dll
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Presentacion\bin\Dominio.pdb
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Presentacion\bin\Negocio.pdb

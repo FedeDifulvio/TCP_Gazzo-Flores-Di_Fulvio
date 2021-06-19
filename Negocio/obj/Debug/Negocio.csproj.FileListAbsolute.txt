@@ -16,3 +16,12 @@ E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Negocio\obj\Debug\Negocio.csproj
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Negocio\obj\Debug\Negocio.dll
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\bin\Debug\Negocio.dll
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\bin\Debug\Dominio.dll
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.csprojAssemblyReference.cache
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.dll
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Negocio\obj\Debug\Negocio.pdb

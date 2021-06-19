@@ -51,5 +51,38 @@ namespace Presentacion
                 e.Row.Cells[0].Visible = false;
             }
         }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            string filtro = Buscador.Text;
+            List<Paciente> listaFiltrada = Lista.FindAll(x => chequearFiltros(x,filtro));
+            GridPacientes.DataSource = listaFiltrada;
+            GridPacientes.DataBind();
+        }
+
+        public bool chequearFiltros( Paciente paciente, string filtro) {
+
+            if (paciente.Nombre.ToLower().Contains(filtro.ToLower()))
+            {
+                return true;
+            }
+            if (paciente.Apellido.ToLower().Contains(filtro.ToLower()))
+            {
+                return true;
+            }
+            if (paciente.DNI.ToLower().Contains(filtro.ToLower()))
+            {
+                return true;
+            }
+           
+            return false;
+
+        }
+
+     
+
+   
+
+       
     }
 }
