@@ -108,7 +108,9 @@ footer .foot {
     transition: all .5s ease;
 }
  
-/*Fin Nav lateral*/ 
+/*Fin Nav lateral*/
 
-
+th {
+   font-weight: normal;
+}
 
