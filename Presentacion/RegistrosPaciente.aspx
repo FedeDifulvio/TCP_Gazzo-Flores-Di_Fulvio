@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="container-fluid" style="background-color:#f3e9d2; height: 80vh;">
+     <div class="container-fluid" style="background-color:#f3e9d2; height: 100vh;">
         <div class="container">
             <div class="row justify-content-center mb-3">
             <div class="col-md-4 mt-3">
@@ -20,6 +20,8 @@
                             <th scope="col">Fecha de Nacimiento</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Mail</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                    </thead>
                     <tbody>
@@ -34,6 +36,8 @@
                                         <th><%= item.FechaNacimiento.ToShortDateString() %> </th> 
                                         <th><%= item.Telefono %> </th> 
                                         <th><%= item.Mail %> </th> 
+                                         <th> <a href="ModificarPaciente.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="img/edit.png" alt="Alternate Text" /> </a> </th> 
+                                          <th> <a href="EliminarPaciente.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="img/remove.png" alt="Alternate Text" /> </a> </th> 
                                     </tr>
                                  <%
 

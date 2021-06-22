@@ -2,13 +2,5 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid home">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-4" style="justify-content: center; display: flex">
-                    <h1>Contacto</h1>
-                </div>
-            </div>
-        </div>
-       </div> 
+    <h1>Alta Paciente</h1>
 </asp:Content>

@@ -71,10 +71,12 @@
     <Content Include="CalendarioTurnos.aspx" />
     <Content Include="Configuracion.aspx" />
     <Content Include="Contacto.aspx" />
+    <Content Include="EliminarPaciente.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="JavaScript\navLateral.js" />
     <Content Include="MisTurnos.aspx" />
+    <Content Include="ModificarPaciente.aspx" />
     <Content Include="NuevoTurno.aspx" />
     <Content Include="RegistrosPaciente.aspx" />
     <Content Include="SobreNosotros.aspx" />
@@ -110,6 +112,13 @@
     <Compile Include="Contacto.aspx.designer.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EliminarPaciente.aspx.cs">
+      <DependentUpon>EliminarPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarPaciente.aspx.designer.cs">
+      <DependentUpon>EliminarPaciente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Favoritos.aspx.cs">
       <DependentUpon>Favoritos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -137,6 +146,13 @@
     </Compile>
     <Compile Include="MisTurnos.aspx.designer.cs">
       <DependentUpon>MisTurnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarPaciente.aspx.cs">
+      <DependentUpon>ModificarPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarPaciente.aspx.designer.cs">
+      <DependentUpon>ModificarPaciente.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuevoTurno.aspx.cs">
       <DependentUpon>NuevoTurno.aspx</DependentUpon>
