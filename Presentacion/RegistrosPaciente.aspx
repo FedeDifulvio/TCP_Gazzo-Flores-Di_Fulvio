@@ -20,6 +20,7 @@
                             <th scope="col">Fecha de Nacimiento</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Mail</th>
+                            <th scope="col">ObraSocial</th>    
                             <th></th>
                             <th></th>
                         </tr>
@@ -36,6 +37,7 @@
                                         <th><%= item.FechaNacimiento.ToShortDateString() %> </th> 
                                         <th><%= item.Telefono %> </th> 
                                         <th><%= item.Mail %> </th> 
+                                        <th><%= item.ObraSocial.Nombre %> </th> 
                                          <th> <a href="ModificarPaciente.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="img/edit.png" alt="Alternate Text" /> </a> </th> 
                                           <th> <a href="EliminarPaciente.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="img/remove.png" alt="Alternate Text" /> </a> </th> 
                                     </tr>

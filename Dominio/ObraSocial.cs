@@ -16,5 +16,11 @@ namespace Dominio
             ID = id;
             Nombre = nombre; 
         }
+
+        public ObraSocial(int id)
+        {
+            ID = id;
+
+        }
     }
 }

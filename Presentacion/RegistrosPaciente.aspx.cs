@@ -23,6 +23,7 @@ namespace Presentacion
             try
             {
                 Lista = negocio.Listar();
+                Session.Add("ListaPacientes", Lista);
                 
             }
             catch (Exception)
