@@ -75,6 +75,7 @@
     <Content Include="Favoritos.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="JavaScript\navLateral.js" />
+    <Content Include="JavaScript\ValidacionesPaciente.js" />
     <Content Include="MisTurnos.aspx" />
     <Content Include="ModificarPaciente.aspx" />
     <Content Include="NuevoTurno.aspx" />

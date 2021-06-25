@@ -13,14 +13,11 @@ arrow.addEventListener('click',(e)=> {
 
 arrow.addEventListener('mouseover', (e) => {
   
-    const imgActual = e.target.getAttribute('src')
     e.target.setAttribute('src', 'img/left-arrow.png')
-   
 }) 
 
 arrow.addEventListener('mouseleave', (e) => {
 
-    const imgActual = e.target.getAttribute('src')
     e.target.setAttribute('src', 'img/arrow-pointing-left.png')
 
 })
