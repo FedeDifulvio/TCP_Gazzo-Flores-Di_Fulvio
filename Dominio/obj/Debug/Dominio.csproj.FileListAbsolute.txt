@@ -10,3 +10,9 @@ E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Dominio\obj\Debug\Dominio.csproj
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Dominio\obj\Debug\Dominio.dll
 E:\Documentos\00 UTN\3º\PROYECTOS PROG III\TPC\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Dominio\bin\Debug\Dominio.dll
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Dominio\obj\Debug\Dominio.dll
+C:\Users\Sebastian\Desktop\TP-Cuatrimestral\TPC_Gazzo-Flores-Di_Fulvio\Dominio\obj\Debug\Dominio.pdb

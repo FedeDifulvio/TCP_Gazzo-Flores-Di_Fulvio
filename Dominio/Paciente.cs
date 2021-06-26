@@ -25,6 +25,8 @@ namespace Dominio
 
         public string Telefono { get; set; }
 
-        public ObraSocial ObraSocial { get; set; } 
+        public ObraSocial ObraSocial { get; set; }
+
+        public bool Estado { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="container-fluid" style="background-color:#f3e9d2; height: 100vh;">
+     <div class="container-fluid" style="background-color:#f3e9d2; height: 100%;">
         <div class="container">
             <div class="row justify-content-center mb-3">
             <div class="col-md-4 mt-3">

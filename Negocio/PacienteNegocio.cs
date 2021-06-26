@@ -15,7 +15,7 @@ namespace Negocio
             List<Paciente> lista = new List<Paciente>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "select P.ID,P.Nombre,P.Apellido, P.DNI, P.Direccion, P.FechaNacimiento, P.Mail, P.Telefono, O.Nombre as ObraSocial, O.ID as IdObraSocial from Pacientes P inner join ObraSocial O on P.IdObraSocial = O.ID";
+            string consulta = "select P.Estado,P.ID,P.Nombre,P.Apellido, P.DNI, P.Direccion, P.FechaNacimiento, P.Mail, P.Telefono, O.Nombre as ObraSocial, O.ID as IdObraSocial from Pacientes P inner join ObraSocial O on P.IdObraSocial = O.ID";
 
             try
             {
@@ -37,7 +37,7 @@ namespace Negocio
                     aux.FechaNacimiento = (DateTime)datos.Lector["FechaNacimiento"];
                     aux.Mail = (string)datos.Lector["Mail"];
                     aux.Telefono = (string)datos.Lector["Telefono"];
-
+                    aux.Estado = (bool)datos.Lector["Estado"];
 
                     lista.Add(aux);
 
@@ -86,6 +86,60 @@ namespace Negocio
             }
         }
 
+        public void Modificar(Paciente aux)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetearConsulta("update Pacientes set nombre = @nombre, apellido = @apellido, dni = @dni, mail = @mail, telefono = @telefono, direccion = @direccion, fechaNacimiento = @fechaNacimiento, idObraSocial = @idObraSocial Where id = @id");
+                
+                datos.AgregarParametro("@nombre", aux.Nombre);
+                datos.AgregarParametro("@apellido", aux.Apellido);
+                datos.AgregarParametro("@dni", aux.DNI);
+                datos.AgregarParametro("@mail", aux.Mail);
+                datos.AgregarParametro("@telefono", aux.Telefono);
+                datos.AgregarParametro("@direccion", aux.Direccion);
+                datos.AgregarParametro("@fechaNacimiento", aux.FechaNacimiento);
+                datos.AgregarParametro("@idObraSocial", aux.ObraSocial.ID);
+                datos.AgregarParametro("@id", aux.ID);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+        }
+
+        public void bajaLogica(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("update Pacientes set estado = 0 Where id = @id");
+                datos.AgregarParametro("@id", id);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+
+        }
 
 
     }

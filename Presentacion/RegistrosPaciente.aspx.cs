@@ -12,6 +12,7 @@ namespace Presentacion
     public partial class RegistrosPaciente : System.Web.UI.Page
     {
         public List<Paciente> Lista;
+        public List<Paciente> listaNoFiltrada;
         protected void Page_Load(object sender, EventArgs e)
         {
            cargarPacientes();
@@ -22,7 +23,9 @@ namespace Presentacion
             PacienteNegocio negocio = new PacienteNegocio();
             try
             {
-                Lista = negocio.Listar();
+                
+                listaNoFiltrada = negocio.Listar();
+                Lista = listaNoFiltrada.FindAll(x => x.Estado == true);
                 Session.Add("ListaPacientes", Lista);
                 
             }
