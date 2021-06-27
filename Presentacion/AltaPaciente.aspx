@@ -19,9 +19,21 @@
                 <div class="col-md-6">
                     <div>
                         <asp:TextBox ID="TextBoxNombre" CssClass="form-control mb-3" MaxLength="30"  ClientIDMode="Static" placeholder="Nombre"  runat="server"></asp:TextBox>
+                        <div>
+                            <h1 class="error-form" id="TextBoxNombre-inv"></h1>
+                        </div>
                         <asp:TextBox ID="TextBoxApellido" CssClass="form-control mb-3"  MaxLength="30" ClientIDMode="Static" placeholder="Apellido" runat="server" />
+                         <div>
+                            <h1 class="error-form" id="TextBoxApellido-inv"></h1>
+                        </div>
                         <asp:TextBox ID="TextBoxDni"  CssClass="form-control mb-3"  MaxLength="15" ClientIDMode="Static" placeholder="DNI" runat="server" />
+                         <div>
+                            <h1 class="error-form" id="TextBoxDni-inv"></h1>
+                        </div>
                         <asp:TextBox ID="txtDate" CssClass="form-control mb-3"  ClientIDMode="Static" runat="server" placeholder="From" type="date"></asp:TextBox>
+                        <div>
+                            <h1 class="error-form" id="txtDate-inv"></h1>
+                        </div>
                         
                         
                     </div>
@@ -29,8 +41,17 @@
                 <div class="col-md-6">
                     <div >
                         <asp:TextBox ID="TextBoxDireccion" CssClass="form-control mb-3" MaxLength="50" ClientIDMode="Static" placeholder="Dirección"  runat="server"></asp:TextBox>
+                         <div>
+                            <h1 class="error-form" id="TextBoxDireccion-inv"></h1>
+                        </div>
                         <asp:TextBox ID="TextBoxMail" CssClass="form-control mb-3" placeholder="Mail"  ClientIDMode="Static" runat="server"></asp:TextBox>
+                        <div>
+                            <h1 class="error-form" id="TextBoxMail-inv"></h1>
+                        </div>
                         <asp:TextBox ID="TextBoxTelefono" CssClass="form-control mb-3" placeholder="Telefono"  ClientIDMode="Static" runat="server"></asp:TextBox>
+                        <div>
+                            <h1 class="error-form" id="TextBoxTelefono-inv"></h1>
+                        </div>
                         <asp:DropDownList ID="DdlObraSocial"  CssClass="form-select"  ClientIDMode="Static" runat="server"></asp:DropDownList>
                     </div>
                 </div>
@@ -44,5 +65,6 @@
             </div>
         </div>
     </div>
+     <script src="JavaScript/FuncionesValidaciones.js"></script>
     <script src="JavaScript/ValidacionesPaciente.js"></script>
 </asp:Content>

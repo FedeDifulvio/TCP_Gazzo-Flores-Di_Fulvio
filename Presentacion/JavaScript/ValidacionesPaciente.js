@@ -11,109 +11,72 @@ const validarFormularioPaciente = () => {
 
     let flag = 0
 
-    flag += chequearVacio("TextBoxNombre")
+    
     flag += chequearNumero("TextBoxNombre") 
 
-    flag += chequearVacio("TextBoxApellido")
     flag += chequearNumero("TextBoxApellido")
 
-    flag += chequearVacio("TextBoxDni")
     flag += chequearLetra("TextBoxDni") 
 
     flag += chequearVacio("TextBoxDireccion")
 
-    flag += chequearVacio("TextBoxTelefono")
     flag += chequearLetra("TextBoxTelefono")  
 
-    flag += chequearVacio("TextBoxMail")
+    flag += validarMail("TextBoxMail")
 
     flag += chequearVacio("txtDate")
-  
 
-
-
+    
     if (flag != 0) {
-        console.log("noopadreee")
-        return false
-        
+        return false    
     } 
-    console.log("validooo")
+
     return true
     
 } 
-
-const esDigito = dato => {
-    const validar = parseInt(dato)
-    if (Number.isInteger(validar)) {
-        return true
-    } 
-
-    return false
-}   
-
-const chequearVacio = dato => { 
-    const valor = document.getElementById(dato)
-    if (valor.value == "") {
-        valor.classList.add("is-invalid")
-        return 1 
-    }  
-
-    return 0
-} 
-
-const chequearNumero = dato => { 
-    const valor = document.getElementById(dato)
-    if(esDigito(valor.value)) {
-        valor.classList.add("is-invalid")
-        return 1
-    } 
-
-    return 0
-}  
-
-const chequearLetra = dato => {
-    const valor = document.getElementById(dato)
-    if (esDigito(valor.value)) {
-        return 0
-    }
-    valor.classList.add("is-invalid")
-    return 1
-}  
-
-
-
-
-
 
 
 
 nombre.addEventListener('click', (e) => {
     nombre.classList.remove("is-invalid")
+    const invalid = document.getElementById("TextBoxNombre-inv")
+    invalid.innerHTML = ''
 }) 
 
 apellido.addEventListener('click', (e) => {
     apellido.classList.remove("is-invalid")
+    const invalid = document.getElementById("TextBoxApellido-inv")
+    invalid.innerHTML = ''
 }) 
 
 DNI.addEventListener('click', (e) => {
     DNI.classList.remove("is-invalid")
+    const invalid = document.getElementById("TextBoxDni-inv")
+    invalid.innerHTML = ''
 }) 
 
 Direccion.addEventListener('click', (e) => {
     Direccion.classList.remove("is-invalid")
+    const invalid = document.getElementById("TextBoxDireccion-inv")
+    invalid.innerHTML = ''
 }) 
 
 Telefono.addEventListener('click', (e) => {
     Telefono.classList.remove("is-invalid")
+    const invalid = document.getElementById("TextBoxTelefono-inv")
+    invalid.innerHTML = ''
 })  
 
 Fecha.addEventListener('click', (e) => {
     Fecha.classList.remove("is-invalid")
+    const invalid = document.getElementById("txtDate-inv")
+    invalid.innerHTML = ''
 }) 
 
 Mail.addEventListener('click', (e) => {
     Mail.classList.remove("is-invalid")
-
+    const invalid = document.getElementById("TextBoxMail-inv")
+    invalid.innerHTML = ''
 })
 
 

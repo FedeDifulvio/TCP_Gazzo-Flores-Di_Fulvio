@@ -4,9 +4,7 @@
 * {
     font-family: 'Poppins', sans-serif;
 }
-body {
-    background-color: #DDDDDD;
-}
+
 
 footer .foot {
     background-color: #DDDDDD;
@@ -112,5 +110,10 @@ footer .foot {
 
 th {
    font-weight: normal;
+}
+
+.error-form {
+    font-size: 15px;
+    color: red
 }
 

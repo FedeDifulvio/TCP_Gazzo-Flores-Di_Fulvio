@@ -44,7 +44,9 @@ namespace Presentacion
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
-        {
+        {  
+            
+            
             PacienteNegocio negocio = new PacienteNegocio();
             Paciente aux = new Paciente();
 
@@ -58,6 +60,7 @@ namespace Presentacion
             aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
             negocio.Agregar(aux);
             Response.Redirect("RegistrosPaciente.aspx");
+            
         }
     }
 }

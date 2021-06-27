@@ -74,6 +74,7 @@
     <Content Include="EliminarPaciente.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="JavaScript\FuncionesValidaciones.js" />
     <Content Include="JavaScript\navLateral.js" />
     <Content Include="JavaScript\ValidacionesPaciente.js" />
     <Content Include="MisTurnos.aspx" />

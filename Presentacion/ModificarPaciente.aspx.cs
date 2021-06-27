@@ -99,32 +99,3 @@ namespace Presentacion
     } 
   
 }
-
-/*PacienteNegocio negocio = new PacienteNegocio();
-
-            Paciente aux = new Paciente();
-
-            try
-            {
-                aux.ID = int.Parse(Request.QueryString["id"]);
-                aux.Nombre = TextBoxNombre.Text;
-                aux.Apellido = TextBoxApellido.Text;
-                aux.Direccion = TextBoxDireccion.Text;
-                aux.DNI = TextBoxDni.Text;
-                aux.Mail = TextBoxMail.Text;
-                aux.Telefono = TextBoxTelefono.Text;
-                aux.FechaNacimiento = DateTime.Parse(from_date.Text);
-                aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
-
-
-
-                negocio.Modificar(aux);
-                 Response.Redirect("RegistrosPaciente.aspx");
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            */
