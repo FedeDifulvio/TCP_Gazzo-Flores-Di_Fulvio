@@ -19,12 +19,9 @@
                 <div class="col-md-6">
                     <div>
                         <asp:TextBox ID="TextBoxNombre" CssClass="form-control mb-3" MaxLength="30"  ClientIDMode="Static" placeholder="Nombre"  runat="server"></asp:TextBox>
-                        <div class="invalid-feedback">
-                           El nombre no puede estar vacío o contener números.
-                        </div> 
-                        <asp:TextBox ID="TextBoxApellido" CssClass="form-control mb-3"  MaxLength="30" ClientIDMode="Static" placeholder="Apellido"  runat="server"></asp:TextBox>
-                        <asp:TextBox ID="TextBoxDni" CssClass="form-control mb-3"  ClientIDMode="Static"  MaxLength="10" placeholder="DNI"  runat="server"></asp:TextBox>
-                        <asp:TextBox ID="from_date" CssClass="form-control mb-3"  ClientIDMode="Static" runat="server" placeholder="From" type="date"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxApellido" CssClass="form-control mb-3"  MaxLength="30" ClientIDMode="Static" placeholder="Apellido" runat="server" />
+                        <asp:TextBox ID="TextBoxDni"  CssClass="form-control mb-3"  MaxLength="15" ClientIDMode="Static" placeholder="DNI" runat="server" />
+                        <asp:TextBox ID="txtDate" CssClass="form-control mb-3"  ClientIDMode="Static" runat="server" placeholder="From" type="date"></asp:TextBox>
                         
                         
                     </div>
@@ -42,9 +39,10 @@
             <div class="row justify-content-center">
 
                 <div class="col-md-4 mt-3" style="margin-left:270px">
-                    <asp:Button ID="BtnAgregar" runat="server" Text="Agregar" CssClass="btn btn-primary" Style="width:150px; height:50px" OnClientClick="return validarFormularioPaciente()" OnClick="BtnAgregar_Click" />
+                    <asp:Button ID="btnAgregar" Text="Agregar" runat="server" CssClass="btn btn-primary" Style="width:150px; height:50px" OnClientClick="return validarFormularioPaciente()" Onclick="btnAgregar_Click"/>
                 </div>
             </div>
         </div>
     </div>
+    <script src="JavaScript/ValidacionesPaciente.js"></script>
 </asp:Content>

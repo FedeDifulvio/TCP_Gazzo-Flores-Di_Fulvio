@@ -43,7 +43,7 @@ namespace Presentacion
 
         }
 
-        protected void BtnAgregar_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
             PacienteNegocio negocio = new PacienteNegocio();
             Paciente aux = new Paciente();
@@ -54,10 +54,11 @@ namespace Presentacion
             aux.Direccion = TextBoxDireccion.Text;
             aux.Mail = TextBoxMail.Text;
             aux.Telefono = TextBoxTelefono.Text;
-            aux.FechaNacimiento = DateTime.Parse(from_date.Text);
-            aux.ObraSocial = new ObraSocial (int.Parse(DdlObraSocial.SelectedValue));
+            aux.FechaNacimiento = DateTime.Parse(txtDate.Text);
+            aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
             negocio.Agregar(aux);
             Response.Redirect("RegistrosPaciente.aspx");
         }
     }
 }
+

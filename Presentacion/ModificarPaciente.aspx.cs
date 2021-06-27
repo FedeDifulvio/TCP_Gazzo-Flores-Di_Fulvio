@@ -34,7 +34,7 @@ namespace Presentacion
                 TextBoxDni.Text = pacienteModificar.DNI;
                 TextBoxMail.Text = pacienteModificar.Mail;
                 TextBoxTelefono.Text = pacienteModificar.Telefono;
-                from_date.Text = pacienteModificar.FechaNacimiento.ToString("yyyy-MM-dd");
+                txtDate.Text = pacienteModificar.FechaNacimiento.ToString("yyyy-MM-dd");
                 DdlObraSocial.SelectedValue = pacienteModificar.ObraSocial.ID.ToString();
 
             }
@@ -66,9 +66,41 @@ namespace Presentacion
 
         }
 
-        protected void BtnModificar_Click(object sender, EventArgs e)
+        protected void btnModificar_Click(object sender, EventArgs e)
         {
             PacienteNegocio negocio = new PacienteNegocio();
+
+            Paciente aux = new Paciente();
+
+            try
+            {
+                aux.ID = int.Parse(Request.QueryString["id"]);
+                aux.Nombre = TextBoxNombre.Text;
+                aux.Apellido = TextBoxApellido.Text;
+                aux.Direccion = TextBoxDireccion.Text;
+                aux.DNI = TextBoxDni.Text;
+                aux.Mail = TextBoxMail.Text;
+                aux.Telefono = TextBoxTelefono.Text;
+                aux.FechaNacimiento = DateTime.Parse(txtDate.Text);
+                aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
+
+
+
+                negocio.Modificar(aux);
+                Response.Redirect("RegistrosPaciente.aspx");
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+    } 
+  
+}
+
+/*PacienteNegocio negocio = new PacienteNegocio();
 
             Paciente aux = new Paciente();
 
@@ -84,10 +116,10 @@ namespace Presentacion
                 aux.FechaNacimiento = DateTime.Parse(from_date.Text);
                 aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
 
-                
-              
+
+
                 negocio.Modificar(aux);
-                Response.Redirect("RegistrosPaciente.aspx");
+                 Response.Redirect("RegistrosPaciente.aspx");
 
             }
             catch (Exception)
@@ -95,10 +127,4 @@ namespace Presentacion
 
                 throw;
             }
-
-           
-
-
-        }
-    }
-}
+            */

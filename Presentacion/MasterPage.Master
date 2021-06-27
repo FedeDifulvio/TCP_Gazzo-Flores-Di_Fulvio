@@ -64,7 +64,6 @@
 
 
    <script src="JavaScript/navLateral.js"></script>
-    <script src="JavaScript/ValidacionesPaciente.js"></script>
    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 </body>
