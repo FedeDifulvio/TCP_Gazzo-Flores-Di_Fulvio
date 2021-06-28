@@ -16,7 +16,7 @@ const validarFormularioPaciente = () => {
 
     flag += chequearNumero("TextBoxApellido")
 
-    flag += chequearLetra("TextBoxDni") 
+    flag += validarDNI("TextBoxDni") 
 
     flag += chequearVacio("TextBoxDireccion")
 

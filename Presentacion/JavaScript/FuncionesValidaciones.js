@@ -68,4 +68,22 @@ const validarMail = dato => {
     const invalid = document.getElementById(dato + "-inv")
     invalid.innerHTML = 'El mail no contiene el formato correcto'
     return 1
+} 
+
+
+const validarDNI = dato => {
+
+    const valor = document.getElementById(dato)
+
+    if (valor.value == "" || valor.value < 1000000) {
+
+        valor.classList.add("is-invalid")
+        const invalid = document.getElementById(dato + "-inv")
+        invalid.innerHTML = 'El DNI no puede estar vacío o ser menor a 1.000.000'
+        return 1
+    }
+   
+        valor.classList.add("is-valid")
+        return 0
+
 }
