@@ -49,17 +49,25 @@ namespace Presentacion
             
             PacienteNegocio negocio = new PacienteNegocio();
             Paciente aux = new Paciente();
+            try
+            {
+                aux.Nombre = TextBoxNombre.Text;
+                aux.Apellido = TextBoxApellido.Text;
+                aux.DNI = TextBoxDni.Text;
+                aux.Direccion = TextBoxDireccion.Text;
+                aux.Mail = TextBoxMail.Text;
+                aux.Telefono = TextBoxTelefono.Text;
+                aux.FechaNacimiento = DateTime.Parse(txtDate.Text);
+                aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
+                negocio.Agregar(aux);
+                Response.Redirect("RegistrosPaciente.aspx");
+            }
+            catch (Exception)
+            {
 
-            aux.Nombre = TextBoxNombre.Text;
-            aux.Apellido = TextBoxApellido.Text;
-            aux.DNI = TextBoxDni.Text;
-            aux.Direccion = TextBoxDireccion.Text;
-            aux.Mail = TextBoxMail.Text;
-            aux.Telefono = TextBoxTelefono.Text;
-            aux.FechaNacimiento = DateTime.Parse(txtDate.Text);
-            aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
-            negocio.Agregar(aux);
-            Response.Redirect("RegistrosPaciente.aspx");
+                throw;
+            }
+            
             
         }
     }

@@ -8,7 +8,11 @@ Create Table ObraSocial(
     ID int primary key not null identity(1,1),
     Nombre varchar(50) not null,
 )
-
+Go
+Create Table Especialidades(
+    ID int primary key not null identity(1,1),
+    Nombre varchar(50) not null,
+)
 Go
 
 Create Table Pacientes(
@@ -30,12 +34,19 @@ INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (2, N'Swiss Medical')
 INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (3, N'Omint')
 INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (4, N'Osecac')
 INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (5, N'Ioma')
-INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (6, N'OSDE')
-INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (7, N'Swiss Medical')
-INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (8, N'Omint')
-INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (9, N'Osecac')
-INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (10, N'Ioma')
 SET IDENTITY_INSERT [dbo].[ObraSocial] OFF
+
+SET IDENTITY_INSERT [dbo].[Especialidades] ON 
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (1, N'Odontologia')
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (2, N'Kinesiologia')
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (3, N'Cardiologia')
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (4, N'Urologia')
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (5, N'Pediatria')
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (6, N'Ginecologia')
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (7, N'Dermatologia')
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (8, N'Traumatologia')
+INSERT [dbo].[Especialidades] ([ID], [Nombre]) VALUES (9, N'Otorrinolaringologia')
+SET IDENTITY_INSERT [dbo].[Especialidades] OFF
 
 SET IDENTITY_INSERT [dbo].[Pacientes] ON 
 

@@ -45,6 +45,8 @@
             <li><a class="item-nav" href="SobreNosotros.aspx" >Sobre Nosotros</a></li>  <!--Lista de medicos y obras sociales -->
             <li><a class="item-nav" href="Contacto.aspx" >Contacto</a></li> 
             <li><a class="item-nav" href="Configuracion.aspx" >Configuración</a></li>  <!--Solo administrador-->
+            <li><a class="item-nav" href="Especialidades.aspx" >Especialidades</a></li>
+            <li><a class="item-nav" href="ObrasSociales.aspx" >Obras Sociales</a></li>
         </ul>
     </div> 
     

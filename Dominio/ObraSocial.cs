@@ -9,7 +9,7 @@ namespace Dominio
     public class ObraSocial
     {
         public int ID { get; set; }
-        public string Nombre { get; set; } 
+        public string Nombre { get; set; }
 
         public ObraSocial( int id, string nombre)
         {
@@ -20,6 +20,11 @@ namespace Dominio
         public ObraSocial(int id)
         {
             ID = id;
+
+        }
+
+        public ObraSocial()
+        {
 
         }
     }

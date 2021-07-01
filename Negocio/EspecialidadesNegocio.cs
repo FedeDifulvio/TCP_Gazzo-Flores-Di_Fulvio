@@ -7,22 +7,22 @@ using Dominio;
 
 namespace Negocio
 {
-    public class ObraSocialNegocio
+    public class EspecialidadesNegocio
     {
-        public List<ObraSocial> listar()
+        public List<Especialidad> Listar()
         {
 
-            List<ObraSocial> lista = new List<ObraSocial>();
+            List<Especialidad> lista = new List<Especialidad>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.SetearConsulta("select Id, Nombre from ObraSocial");
+                datos.SetearConsulta("select Id, Nombre from Especialidades");
                 datos.LeerConsulta();
 
                 while (datos.Lector.Read())
                 {
-                    lista.Add(new ObraSocial((int)datos.Lector["Id"], (string)datos.Lector["Nombre"]));
+                    lista.Add(new Especialidad((int)datos.Lector["Id"], (string)datos.Lector["Nombre"]));
                 }
 
 
@@ -39,13 +39,14 @@ namespace Negocio
             }
 
         }
-        public void Agregar(ObraSocial aux)
+
+        public void Agregar(Especialidad aux)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
 
-                datos.SetearConsulta("insert into ObraSocial values (@nombre)");
+                datos.SetearConsulta("insert into Especialidades values (@nombre)");
                 datos.AgregarParametro("@nombre", aux.Nombre);
 
                 datos.EjecutarAccion();
