@@ -66,3 +66,52 @@ INSERT [dbo].[Pacientes] ([ID], [Nombre], [Apellido], [DNI], [Direccion], [Fecha
 INSERT [dbo].[Pacientes] ([ID], [Nombre], [Apellido], [DNI], [Direccion], [FechaNacimiento], [Mail], [Telefono], [IdObraSocial]) VALUES (34, N'Jose', N'Fernandez', N'234512134', N'las Heras 15', CAST(N'1978-08-09' AS Date), N'jfernandez@gmail.com', N'1534126789', 1)
 INSERT [dbo].[Pacientes] ([ID], [Nombre], [Apellido], [DNI], [Direccion], [FechaNacimiento], [Mail], [Telefono], [IdObraSocial]) VALUES (35, N'Pablo', N'Escobar', N'34567656', N'Colombia 2345', CAST(N'1984-02-01' AS Date), N'pescobar@gmail.com', N'11345678', 4)
 SET IDENTITY_INSERT [dbo].[Pacientes] OFF
+
+
+
+
+
+----------------------------
+
+create table Dias  (
+
+ID int primary key not null identity(1,1),
+Nombre varchar(15) not null ,
+
+)
+
+create table Medicos(
+
+ID int primary key not null identity (1,1),
+Nombre varchar (50) not null,
+Apellido varchar (50) not null,
+Legajo varchar (5) not null unique,
+Estado bit default (1),
+
+)
+
+
+
+create table DiasPorMedico(
+
+ID int primary key not null identity (1,1),
+IdDia int not null foreign key references Dias(ID),
+IdMedico int not null foreign key references Medicos(ID),
+
+)
+
+create table EspecialidadesPorMedico(
+
+ID int primary key not null identity (1,1),
+IdEspecialidad int not null foreign key references Especialidades(ID),
+IdMedicos int not null foreign key references Medicos(ID),
+
+)
+
+create table ObraSocialesPorMedico(
+
+ID int primary key not null identity (1,1),
+IdObraSocial int not null foreign key references ObraSocial(ID),
+IdMedicos int not null foreign key references Medicos(ID),
+
+)
