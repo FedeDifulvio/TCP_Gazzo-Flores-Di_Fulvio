@@ -1,7 +1,7 @@
 ﻿
 
-function crearModal(param) {
-    console.log()
+function crearModal(param, pag) { 
+   
     const modals = document.querySelector('.modal-contenedor')
     modals.classList.add('active')
     const innerModal = document.createElement('div')
@@ -13,10 +13,11 @@ function crearModal(param) {
                 </div>
                 <div class="modales-body">
                     
-                    <button href="ObrasSociales.aspx" class="btn btn-danger">Cancelar</button>
-                     <a class="btn btn-primary" href="ObrasSociales.aspx?id=${param}&action=elim"> Eliminar </a>
+                    <button href="${pag}" class="btn btn-danger">Cancelar</button>
+                     <a class="btn btn-primary" href="${pag}?id=${param}&action=elim"> Eliminar </a>
                 </div>` 
     modals.appendChild(innerModal)
     
 
 } 
+

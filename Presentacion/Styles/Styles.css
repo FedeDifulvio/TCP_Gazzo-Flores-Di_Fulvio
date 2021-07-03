@@ -204,6 +204,10 @@ th {
         pointer-events: all;
     }  
 
+    .labels{
+        font-size: 30px; 
+        color:darkgreen;
+    }
 
 
 

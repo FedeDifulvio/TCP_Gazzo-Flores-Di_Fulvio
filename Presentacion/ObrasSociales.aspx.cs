@@ -47,6 +47,8 @@ namespace Presentacion
             ObraSocialNegocio negocio = new ObraSocialNegocio();
 
             BtnModificar.Style["Visibility"] = "hidden";
+            cancelarMod.Style["Visibility"] = "hidden";
+            labelMod.Style["Visibility"] = "hidden"; 
 
             try
             {
@@ -81,7 +83,10 @@ namespace Presentacion
         {
             int id = int.Parse(Request.QueryString["id"]);
             BtnAgregar.Style["Visibility"] = "hidden";
+            LabelAlta.Style["Visibility"] = "hidden";
             BtnModificar.Style["Visibility"] = "visible";
+            cancelarMod.Style["Visibility"] = "visible";
+            labelMod.Style["Visibility"] = "visible";
             ListaObrasSociales = (List<ObraSocial>)Session["ListaObrasSociales"];
             ObraSocial aModificar = ListaObrasSociales.Find(x => x.ID == id);
             TextBoxNombre.Text = aModificar.Nombre;
@@ -124,6 +129,11 @@ namespace Presentacion
 
                 throw;
             }
+        }
+
+        protected void cancelarMod_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ObrasSociales.aspx");
         }
     }
 }

@@ -11,13 +11,16 @@
         </div>
             <div class="row">
                 <div class="col-md-6" style="padding:0px 70px">
-                    <h1 style="color:royalblue; font-size: 30px;">Alta de Obra Social</h1>
+                    <asp:Label ID="LabelAlta" runat="server" CssClass="labels" Text="Alta de Obra Social"></asp:Label>
+                    <br />
+                    <asp:Label ID="labelMod" CssClass="labels" Text="Modificar Obra Social " runat="server" />
                     <asp:TextBox ID="TextBoxNombre" CssClass="form-control mb-3" MaxLength="30" ClientIdMode="Static" PlaceHolder="Obra Social" runat="server" />
                     <div>
                         <h1 class="error-form" id="TextBoxNombre-inv"></h1>
                     </div>
                     <asp:Button ID="BtnAgregar" CssClass="btn btn-primary" onClick="BtnAgregar_Click" OnClientClick="return ValidarNombre()"  Text="Agregar" runat="server" />
                     <asp:Button ID="BtnModificar" CssClass="btn btn-primary" OnClientClick="return ValidarNombre()" Text="Modificar" OnClick="BtnModificar_Click" runat="server" />
+                    <asp:Button ID="cancelarMod" Text="Cancelar"  CssClass="btn btn-danger" OnClick="cancelarMod_Click" runat="server" />
                 </div>
                 <div class="col-md-6 mb-3">
                     <table id="example" class="display table table-light table-hover">
@@ -35,7 +38,7 @@
                                     <tr >
                                          <th><%= item.Nombre %> </th>                                   
                                          <th>  <a href="ObrasSociales.aspx?id=<%=item.ID %>&action=mod"> <img style="width:30px; height:30px;" src="img/edit.png" alt="Alternate Text" /></a></th> 
-                                          <th> <span  onClick="crearModal(<%=item.ID %>)" ><img class="openModalEliminar" style="width:30px; height:30px;" src="img/remove.png" alt="Alternate Text" /></span> </th> 
+                                          <th> <span  onClick="crearModal(<%=item.ID %>, 'ObrasSociales.aspx')" ><img class="openModalEliminar" style="width:30px; height:30px;" src="img/remove.png" alt="Alternate Text" /></span> </th> 
                                     </tr>
                                  <%
 
