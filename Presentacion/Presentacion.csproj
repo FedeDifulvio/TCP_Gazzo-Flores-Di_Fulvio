@@ -77,6 +77,7 @@
     <Content Include="Home.aspx" />
     <Content Include="JavaScript\FuncionesValidaciones.js" />
     <Content Include="JavaScript\navLateral.js" />
+    <Content Include="JavaScript\popup.js" />
     <Content Include="JavaScript\ValidacionesPaciente.js" />
     <Content Include="JavaScript\Validaciones_ObraSocial_Especialidades.js" />
     <Content Include="MisTurnos.aspx" />

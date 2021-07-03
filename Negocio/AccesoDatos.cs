@@ -20,7 +20,7 @@ namespace Negocio
 
         public AccesoDatos()
         {
-            conexion = new SqlConnection(conexionparatodes);
+            conexion = new SqlConnection(conexionFede);
             comando = new SqlCommand();
         }
 
