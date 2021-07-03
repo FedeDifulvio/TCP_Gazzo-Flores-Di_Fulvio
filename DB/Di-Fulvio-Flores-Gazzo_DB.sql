@@ -27,6 +27,49 @@ Telefono varchar (20) not null,
 IdObraSocial int not null foreign key references  ObraSocial (ID),
 Estado bit default (1)
 )
+GO
+create table Medicos(
+
+ID int primary key not null identity (1,1),
+Nombre varchar (50) not null,
+Apellido varchar (50) not null,
+Legajo varchar (5) not null unique,
+Estado bit default (1),
+
+)
+GO
+create table Dias  (
+
+ID int primary key not null identity(1,1),
+Nombre varchar(15) not null ,
+
+)
+
+GO
+create table DiasPorMedico(
+
+ID int primary key not null identity (1,1),
+IdDia int not null foreign key references Dias(ID),
+IdMedico int not null foreign key references Medicos(ID),
+HoraInicio varchar(10) not null,
+HoraFin varchar(10) not null
+)
+GO
+create table EspecialidadesPorMedico(
+
+ID int primary key not null identity (1,1),
+IdEspecialidad int not null foreign key references Especialidades(ID),
+IdMedicos int not null foreign key references Medicos(ID),
+
+)
+GO
+create table ObraSocialesPorMedico(
+
+ID int primary key not null identity (1,1),
+IdObraSocial int not null foreign key references ObraSocial(ID),
+IdMedicos int not null foreign key references Medicos(ID),
+
+)
 
 SET IDENTITY_INSERT [dbo].[ObraSocial] ON 
 INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (1, N'OSDE')
@@ -69,49 +112,56 @@ SET IDENTITY_INSERT [dbo].[Pacientes] OFF
 
 
 
+SET IDENTITY_INSERT [dbo].[Dias] ON 
+INSERT [dbo].[Dias] ([ID], [Nombre]) VALUES (1, N'Lunes')
+INSERT [dbo].[Dias] ([ID], [Nombre]) VALUES (2, N'Martes')
+INSERT [dbo].[Dias] ([ID], [Nombre]) VALUES (3, N'Miercoles')
+INSERT [dbo].[Dias] ([ID], [Nombre]) VALUES (4, N'Jueves')
+INSERT [dbo].[Dias] ([ID], [Nombre]) VALUES (5, N'Viernes')
+INSERT [dbo].[Dias] ([ID], [Nombre]) VALUES (6, N'Sabado')
+SET IDENTITY_INSERT [dbo].[Dias] OFF
 
 
-----------------------------
+SET IDENTITY_INSERT [dbo].[Medicos] ON 
+INSERT [dbo].[Medicos] ([ID], [Nombre],[Apellido],[Legajo]) VALUES (1, N'Hernan',N'Crespo',N'D1111')
+INSERT [dbo].[Medicos] ([ID], [Nombre],[Apellido],[Legajo]) VALUES (2, N'Javier',N'Saviola',N'B1112')
+INSERT [dbo].[Medicos] ([ID], [Nombre],[Apellido],[Legajo]) VALUES (3, N'Samuel',N'Etto',N'C1141')
+INSERT [dbo].[Medicos] ([ID], [Nombre],[Apellido],[Legajo]) VALUES (4, N'Marcelo',N'Gallardo',N'A1512')
+INSERT [dbo].[Medicos] ([ID], [Nombre],[Apellido],[Legajo]) VALUES (5, N'Enzo',N'Perez',N'P9128')
+SET IDENTITY_INSERT [dbo].[Medicos] OFF
 
-create table Dias  (
-
-ID int primary key not null identity(1,1),
-Nombre varchar(15) not null ,
-
-)
-
-create table Medicos(
-
-ID int primary key not null identity (1,1),
-Nombre varchar (50) not null,
-Apellido varchar (50) not null,
-Legajo varchar (5) not null unique,
-Estado bit default (1),
-
-)
+SET IDENTITY_INSERT [dbo].[DiasPorMedico] ON 
+INSERT [dbo].[DiasPorMedico] ([ID], [IdDia],[IdMedico],[HoraInicio],[HoraFin]) VALUES (1,1,1,N'9',N'13')
+INSERT [dbo].[DiasPorMedico] ([ID], [IdDia],[IdMedico],[HoraInicio],[HoraFin]) VALUES (2,2,1,N'15',N'18')
+INSERT [dbo].[DiasPorMedico] ([ID], [IdDia],[IdMedico],[HoraInicio],[HoraFin]) VALUES (3,3,1,N'9',N'13')
+INSERT [dbo].[DiasPorMedico] ([ID], [IdDia],[IdMedico],[HoraInicio],[HoraFin]) VALUES (4,4,1,N'13',N'16')
+INSERT [dbo].[DiasPorMedico] ([ID], [IdDia],[IdMedico],[HoraInicio],[HoraFin]) VALUES (5,5,1,N'9',N'13')
+INSERT [dbo].[DiasPorMedico] ([ID], [IdDia],[IdMedico],[HoraInicio],[HoraFin]) VALUES (6,6,1,N'9',N'13')
+INSERT [dbo].[DiasPorMedico] ([ID], [IdDia],[IdMedico],[HoraInicio],[HoraFin]) VALUES (7,1,2,N'10',N'14')
+INSERT [dbo].[DiasPorMedico] ([ID], [IdDia],[IdMedico],[HoraInicio],[HoraFin]) VALUES (8,2,2,N'14',N'18')
+SET IDENTITY_INSERT [dbo].[DiasPorMedico] OFF
 
 
+SET IDENTITY_INSERT [dbo].[EspecialidadesPorMedico] ON 
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (1, 1,1)
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (2, 1,3)
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (3, 1,4)
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (4, 2,2)
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (5, 2,5)
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (6, 2,1)
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (7, 3,3)
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (8, 4,5)
+INSERT [dbo].[EspecialidadesPorMedico] ([ID], [idEspecialidad], [idMedicos]) VALUES (9, 5,4)
+SET IDENTITY_INSERT [dbo].[EspecialidadesPorMedico] OFF
 
-create table DiasPorMedico(
 
-ID int primary key not null identity (1,1),
-IdDia int not null foreign key references Dias(ID),
-IdMedico int not null foreign key references Medicos(ID),
+SET IDENTITY_INSERT [dbo].[ObraSocialesPorMedico] ON 
+INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES (1, 1,1)
+INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES (2, 1,3)
+INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES (3, 2,2)
+INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES (4, 2,4)
+INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES (5, 3,3)
+INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES (6, 4,5)
+INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES (7, 5,1)
+SET IDENTITY_INSERT [dbo].[ObraSocialesPorMedico] OFF
 
-)
-
-create table EspecialidadesPorMedico(
-
-ID int primary key not null identity (1,1),
-IdEspecialidad int not null foreign key references Especialidades(ID),
-IdMedicos int not null foreign key references Medicos(ID),
-
-)
-
-create table ObraSocialesPorMedico(
-
-ID int primary key not null identity (1,1),
-IdObraSocial int not null foreign key references ObraSocial(ID),
-IdMedicos int not null foreign key references Medicos(ID),
-
-)
