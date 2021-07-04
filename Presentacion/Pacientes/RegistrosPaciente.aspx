@@ -38,8 +38,8 @@
                                         <th><%= item.Telefono %> </th> 
                                         <th><%= item.Mail %> </th> 
                                         <th><%= item.ObraSocial.Nombre %> </th> 
-                                         <th> <a href="ModificarPaciente.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="img/edit.png" alt="Alternate Text" /> </a> </th> 
-                                          <th> <a href="EliminarPaciente.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="img/remove.png" alt="Alternate Text" /> </a> </th> 
+                                         <th> <a href="ModificarPaciente.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /> </a> </th> 
+                                          <th> <a href="EliminarPaciente.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="../img/remove.png" alt="Alternate Text" /> </a> </th> 
                                     </tr>
                                  <%
 

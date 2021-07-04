@@ -37,8 +37,8 @@
                                 %>   
                                     <tr >
                                          <th><%= item.Nombre %> </th>                                   
-                                         <th>  <a href="ObrasSociales.aspx?id=<%=item.ID %>&action=mod"> <img style="width:30px; height:30px;" src="img/edit.png" alt="Alternate Text" /></a></th> 
-                                          <th> <span  onClick="crearModal(<%=item.ID %>, 'ObrasSociales.aspx')" ><img class="openModalEliminar" style="width:30px; height:30px;" src="img/remove.png" alt="Alternate Text" /></span> </th> 
+                                         <th>  <a href="../ObrasSociales.aspx?id=<%=item.ID %>&action=mod"> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /></a></th> 
+                                          <th> <span  onClick="crearModal(<%=item.ID %>, '../ObrasSociales.aspx')" ><img class="openModalEliminar" style="width:30px; height:30px;" src="../img/remove.png" alt="Alternate Text" /></span> </th> 
                                     </tr>
                                  <%
 
@@ -58,9 +58,9 @@
         </div>
 
       
-        <script src="JavaScript/FuncionesValidaciones.js"></script>
-        <script src="JavaScript/Validaciones_ObraSocial_Especialidades.js"></script>
-        <script src="JavaScript/popup.js"></script> 
+        <script src="../JavaScript/FuncionesValidaciones.js"></script>
+        <script src="../JavaScript/Validaciones_ObraSocial_Especialidades.js"></script>
+        <script src="../JavaScript/popup.js"></script> 
     </div>
 
 </asp:Content>

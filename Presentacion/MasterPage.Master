@@ -20,10 +20,10 @@
     <nav class="navbar navbar-light" style="background-color: #ace6f6">
         <div class="container-fluid"> 
             <div class="icono-menu">
-                <img src="img/desplegable.png" alt="" id="icono-menu"> 
+                <img src="../img/desplegable.png" alt="" id="icono-menu"> 
             </div> 
             <div >
-                <img src="img/logotipo.png" alt="Alternate Text" />
+                <img src="../img/logotipo.png" alt="Alternate Text" />
             </div> 
             <div>
                 <h2>Iniciar Sesión</h2>
@@ -33,20 +33,21 @@
    
     <div class="cont-menu active" id="menu"> 
         <div style="display: flex; justify-content: flex-end; padding: 40px;">
-             <img src="img/arrow-pointing-left.png" class="arrowLeft" alt="Alternate Text" id="arrow" />
+             <img src="../img/arrow-pointing-left.png" class="arrowLeft" alt="Alternate Text" id="arrow" />
         </div>
         <ul> 
-            <li><a class="item-nav" href="Home.aspx">Home</a></li> <!-- Todos-->
-            <li><a class="item-nav" href="NuevoTurno.aspx">Nuevo Turno</a></li> <!--Paciente-->
-            <li> <a class="item-nav" href="MisTurnos.aspx">Mis Turnos</a></li> <!--Paciente, Medico-->
-            <li><a class="item-nav" href="CalendarioTurnos.aspx" >Calendario de Turnos</a></li> <!--Secretaria-->
-            <li><a class="item-nav" href="RegistrosPaciente.aspx" >Registro de Pacientes</a></li> 
-            <li><a class="item-nav" href="Favoritos.aspx" >Favoritos</a></li> <!--Paciente-->
-            <li><a class="item-nav" href="SobreNosotros.aspx" >Sobre Nosotros</a></li>  <!--Lista de medicos y obras sociales -->
-            <li><a class="item-nav" href="Contacto.aspx" >Contacto</a></li> 
-            <li><a class="item-nav" href="Configuracion.aspx" >Configuración</a></li>  <!--Solo administrador-->
-            <li><a class="item-nav" href="Especialidades.aspx" >Especialidades</a></li>
-            <li><a class="item-nav" href="ObrasSociales.aspx" >Obras Sociales</a></li>
+            <li><a class="item-nav" href="../Home.aspx">Home</a></li> <!-- Todos-->
+            <li><a class="item-nav" href="../Turnos/NuevoTurno.aspx">Nuevo Turno</a></li> <!--Paciente-->
+            <li> <a class="item-nav" href="../Turnos/MisTurnos.aspx">Mis Turnos</a></li> <!--Paciente, Medico-->
+            <li><a class="item-nav" href="../Turnos/CalendarioTurnos.aspx" >Calendario de Turnos</a></li> <!--Secretaria-->
+            <li><a class="item-nav" href="../Pacientes/RegistrosPaciente.aspx" >Registro de Pacientes</a></li> 
+            <li><a class="item-nav" href="../Medicos/RegistroMedicos.aspx" >Registro de Médicos</a></li> 
+            <li><a class="item-nav" href="../Favoritos.aspx" >Favoritos</a></li> <!--Paciente-->
+            <li><a class="item-nav" href="../SobreNosotros.aspx" >Sobre Nosotros</a></li>  <!--Lista de medicos y obras sociales -->
+            <li><a class="item-nav" href="../Contacto.aspx" >Contacto</a></li> 
+            <li><a class="item-nav" href="../Configuracion.aspx" >Configuración</a></li>  <!--Solo administrador-->
+            <li><a class="item-nav" href="../Especialidades.aspx" >Especialidades</a></li>
+            <li><a class="item-nav" href="../ObrasSociales.aspx" >Obras Sociales</a></li>
         </ul>
     </div> 
     
@@ -65,7 +66,7 @@
     </footer>
 
 
-   <script src="JavaScript/navLateral.js"></script>
+   <script src="../JavaScript/navLateral.js"></script>
    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 </body>

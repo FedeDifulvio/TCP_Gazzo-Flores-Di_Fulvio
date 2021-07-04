@@ -65,6 +65,6 @@
             </div>
         </div>
     </div>
-     <script src="JavaScript/FuncionesValidaciones.js"></script>
-    <script src="JavaScript/ValidacionesPaciente.js"></script>
+     <script src="../JavaScript/FuncionesValidaciones.js"></script>
+    <script src="../JavaScript/ValidacionesPaciente.js"></script>
 </asp:Content>
