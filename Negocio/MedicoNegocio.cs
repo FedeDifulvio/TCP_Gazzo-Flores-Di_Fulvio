@@ -61,7 +61,7 @@ namespace Negocio
             List<Especialidad> lista = new List<Especialidad>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "select  EM.ID, E.Nombre from EspecialidadesPorMedico as EM inner join Especialidades as E on EM.IdEspecialidad = E.ID where EM.IdMedicos=@ID" ;
+            string consulta = "select  E.ID, E.Nombre from EspecialidadesPorMedico as EM inner join Especialidades as E on EM.IdEspecialidad = E.ID where EM.IdMedicos=@ID" ;
 
             try
             {

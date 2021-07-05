@@ -16,12 +16,6 @@ namespace Dominio
 
         public string Legajo { get; set; }
 
-        public List<Especialidad> Especialidades;
-
-        public List<DiaHorarioTrabajo> DiasHorarios;
-
-        public List<ObraSocial> ObrasSociales;
-
         public bool Estado { get; set; }
 
     }

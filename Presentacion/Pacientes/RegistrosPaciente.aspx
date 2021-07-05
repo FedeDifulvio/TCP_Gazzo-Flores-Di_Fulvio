@@ -5,7 +5,7 @@
      <div class="container-fluid" style="background-color:#f3e9d2; height: 100%;">
         <div class="container">
             <div class="row justify-content-center mb-3">
-            <div class="col-md-4 mt-3">
+            <div class="col-md-4 mt-3" style="text-align:center">
                 <h1>Registro Pacientes</h1>
             </div>
         </div>
@@ -49,10 +49,15 @@
                 </table>
             </div>
              <div class="row justify-content-center mb-3">
-                <div class="col-md-4 mt-2 mb-4" style="margin-left:185px">
+                <div class="col-md-4 mt-2 mb-2" style="text-align:center" >
                     <a  href="AltaPaciente.aspx" class="btn btn-danger">Dar alta paciente</a>
                 </div>
             </div> 
+            <div class="row justify-content-center">
+                 <div class="col-md-4 mb-3" style="text-align:center">
+                       <a class="btn btn-secondary" href="../Home.aspx"> ← Volver </a>
+                 </div>
+              </div>
         </div>
     </div>
   

@@ -6,7 +6,7 @@
     <div class="container-fluid" style="background-color:#f3e9d2; height: 100%;">
         <div class="container">
             <div class="row justify-content-center mb-3">
-            <div class="col-md-4 mt-3">
+            <div class="col-md-4 mt-3"  style="text-align:center">
                 <h1>Especialidades</h1>
             </div>
         </div>

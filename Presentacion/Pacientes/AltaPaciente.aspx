@@ -9,7 +9,7 @@
 
             <div class="row justify-content-center">
 
-                <div class="col-md-4 mt-3" style="margin-left:150px">
+                <div class="col-md-4 mt-3"  style="text-align:center">
 
                     <h1>Alta paciente</h1>
                 </div>
@@ -59,10 +59,17 @@
 
             <div class="row justify-content-center">
 
-                <div class="col-md-4 mt-3" style="margin-left:270px">
+                <div class="col-md-4 mt-3" style="text-align:center">
                     <asp:Button ID="btnAgregar" Text="Agregar" runat="server" CssClass="btn btn-primary" Style="width:150px; height:50px" OnClientClick="return validarFormularioPaciente()" Onclick="btnAgregar_Click"/>
-                </div>
+                </div> 
+                 
             </div>
+             <div class="row justify-content-center">
+                 <div class="col-md-4 mt-5" style="text-align:center">
+                       <a class="btn btn-danger" href="RegistrosPaciente.aspx"> ← Cancelar  </a>
+                 </div>
+              </div>
+                     
         </div>
     </div>
      <script src="../JavaScript/FuncionesValidaciones.js"></script>

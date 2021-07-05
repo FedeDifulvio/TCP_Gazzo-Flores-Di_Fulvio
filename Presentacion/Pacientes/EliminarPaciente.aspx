@@ -8,7 +8,7 @@
 
             <div class="row justify-content-center">
 
-                <div class="col-md-4 mt-3" style="margin-left:150px">
+                <div class="col-md-4 mt-3" style="text-align:center">
 
                     <h1>Eliminar paciente</h1>
                 </div>
@@ -44,6 +44,11 @@
                     <asp:Button ID="BtnEliminar" runat="server" Text="Eliminar" CssClass="btn btn-primary" Style="width:150px; height:50px" OnClick="BtnEliminar_Click"/>
                 </div>
             </div>
+            <div class="row justify-content-center">
+                 <div class="col-md-4 mt-5" style="text-align:center">
+                       <a class="btn btn-danger" href="RegistrosPaciente.aspx"> ← Cancelar  </a>
+                 </div>
+              </div>
         </div>
     </div>
 </asp:Content>

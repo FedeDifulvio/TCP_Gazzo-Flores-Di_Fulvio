@@ -26,20 +26,8 @@ namespace Presentacion.Medicos
                 listaNoFiltrada = negocio.Listar();
                 Lista = listaNoFiltrada.FindAll(x => x.Estado == true);
 
-                //foreach  ( Medico item in Lista)
-                //{
-                //    item.Especialidades = negocio.ListarEspecialidadesMedico(item.ID);
-                //    item.ObrasSociales = negocio.ListarObrasSocialesMedico(item.ID);
-                //    item.DiasHorarios = negocio.ListarDiasHorariosMedicos(item.ID);
-                //}
-
-                
-                Session.Add("ListaMedicos", Lista);
-
-
-                DGB.DataSource = Lista.Find(x=> x.ID== 1).Especialidades;
-                DGB.DataBind();
-
+               
+                Session.Add("ListaMedicos", Lista); 
 
             }
             catch (Exception)

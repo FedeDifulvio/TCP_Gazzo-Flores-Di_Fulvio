@@ -8,12 +8,26 @@
     <div class="container-fluid " style="background-color: #f3e9d2; height: 100vh;">
         <div class="container">
             <div class="row justify-content-center mb-3">
-                <div class="col-md-4 mt-3">
-                    <h1>Detalle Medicos</h1>
+                <div class="col-md-4 mt-4" style="text-align:center">
+                    <h1>Detalle Médico</h1>
                 </div>
             </div>
 
             <br />
+            <div class="row">
+                <div class="col-md-4" style="text-align:center">
+                    <asp:Label Text="Nombre" runat="server" CssClass="labels" />
+                    <hr />
+                </div>
+                <div class="col-md-4" style="text-align:center">
+                    <asp:Label Text="Apellido" runat="server"  CssClass="labels"  />
+                    <hr />
+                </div>
+                <div class="col-md-4" style="text-align:center">
+                    <asp:Label Text="Legajo" runat="server"  CssClass="labels" />
+                    <hr />
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-4">
                     <asp:TextBox ID="TextBoxNombre" CssClass="form-control mb-3" Enabled="false" ClientIDMode="Static" runat="server" />
@@ -33,14 +47,16 @@
             <div class="row">
                 <div class="col-md-4">
                     <table class="display table table-light table-hover">
-                        <thead class="table-dark">
+                        <thead class="table-dark" >
                             <tr>
-                                <td>Horarios</td>
+                                <td>Día</td>
+                                <td>Entrada</td>
+                                <td>Salida</td>
                             </tr>
 
                         </thead>
 
-                        <tbody>
+                        <tbody >
                         
                           
 
@@ -49,7 +65,9 @@
 
                                 <tr>
 
-                                    <td> <% =item.Dia %> -<%=item.HoraInicio %>- <% =item.HoraFin %>  </td>
+                                    <td> <% =item.Dia %> </td>
+                                    <td>  <%=item.HoraInicio %> Hs </td>
+                                    <td>  <% =item.HoraFin %> Hs </td>
 
                                 </tr>
 
@@ -62,14 +80,14 @@
                 </div>
                 <div class="col-md-4">
                     <table class="display table table-light table-hover">
-                        <thead class="table-dark">
+                        <thead class="table-dark" style="text-align:center">
                             <tr>
                                 <td>Especialidades</td>
                             </tr>
 
                         </thead>
 
-                        <tbody>
+                        <tbody  style="text-align:center">
                                <%foreach (Dominio.Especialidad item in Especialidades )
                                 {%>
 
@@ -87,14 +105,14 @@
                 </div>
                 <div class="col-md-4">
                     <table class="display table table-light table-hover">
-                        <thead class="table-dark">
+                        <thead class="table-dark"  style="text-align:center">
                             <tr>
-                                <td>Obra Social</td>
+                                <td>Obra Sociales</td>
                             </tr>
 
                         </thead>
 
-                        <tbody>
+                        <tbody  style="text-align:center">
                             <%foreach (Dominio.ObraSocial item in ObraSocial)
                                 {%>
 
@@ -111,7 +129,11 @@
                     </table>
                 </div>
             </div>
-
+            <div class="row justify-content-center">
+                 <div class="col-md-4 mt-3 mb-3" style="text-align:center">
+                       <a class="btn btn-secondary" href="RegistroMedicos.aspx"> ← Volver </a>
+                 </div>
+              </div>
 
         </div>
     </div>
