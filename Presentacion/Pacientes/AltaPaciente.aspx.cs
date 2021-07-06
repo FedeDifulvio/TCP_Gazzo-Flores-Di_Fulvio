@@ -12,11 +12,15 @@ namespace Presentacion
     public partial class AltaPaciente : System.Web.UI.Page
     {
         
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) 
         {
+            lblDNI.Style["Visibility"] = "hidden";
+            btnOK.Style["Visibility"] = "hidden";
+
             if (!IsPostBack)
-            {
+            {  
                 CargarDdl();
+
 
             }
             
@@ -44,9 +48,9 @@ namespace Presentacion
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
-        {  
-            
-            
+        {
+
+            List<Paciente> DNIEnSesion = new List<Paciente>();
             PacienteNegocio negocio = new PacienteNegocio();
             Paciente aux = new Paciente();
             try
@@ -59,8 +63,22 @@ namespace Presentacion
                 aux.Telefono = TextBoxTelefono.Text;
                 aux.FechaNacimiento = DateTime.Parse(txtDate.Text);
                 aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
-                negocio.Agregar(aux);
-                Response.Redirect("RegistrosPaciente.aspx");
+
+                DNIEnSesion = (List<Paciente>)Session["ListaPacientes"]; 
+
+                if(DNIEnSesion.Find(x=>x.DNI == aux.DNI) == null)
+                {
+                    negocio.Agregar(aux);
+                    Response.Redirect("RegistrosPaciente.aspx");
+                }
+                else
+                {
+                    lblDNI.Style["Visibility"] = "visible";
+                    btnOK.Style["Visibility"] = "visible";
+                    return; 
+                }
+
+
             }
             catch (Exception)
             {
@@ -69,6 +87,13 @@ namespace Presentacion
             }
             
             
+        }
+
+        protected void btnOK_Click(object sender, EventArgs e)
+        {
+            lblDNI.Style["Visibility"] = "hidden";
+            btnOK.Style["Visibility"] = "hidden";
+            TextBoxDni.Text = ""; 
         }
     }
 }

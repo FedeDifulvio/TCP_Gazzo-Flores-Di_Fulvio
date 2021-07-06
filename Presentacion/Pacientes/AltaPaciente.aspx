@@ -57,6 +57,13 @@
                 </div>
             </div>
 
+            <div class="row justify-content-center mb-3" >
+                <div class="col-md-4 mt-2 mb-2" >
+                    <asp:Label ID="lblDNI" Text="El DNI no puede repetirse" CssClass="alert alert-danger" runat="server" />
+                    <asp:Button ID="btnOK" Text="Ok" CssClass="btn btn-danger" OnClick="btnOK_Click" runat="server" />
+                </div>
+            </div>
+
             <div class="row justify-content-center">
 
                 <div class="col-md-4 mt-3" style="text-align:center">

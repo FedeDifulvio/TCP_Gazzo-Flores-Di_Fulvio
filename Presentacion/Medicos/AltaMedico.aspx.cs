@@ -46,6 +46,7 @@ namespace Presentacion.Medicos
         protected void btnOkLegajo_Click(object sender, EventArgs e)
         {
             lblLegajo.Style["Visibility"] = "hidden";
+            TextBoxLegajo.Text = "";
         }
     }
 }
