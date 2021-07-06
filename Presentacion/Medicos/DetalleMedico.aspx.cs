@@ -30,9 +30,6 @@ namespace Presentacion.Medicos
             Especialidades = Negocio.ListarEspecialidadesMedico(ID);
             ObraSocial = Negocio.ListarObrasSocialesMedico(ID);
             DiaHorario = Negocio.ListarDiasHorariosMedicos(ID);
-
-
-            
         }
     }
 }

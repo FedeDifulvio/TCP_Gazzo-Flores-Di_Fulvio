@@ -53,7 +53,32 @@ namespace Negocio
 
         }
 
+        public void Agregar(Medico aux)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "Insert into Medicos Values(@nombre,@apellido,@legajo,1)";
 
+            try
+            {
+
+                datos.SetearConsulta(consulta);
+
+                datos.AgregarParametro("@nombre", aux.Nombre);
+                datos.AgregarParametro("@apellido", aux.Apellido);
+                datos.AgregarParametro("@legajo", aux.Legajo);
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
 
 
         public List<Especialidad> ListarEspecialidadesMedico(int ID)
@@ -183,5 +208,9 @@ namespace Negocio
 
 
         }
+
+
+
+
     }
 }

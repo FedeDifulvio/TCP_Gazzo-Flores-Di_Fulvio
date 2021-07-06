@@ -87,3 +87,21 @@ const validarDNI = dato => {
         return 0
 
 }
+
+
+const chequearLegajo = dato => {
+
+    const valor = document.getElementById(dato)
+
+    if (valor.value == "" || valor.value.length!=5) {
+        valor.classList.add("is-invalid")
+        const invalid = document.getElementById(dato + "-inv")
+        invalid.innerHTML = 'El Legajo no puede estar vacío o contener menos de 5 carácteres'
+        return 1
+
+    }
+
+    valor.classList.add("is-valid")
+    return 0
+
+}
