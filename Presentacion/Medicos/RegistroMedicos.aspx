@@ -30,7 +30,7 @@
                                          <th><%= item.Nombre %> </th> 
                                          <th><%= item.Apellido %> </th>
                                          <th><%= item.Legajo %> </th> 
-                                         <th><a class="btn btn-success " href="DetalleMedico.aspx?id=<%=item.ID %>">Detalle</a></th>
+                                         <th><a class="btn btn-success " href="DetalleMedico.aspx?idMedico=<%=item.ID %>">Detalle</a></th>
                                          <th> <a href="ModificarMedico.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /> </a> </th> 
                                           <th> <a href="EliminarMedico.aspx?id=<%=item.ID %>"> <img style="width:30px; height:30px;" src="../img/remove.png" alt="Alternate Text" /> </a> </th> 
                                     </tr>

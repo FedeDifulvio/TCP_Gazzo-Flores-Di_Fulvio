@@ -33,7 +33,7 @@ namespace Presentacion.Medicos
                 lista = negocio.Listar();
                 Session.Add("ListaMedicos", lista);
                 int id = lista.Find(x => x.Legajo == aux.Legajo).ID;
-                Response.Redirect("DetalleMedico.aspx?id=" + id);
+                Response.Redirect("DetalleMedico.aspx?idMedico=" + id);
             }
             else 
             {

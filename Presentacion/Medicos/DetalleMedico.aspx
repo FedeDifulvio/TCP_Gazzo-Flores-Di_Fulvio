@@ -76,7 +76,10 @@
 
                         </tbody>
                     </table>
-
+                    <div style="text-align:center">
+                        <asp:Button ID="btnAgregarDia" CssClass="btn btn-primary" Text="Agregar" runat="server" />
+                    </div>
+                    
                 </div>
                 <div class="col-md-4">
                     <table class="display table table-light table-hover">
@@ -102,8 +105,12 @@
 
                         </tbody>
                     </table>
+                    <div style="text-align:center">
+                        <asp:Button ID="btnAgregarEspe" CssClass="btn btn-primary" Text="Agregar" runat="server" />
+                    </div>
+                    
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 ">
                     <table class="display table table-light table-hover">
                         <thead class="table-dark"  style="text-align:center">
                             <tr>
@@ -113,20 +120,29 @@
                         </thead>
 
                         <tbody  style="text-align:center">
-                            <%foreach (Dominio.ObraSocial item in ObraSocial)
+                            <%foreach (Dominio.ObraSocialDeMedico item in ObraSocial)
                                 {%>
 
                                 <tr>
 
-                                    <td> <%=item.Nombre %> </td>
+                                    <td> <%=item.obraSocial.Nombre %><a href="DetalleMedico.aspx?idMedico=<% =item.idMedico %>&idObra=<% =item.id %>&table=obra" class="btn btn-danger">-</a> </td>
 
                                 </tr>
-
-
-                            <%    } %>
-
+                  
+                            <%   } %>
+                       
                         </tbody>
+
                     </table>
+                    <div style="text-align:center">
+                        <asp:Button ID="btnAgregarObra" CssClass="btn btn-primary" OnClick="btnAgregarObra_Click" Text="+" runat="server" />
+                    </div>
+                    <div style="text-align:center">
+                        <asp:DropDownList ID="ddlObraSocial" runat="server"></asp:DropDownList>
+                        <asp:Button ID="btnAltaObra" Text="Agregar" OnClick="btnAltaObra_Click" CssClass="btn btn-primary" runat="server" />
+                        <asp:Button id="btnCancelarObra" Text="Cancelar" OnClick="btnCancelarObra_Click" CssClass="btn btn-danger" runat="server" />
+                    </div>
+                    
                 </div>
             </div>
             <div class="row justify-content-center">

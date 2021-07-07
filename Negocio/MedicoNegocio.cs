@@ -126,12 +126,12 @@ namespace Negocio
 
         }
 
-        public List<ObraSocial> ListarObrasSocialesMedico(int ID)
+        public List<ObraSocialDeMedico> ListarObrasSocialesMedico(int ID)
         {
-            List<ObraSocial> lista = new List<ObraSocial>();
+            List<ObraSocialDeMedico> lista = new List<ObraSocialDeMedico>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "select  O.ID, O.Nombre from ObraSocialesPorMedico as OM inner join  ObraSocial as O on OM.IdObraSocial = O.ID where OM.IdMedicos =@ID";
+            string consulta = "select OM.ID, OM.IdMedicos,OM.IdObraSocial,O.Nombre from ObraSocialesPorMedico OM inner join ObraSocial O on O.ID = OM.IdObraSocial where OM.IdMedicos = @ID";
            
             try
             {
@@ -142,10 +142,11 @@ namespace Negocio
                 
                 while (datos.Lector.Read())
                 {
-                    ObraSocial aux = new ObraSocial();
-
-                    aux.ID = (int)datos.Lector["ID"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    ObraSocialDeMedico aux = new ObraSocialDeMedico();
+                    aux.id = (int)datos.Lector["ID"];
+                    aux.idMedico = (int)datos.Lector["IdMedicos"];
+                    aux.obraSocial = new ObraSocial((int)datos.Lector["IdObraSocial"],(string)datos.Lector["Nombre"]);
+                     
                     lista.Add(aux);
 
 
@@ -210,7 +211,49 @@ namespace Negocio
         }
 
 
+        public void AgregarObraSocialMedico(int idObraSocial,int idMedico)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "Insert into ObraSocialesPorMedico Values(@idObraSocial,@idMedico)";
 
+            try
+            {
+                datos.SetearConsulta(consulta);
+                datos.AgregarParametro("@idObraSocial", idObraSocial);
+                datos.AgregarParametro("@idMedico", idMedico);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+
+        public void ElimObraSocialMedico(int ID)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "Delete from ObraSocialesPorMedico Where Id=@ID";
+
+
+            try
+            {
+                datos.SetearConsulta(consulta);
+                datos.AgregarParametro("@ID", ID);
+                
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
 
     }
 }
