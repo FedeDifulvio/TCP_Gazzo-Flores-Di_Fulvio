@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" AutoPostBack="false" runat="server">
 
 
     <div class="container-fluid " style="background-color: #f3e9d2; height: 100vh;">
@@ -77,7 +77,7 @@
                         </tbody>
                     </table>
                     <div style="text-align:center">
-                        <asp:Button ID="btnAgregarDia" CssClass="btn btn-primary" Text="Agregar" runat="server" />
+                        <asp:Button ID="btnAgregarDia" CssClass="btn btn-primary" Text="+" runat="server" />
                     </div>
                     
                 </div>
@@ -106,28 +106,32 @@
                         </tbody>
                     </table>
                     <div style="text-align:center">
-                        <asp:Button ID="btnAgregarEspe" CssClass="btn btn-primary" Text="Agregar" runat="server" />
+                        <asp:Button ID="btnAgregarEspe" CssClass="btn btn-primary" Text="+" runat="server" />
                     </div>
                     
                 </div>
                 <div class="col-md-4 ">
                     <table class="display table table-light table-hover">
                         <thead class="table-dark"  style="text-align:center">
-                            <tr>
-                                <td>Obra Sociales</td>
+                            <tr >
+                                <td colspan="2">Obra Sociales</td> 
+                                
                             </tr>
-
+                           
                         </thead>
 
-                        <tbody  style="text-align:center">
+                        <tbody  >
                             <%foreach (Dominio.ObraSocialDeMedico item in ObraSocial)
                                 {%>
 
                                 <tr>
 
-                                    <td> <%=item.obraSocial.Nombre %><a href="DetalleMedico.aspx?idMedico=<% =item.idMedico %>&idObra=<% =item.id %>&table=obra" class="btn btn-danger">-</a> </td>
+                                    <td style="text-align:center"> <%=item.obraSocial.Nombre %>  </td>
+                                    <td><a href="DetalleMedico.aspx?idMedico=<% =item.idMedico %>&idObra=<% =item.id %>&table=obra" class="btn btn-danger">-</a></td>
 
                                 </tr>
+                                 
+                                
                   
                             <%   } %>
                        
@@ -135,7 +139,7 @@
 
                     </table>
                     <div style="text-align:center">
-                        <asp:Button ID="btnAgregarObra" CssClass="btn btn-primary" OnClick="btnAgregarObra_Click" Text="+" runat="server" />
+                        <asp:Button ID="btnVerMas" CssClass="btn btn-primary" OnClick="btnAgregarObra_Click" Text="+"  runat="server" />
                     </div>
                     <div style="text-align:center">
                         <asp:DropDownList ID="ddlObraSocial" runat="server"></asp:DropDownList>

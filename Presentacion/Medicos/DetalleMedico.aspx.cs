@@ -18,29 +18,20 @@ namespace Presentacion.Medicos
         public int IdMedico; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["table"] == "obra")
-            {
-
-                Negocio.ElimObraSocialMedico(int.Parse(Request.QueryString["idObra"]));
-
-            }
-            ddlObraSocial.Style["Visibility"] = "hidden";
-            btnAltaObra.Style["Visibility"] = "hidden";
-            btnCancelarObra.Style["Visibility"] = "hidden";
             
-            List<Medico> Lista = (List<Medico>)Session["ListaMedicos"];
+            
+                if (Request.QueryString["table"] == "obra")
+                {
 
-            IdMedico = int.Parse(Request.QueryString["idMedico"]);
+                    Negocio.ElimObraSocialMedico(int.Parse(Request.QueryString["idObra"]));
 
-            Medico MedicoDetalle = Lista.Find(x => x.ID == IdMedico);
+                }
 
-            TextBoxNombre.Text =   MedicoDetalle.Nombre;
-            TextBoxApellido.Text = MedicoDetalle.Apellido;
-            TextBoxLegajo.Text =   MedicoDetalle.Legajo;
+                ocultarDll();
 
-            Especialidades = Negocio.ListarEspecialidadesMedico(IdMedico);
-            ObraSocial = Negocio.ListarObrasSocialesMedico(IdMedico);
-            DiaHorario = Negocio.ListarDiasHorariosMedicos(IdMedico);
+                cargarDetalle();
+               
+            
         }
 
         protected void btnAgregarObra_Click(object sender, EventArgs e)
@@ -49,18 +40,15 @@ namespace Presentacion.Medicos
             ddlObraSocial.Style["Visibility"] = "visible";
             btnAltaObra.Style["Visibility"] = "visible";
             btnCancelarObra.Style["Visibility"] = "visible";
-            btnAgregarObra.Style["Visibility"] = "hidden";
+            btnVerMas.Style["Visibility"] = "hidden";
             CargarDdl();
 
         }
 
         protected void btnCancelarObra_Click(object sender, EventArgs e)
         {
-            ddlObraSocial.Style["Visibility"] = "hidden";
-            btnAltaObra.Style["Visibility"] = "hidden";
-            btnCancelarObra.Style["Visibility"] = "hidden";
-            btnAgregarObra.Style["Visibility"] = "visible";
-
+            ocultarDll(); 
+           
         }
 
         protected void btnAltaObra_Click(object sender, EventArgs e)
@@ -68,14 +56,13 @@ namespace Presentacion.Medicos
 
             try
             {
+             
+                  Negocio.AgregarObraSocialMedico(int.Parse(ddlObraSocial.SelectedValue), IdMedico);
+                  ObraSocial = Negocio.ListarObrasSocialesMedico(IdMedico);
+                  ocultarDll(); 
+                 IdMedico = int.Parse(Request.QueryString["idMedico"]);
+                Response.Redirect("DetalleMedico.aspx?idMedico=" + IdMedico);
 
-                Negocio.AgregarObraSocialMedico(int.Parse(ddlObraSocial.SelectedValue), IdMedico);
-
-                ObraSocial = Negocio.ListarObrasSocialesMedico(IdMedico);
-                ddlObraSocial.Style["Visibility"] = "hidden";
-                btnAltaObra.Style["Visibility"] = "hidden";
-                btnCancelarObra.Style["Visibility"] = "hidden";
-                btnAgregarObra.Style["Visibility"] = "visible";
             }
             catch (Exception)
             {
@@ -104,6 +91,39 @@ namespace Presentacion.Medicos
                 throw;
             }
 
+        } 
+
+        public void ocultarDll()
+        {
+            ddlObraSocial.Style["Visibility"] = "hidden";
+            btnAltaObra.Style["Visibility"] = "hidden";
+            btnCancelarObra.Style["Visibility"] = "hidden";
+            btnVerMas.Style["Visibility"] = "visible";
+        }
+
+        public void cargarDetalle()
+        {
+            try
+            {
+                List<Medico> Lista = (List<Medico>)Session["ListaMedicos"];
+
+                IdMedico = int.Parse(Request.QueryString["idMedico"]);
+
+                Medico MedicoDetalle = Lista.Find(x => x.ID == IdMedico);
+
+                TextBoxNombre.Text = MedicoDetalle.Nombre;
+                TextBoxApellido.Text = MedicoDetalle.Apellido;
+                TextBoxLegajo.Text = MedicoDetalle.Legajo;
+
+                Especialidades = Negocio.ListarEspecialidadesMedico(IdMedico);
+                ObraSocial = Negocio.ListarObrasSocialesMedico(IdMedico);
+                DiaHorario = Negocio.ListarDiasHorariosMedicos(IdMedico);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
        
