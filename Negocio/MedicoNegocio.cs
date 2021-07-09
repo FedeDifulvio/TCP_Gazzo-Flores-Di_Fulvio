@@ -79,8 +79,59 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+        public void Modificar(Medico aux)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "update Medicos set Nombre=@nombre, Apellido=@apellido where ID = @id";
 
+            try
+            {
 
+                datos.SetearConsulta(consulta);
+
+                datos.AgregarParametro("@nombre", aux.Nombre);
+                datos.AgregarParametro("@apellido", aux.Apellido);
+                datos.AgregarParametro("@id",aux.ID);
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+        }
+
+        public void Eliminar (int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "update Medicos set Estado=0 where ID=@id";
+
+            try
+            {
+
+                datos.SetearConsulta(consulta);
+
+                datos.AgregarParametro("@id", id);
+            
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
         public List<EspecialidadDeMedico> ListarEspecialidadesMedico(int ID)
         {
             List<EspecialidadDeMedico> lista = new List<EspecialidadDeMedico>();
