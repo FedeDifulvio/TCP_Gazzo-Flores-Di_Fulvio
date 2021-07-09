@@ -42,6 +42,42 @@ namespace Presentacion.Medicos
         protected global::System.Web.UI.WebControls.TextBox TextBoxLegajo;
 
         /// <summary>
+        /// Control verMasDia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button verMasDia;
+
+        /// <summary>
+        /// Control ddlDias.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDias;
+
+        /// <summary>
+        /// Control ddlHoraInicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHoraInicio;
+
+        /// <summary>
+        /// Control ddlHoraFin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHoraFin;
+
+        /// <summary>
         /// Control btnAgregarDia.
         /// </summary>
         /// <remarks>
@@ -51,13 +87,67 @@ namespace Presentacion.Medicos
         protected global::System.Web.UI.WebControls.Button btnAgregarDia;
 
         /// <summary>
-        /// Control btnAgregarEspe.
+        /// Control btnCancelarDia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarEspe;
+        protected global::System.Web.UI.WebControls.Button btnCancelarDia;
+
+        /// <summary>
+        /// Control ErrorDia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorDia;
+
+        /// <summary>
+        /// Control btnVerMasEspe.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerMasEspe;
+
+        /// <summary>
+        /// Control ddlEspecialidades.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlEspecialidades;
+
+        /// <summary>
+        /// Control btnAltaEspecialidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAltaEspecialidad;
+
+        /// <summary>
+        /// Control btnCancelarEspe.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelarEspe;
+
+        /// <summary>
+        /// Control errorEspe.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorEspe;
 
         /// <summary>
         /// Control btnVerMas.
@@ -94,5 +184,14 @@ namespace Presentacion.Medicos
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelarObra;
+
+        /// <summary>
+        /// Control ObraError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ObraError;
     }
 }

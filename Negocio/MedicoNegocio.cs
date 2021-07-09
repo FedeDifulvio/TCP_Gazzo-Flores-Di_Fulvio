@@ -81,12 +81,12 @@ namespace Negocio
         }
 
 
-        public List<Especialidad> ListarEspecialidadesMedico(int ID)
+        public List<EspecialidadDeMedico> ListarEspecialidadesMedico(int ID)
         {
-            List<Especialidad> lista = new List<Especialidad>();
+            List<EspecialidadDeMedico> lista = new List<EspecialidadDeMedico>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "select  E.ID, E.Nombre from EspecialidadesPorMedico as EM inner join Especialidades as E on EM.IdEspecialidad = E.ID where EM.IdMedicos=@ID" ;
+            string consulta = "select  EM.ID, EM.idMedicos, EM.idEspecialidad, E.Nombre from EspecialidadesPorMedico as EM inner join Especialidades as E on EM.IdEspecialidad = E.ID where EM.IdMedicos=@ID" ;
 
             try
             {
@@ -99,11 +99,12 @@ namespace Negocio
 
                 while (datos.Lector.Read())
                 {
-                    Especialidad aux = new Especialidad();
+                    EspecialidadDeMedico aux = new EspecialidadDeMedico();
 
 
-                    aux.ID = (int)datos.Lector["ID"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.id = (int)datos.Lector["ID"];
+                    aux.idMedico = (int)datos.Lector["idMedicos"];
+                    aux.especialidad = new Especialidad((int)datos.Lector["IdEspecialidad"], (string)datos.Lector["Nombre"]);
 
                     lista.Add(aux);
 
@@ -171,7 +172,7 @@ namespace Negocio
             List<DiaHorarioTrabajo> lista = new List<DiaHorarioTrabajo>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "select  DM.ID, D.Nombre, DM.HoraInicio, DM.HoraFin From DiasPorMedico as DM inner join Dias as D on DM.IdDia = D.ID where DM.IdMedico =@ID" ;
+            string consulta = "select  DM.ID, DM.idMedico, D.Nombre, DM.HoraInicio, DM.HoraFin, D.ID as IdDia From DiasPorMedico as DM inner join Dias as D on DM.IdDia = D.ID where DM.IdMedico =@ID" ;
 
             try
             {
@@ -186,7 +187,9 @@ namespace Negocio
                     DiaHorarioTrabajo aux = new DiaHorarioTrabajo();
 
                     aux.ID = (int)datos.Lector["ID"];
+                    aux.idMedico = (int)datos.Lector["idMedico"];
                     aux.Dia = (string)datos.Lector["Nombre"];
+                    aux.idDia = (int)datos.Lector["idDia"];
                     aux.HoraInicio = (string)datos.Lector["HoraInicio"];
                     aux.HoraFin = (string)datos.Lector["HoraFin"];
                     lista.Add(aux);
@@ -230,6 +233,48 @@ namespace Negocio
                 throw;
             }
 
+        } 
+
+        public void AgregarEspecialidadMedico( int idEspecialidad, int idMedico)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "Insert into EspecialidadesPorMedico Values(@idEspecialidad,@idMedico)";
+
+            try
+            {
+                datos.SetearConsulta(consulta);
+                datos.AgregarParametro("@idEspecialidad", idEspecialidad);
+                datos.AgregarParametro("@idMedico", idMedico);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void AgregarDiaMedico(int idDia, int idMedico, string horaInicio, string horaFin)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "Insert into DiasPorMedico Values(@idDia,@idMedico, @horainicio, @horafin)";
+
+            try
+            {
+                datos.SetearConsulta(consulta);
+                datos.AgregarParametro("@idDia", idDia);
+                datos.AgregarParametro("@idMedico", idMedico);
+                datos.AgregarParametro("@horainicio", horaInicio);
+                datos.AgregarParametro("@horafin", horaFin);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
@@ -253,6 +298,48 @@ namespace Negocio
                 throw;
             }
 
+        } 
+
+        public void ElimEspecialidadMedico(int ID)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "Delete from EspecialidadesPorMedico Where Id=@ID";
+
+
+            try
+            {
+                datos.SetearConsulta(consulta);
+                datos.AgregarParametro("@ID", ID);
+
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public void ElimDiaMedico(int ID)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            string consulta = "Delete from DiasPorMedico Where Id=@ID";
+
+
+            try
+            {
+                datos.SetearConsulta(consulta);
+                datos.AgregarParametro("@ID", ID);
+
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }

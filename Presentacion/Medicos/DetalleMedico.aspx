@@ -52,6 +52,8 @@
                                 <td>Día</td>
                                 <td>Entrada</td>
                                 <td>Salida</td>
+                                <td></td> 
+                                 
                             </tr>
 
                         </thead>
@@ -68,6 +70,7 @@
                                     <td> <% =item.Dia %> </td>
                                     <td>  <%=item.HoraInicio %> Hs </td>
                                     <td>  <% =item.HoraFin %> Hs </td>
+                                     <td><a href="DetalleMedico.aspx?idMedico=<%=item.idMedico%>&idDia=<%=item.ID %>&table=dia" class="btn btn-danger">-</a></td>
 
                                 </tr>
 
@@ -77,7 +80,17 @@
                         </tbody>
                     </table>
                     <div style="text-align:center">
-                        <asp:Button ID="btnAgregarDia" CssClass="btn btn-primary" Text="+" runat="server" />
+                        <asp:Button ID="verMasDia" CssClass="btn btn-primary" Text="+" OnClick="verMasDia_Click" runat="server" />
+                    </div>
+                    <div style="text-align:center">
+                        <asp:DropDownList ID="ddlDias" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlHoraInicio" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlHoraFin" runat="server"></asp:DropDownList>
+                        <asp:Button ID="btnAgregarDia" Text="Agregar" CssClass="btn btn-primary" OnClick="btnAgregarDia_Click" runat="server" />
+                        <asp:Button ID="btnCancelarDia" Text="Cancelar" CssClass="btn btn-danger" OnClick="btnCancelarDia_Click" runat="server" />
+                    </div>
+                    <div style="text-align:center">
+                        <asp:Label ID="ErrorDia" Text="No se puede repetir el día" CssClass="alert alert-danger" runat="server" />
                     </div>
                     
                 </div>
@@ -85,19 +98,19 @@
                     <table class="display table table-light table-hover">
                         <thead class="table-dark" style="text-align:center">
                             <tr>
-                                <td>Especialidades</td>
+                                <td colspan="2">Especialidades</td>
                             </tr>
 
                         </thead>
 
                         <tbody  style="text-align:center">
-                               <%foreach (Dominio.Especialidad item in Especialidades )
+                               <%foreach (Dominio.EspecialidadDeMedico item in Especialidades )
                                 {%>
 
                                 <tr>
 
-                                    <td> <%=item.Nombre %> </td>
-
+                                    <td> <%=item.especialidad.Nombre %> </td>
+                                    <td><a href="DetalleMedico.aspx?idMedico=<%=item.idMedico%>&idEspe=<%=item.id %>&table=esp" class="btn btn-danger">-</a></td>
                                 </tr>
 
 
@@ -106,7 +119,15 @@
                         </tbody>
                     </table>
                     <div style="text-align:center">
-                        <asp:Button ID="btnAgregarEspe" CssClass="btn btn-primary" Text="+" runat="server" />
+                        <asp:Button ID="btnVerMasEspe" CssClass="btn btn-primary" OnClick="btnVerMasEspe_Click" Text="+" runat="server" />
+                    </div>
+                    <div style="text-align:center">
+                        <asp:DropDownList ID="ddlEspecialidades" runat="server"></asp:DropDownList> 
+                        <asp:Button ID="btnAltaEspecialidad" CssClass="btn btn-primary" Text="Agregar" OnClick="btnAltaEspecialidad_Click" runat="server" />
+                        <asp:Button ID="btnCancelarEspe" Text="Cancelar" CssClass="btn btn-danger" runat="server" />
+                    </div>
+                    <div  style="text-align:center">
+                        <asp:Label ID="errorEspe" Text="No se puede repetir especialidad" CssClass="alert alert-danger" runat="server" />
                     </div>
                     
                 </div>
@@ -145,6 +166,9 @@
                         <asp:DropDownList ID="ddlObraSocial" runat="server"></asp:DropDownList>
                         <asp:Button ID="btnAltaObra" Text="Agregar" OnClick="btnAltaObra_Click" CssClass="btn btn-primary" runat="server" />
                         <asp:Button id="btnCancelarObra" Text="Cancelar" OnClick="btnCancelarObra_Click" CssClass="btn btn-danger" runat="server" />
+                    </div>
+                    <div>
+                        <asp:Label ID="ObraError" CssClass="alert alert-danger" Text="No se puede agregar una Obra repetida " runat="server" />
                     </div>
                     
                 </div>
