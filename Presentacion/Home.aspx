@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-4" style="justify-content: center; display: flex">
-                    <asp:Button Text="Pedir turno" CssClass="btn btn-primary btnHome" runat="server" />
+                    <asp:Button ID="pedirTurnoBTN" Text="Pedir turno" onclick="pedirTurnoBTN_Click" CssClass="btn btn-primary btnHome" runat="server" />
                 </div>
             </div>
         </div>

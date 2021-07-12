@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="JavaScript\ValidacionesMedico.js" />
+    <Content Include="JavaScript\ValidacionesTurnos.js" />
     <Content Include="Medicos\AltaMedico.aspx" />
     <Content Include="Medicos\DetalleMedico.aspx" />
     <Content Include="Medicos\EliminarMedico.aspx" />

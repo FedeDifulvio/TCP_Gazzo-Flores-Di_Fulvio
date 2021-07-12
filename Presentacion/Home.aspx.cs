@@ -13,5 +13,10 @@ namespace Presentacion
         {
 
         }
+
+        protected void pedirTurnoBTN_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Turnos/NuevoTurno.aspx");
+        }
     }
 }
