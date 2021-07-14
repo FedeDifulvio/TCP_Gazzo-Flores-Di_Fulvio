@@ -209,10 +209,63 @@ namespace Presentacion
 
         protected void Calendario_SelectionChanged(object sender, EventArgs e)
         {
+            List<string> HorariosDisponibles = new List<string>();
+
+
             lblFecha.Visible = true;
             lblFecha.Text = "Horarios disponibles para el día " + Calendario.SelectedDate.ToShortDateString(); 
-            ddlHorarios.Visible = true; 
+            ddlHorarios.Visible = true;
+
+            HorariosDisponibles = Horario_Disponibles(int.Parse(DdlMedicos.SelectedValue), Calendario.SelectedDate);
+
+            int cont=0;
+            ddlHorarios.Items.Clear();
+            foreach (var item in HorariosDisponibles)
+            {
+                ddlHorarios.Items.Add(new ListItem(item,cont++.ToString()));
+                
+            } 
+
 
         }
+
+        public List<string> Horario_Disponibles(int IdMedico, DateTime Fecha)
+        {
+            TurnoNegocio Negocio = new TurnoNegocio();
+            List<Turno> ListaTurnos = new List<Turno>();
+            DiaHorarioTrabajo HoraTrabajo = new DiaHorarioTrabajo();
+            List<string> HorariosDisponibles = new List<string>();
+
+            ///Lista turnos: Guardamos todos los turnos que tiene ese medico en ese Fecha
+            ListaTurnos = Negocio.Listar().FindAll(x => x.Medico.ID == IdMedico && x.Fecha == Fecha); 
+            /// HoraTrabajo: Cargamos el horario de inicio y de fin del medico en el dia que corresponde a la fecha
+            HoraTrabajo = MedicoNegocio.ListarDiasHorariosMedicos(IdMedico).Find(x => x.idDia == (int)Fecha.DayOfWeek);
+
+
+
+            /// Carga HorariosDisponibles con todas las horas entre la hora de inicio y fin
+            for (int i = int.Parse(HoraTrabajo.HoraInicio); i <= int.Parse(HoraTrabajo.HoraFin); i++)
+            {
+
+                HorariosDisponibles.Add(i.ToString());
+              
+            }
+
+            /// Busca el turno asignado dentro de HorariosDisponibles y lo remueve
+            foreach (var item in ListaTurnos)
+            {
+
+               string aux = HorariosDisponibles.Find(x => x == item.Hora);
+             
+                if (aux!=null)
+                {
+                    HorariosDisponibles.Remove(aux);
+                }
+                
+
+            }
+            return HorariosDisponibles;
+        }
+
     }
 }

@@ -71,6 +71,19 @@ IdMedicos int not null foreign key references Medicos(ID),
 
 )
 
+
+GO
+
+create table turnos (
+
+ID int primary key not null identity (1,1),
+IdMedico int foreign key references Medicos(ID),
+IdPaciente int foreign key references Pacientes(ID),
+Fecha date not null,
+Hora varchar(4) not null,
+Estado varchar(20) not null,
+)
+
 SET IDENTITY_INSERT [dbo].[ObraSocial] ON 
 INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (1, N'OSDE')
 INSERT [dbo].[ObraSocial] ([ID], [Nombre]) VALUES (2, N'Swiss Medical')
@@ -165,3 +178,10 @@ INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES 
 INSERT [dbo].[ObraSocialesPorMedico] ([ID], [idObraSocial], [idMedicos]) VALUES (7, 5,1)
 SET IDENTITY_INSERT [dbo].[ObraSocialesPorMedico] OFF
 
+SET IDENTITY_INSERT [dbo].[turnos] ON 
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[Fecha],[Hora],[Estado]) VALUES (1,1,18,CAST(N'2021-07-15' AS Date),N'13',N'Asignado')
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[Fecha],[Hora],[Estado]) VALUES (2,1,19,CAST(N'1998-07-16' AS Date),N'13',N'Asignado')
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[Fecha],[Hora],[Estado]) VALUES (3,1,32,CAST(N'1998-07-23' AS Date),N'10',N'Asignado')
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[Fecha],[Hora],[Estado]) VALUES (4,1,32,CAST(N'1998-07-24' AS Date),N'11',N'Asignado')
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[Fecha],[Hora],[Estado]) VALUES (5,1,19,CAST(N'1998-07-17' AS Date),N'9' ,N'Asignado')
+SET IDENTITY_INSERT [dbo].[turnos] OFF
