@@ -40,6 +40,7 @@
             <li><a class="item-nav" href="../Turnos/NuevoTurno.aspx">Nuevo Turno</a></li> <!--Paciente-->
             <li> <a class="item-nav" href="../Turnos/MisTurnos.aspx">Mis Turnos</a></li> <!--Paciente, Medico-->
             <li><a class="item-nav" href="../Turnos/CalendarioTurnos.aspx" >Calendario de Turnos</a></li> <!--Secretaria-->
+            <li><a class="item-nav" href="../Turnos/RegistroTurnos.aspx" >Registro de Turnos</a></li> 
             <li><a class="item-nav" href="../Pacientes/RegistrosPaciente.aspx" >Registro de Pacientes</a></li> 
             <li><a class="item-nav" href="../Medicos/RegistroMedicos.aspx" >Registro de Médicos</a></li> 
             <li><a class="item-nav" href="../Favoritos.aspx" >Favoritos</a></li> <!--Paciente-->

@@ -59,5 +59,65 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+
+
+        public void Agregar(Turno turno )
+        {
+            List<Turno> lista = new List<Turno>();
+            AccesoDatos datos = new AccesoDatos();
+
+            string consulta = "Insert into Turnos Values(@IdMedico,@IdPaciente,@Fecha,@Hora,@Estado)";
+
+            try
+            {
+
+                datos.SetearConsulta(consulta);
+                datos.AgregarParametro("@IdMedico", turno.Medico.ID);
+                datos.AgregarParametro("@IdPaciente", turno.Paciente.ID);
+                datos.AgregarParametro("@Fecha", turno.Fecha);
+                datos.AgregarParametro("@Hora", turno.Hora);
+                datos.AgregarParametro("@Estado", turno.Estado);
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+
+        }
+
+        public void CancelarTurno(int id) {
+            List<Turno> lista = new List<Turno>();
+            AccesoDatos datos = new AccesoDatos();
+
+            string consulta ="Update Turnos set Estado='Cancelado' Where id=@ID";
+
+            try
+            {
+
+                datos.SetearConsulta(consulta);
+                datos.AgregarParametro("@ID", id);
+                
+                datos.EjecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+        }
     }
 }

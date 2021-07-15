@@ -87,6 +87,7 @@
     <Content Include="JavaScript\ValidacionesPaciente.js" />
     <Content Include="JavaScript\Validaciones_ObraSocial_Especialidades.js" />
     <Content Include="Medicos\RegistroMedicos.aspx" />
+    <Content Include="Turnos\CancelarTurno.aspx" />
     <Content Include="Turnos\MisTurnos.aspx" />
     <Content Include="Pacientes\ModificarPaciente.aspx" />
     <Content Include="Turnos\NuevoTurno.aspx" />
@@ -94,6 +95,7 @@
     <Content Include="Pacientes\RegistrosPaciente.aspx" />
     <Content Include="SobreNosotros.aspx" />
     <Content Include="Styles\Styles.css" />
+    <Content Include="Turnos\RegistroTurnos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +197,13 @@
     <Compile Include="Medicos\RegistroMedicos.aspx.designer.cs">
       <DependentUpon>RegistroMedicos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Turnos\CancelarTurno.aspx.cs">
+      <DependentUpon>CancelarTurno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Turnos\CancelarTurno.aspx.designer.cs">
+      <DependentUpon>CancelarTurno.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Turnos\MisTurnos.aspx.cs">
       <DependentUpon>MisTurnos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -237,6 +246,13 @@
     </Compile>
     <Compile Include="SobreNosotros.aspx.designer.cs">
       <DependentUpon>SobreNosotros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Turnos\RegistroTurnos.aspx.cs">
+      <DependentUpon>RegistroTurnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Turnos\RegistroTurnos.aspx.designer.cs">
+      <DependentUpon>RegistroTurnos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

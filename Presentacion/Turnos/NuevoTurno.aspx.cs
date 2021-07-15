@@ -63,6 +63,12 @@ namespace Presentacion
             LblMedico.Visible = true;
             DdlMedicos.Visible = true;
 
+            DniBtn.Visible = false;
+            DniTxt.Visible = false;
+
+            btnCancelar.Visible = true;
+
+
             DdlEspecialidades.Items.Clear();
             DdlEspecialidades.Items.Insert(0 , "--Seleccione Dato--" );
             DdlEspecialidades.DataSource = EspecialidadesDDL.Listar();
@@ -78,6 +84,10 @@ namespace Presentacion
         {
             try
             {
+                Calendario.Visible = false;
+                ddlHorarios.Visible = false;
+                btnAgregarTurno.Visible = false;
+                lblFecha.Visible = false;
                 int idEspecialidad = int.Parse(DdlEspecialidades.SelectedItem.Value);
                 DdlMedicos.Items.Clear();
                 DdlMedicos.Items.Insert(0, "--Seleccione Médico--");
@@ -123,17 +133,14 @@ namespace Presentacion
         protected void DdlMedicos_TextChanged(object sender, EventArgs e)
         {
             Calendario.Visible = true;
+            ddlHorarios.Visible = false;
+            btnAgregarTurno.Visible = false;
+            lblFecha.Visible = false;
+
             int idMedico =int.Parse(DdlMedicos.SelectedValue);
             List<DiaHorarioTrabajo> DiasMedico = MedicoNegocio.ListarDiasHorariosMedicos(idMedico); 
 
-           /* foreach(var item in DiasMedico)
-            {
-                switch (item.idDia)
-                {
-                    case 1: 
-                }
-            }*/
-
+       
         }
 
         protected void Calendario_DayRender(object sender, DayRenderEventArgs e)
@@ -215,7 +222,7 @@ namespace Presentacion
             lblFecha.Visible = true;
             lblFecha.Text = "Horarios disponibles para el día " + Calendario.SelectedDate.ToShortDateString(); 
             ddlHorarios.Visible = true;
-
+            btnAgregarTurno.Visible = true;
             HorariosDisponibles = Horario_Disponibles(int.Parse(DdlMedicos.SelectedValue), Calendario.SelectedDate);
 
             int cont=0;
@@ -237,7 +244,7 @@ namespace Presentacion
             List<string> HorariosDisponibles = new List<string>();
 
             ///Lista turnos: Guardamos todos los turnos que tiene ese medico en ese Fecha
-            ListaTurnos = Negocio.Listar().FindAll(x => x.Medico.ID == IdMedico && x.Fecha == Fecha); 
+            ListaTurnos = Negocio.Listar().FindAll(x => x.Medico.ID == IdMedico && x.Fecha == Fecha && x.Estado != "Cancelado"); 
             /// HoraTrabajo: Cargamos el horario de inicio y de fin del medico en el dia que corresponde a la fecha
             HoraTrabajo = MedicoNegocio.ListarDiasHorariosMedicos(IdMedico).Find(x => x.idDia == (int)Fecha.DayOfWeek);
 
@@ -267,5 +274,34 @@ namespace Presentacion
             return HorariosDisponibles;
         }
 
+        protected void btnAgregarTurno_Click(object sender, EventArgs e)
+        {
+            Turno aux = new Turno();
+            TurnoNegocio negocio = new TurnoNegocio();
+            try
+            {
+                aux.Medico = new Medico();
+                aux.Medico.ID = int.Parse(DdlMedicos.SelectedValue);
+                aux.Paciente = (Paciente)Session["PacienteTurno"];
+                aux.Fecha = Calendario.SelectedDate;
+                aux.Hora = ddlHorarios.SelectedItem.ToString();
+                aux.Estado = "Asignado";
+
+                negocio.Agregar(aux);
+
+                Response.Redirect("../Home.aspx");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Turnos/NuevoTurno.aspx");
+        }
     }
 }

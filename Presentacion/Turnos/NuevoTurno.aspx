@@ -81,15 +81,22 @@
                     <asp:Calendar ID="Calendario" Visible ="false" OnDayRender="Calendario_DayRender" OnSelectionChanged="Calendario_SelectionChanged"  runat="server"></asp:Calendar>
                 </div>
                 <div class="col-md-6 mt-5"> 
-                    <asp:Label ID="lblFecha"  visible ="false" Text="" runat="server" />
+                    <asp:Label ID="lblFecha" CssClass="label-turno2 mb-3"  visible ="false" Text="" runat="server" />
                     <br />
-                    <asp:DropDownList ID="ddlHorarios" Visible=" false" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlHorarios" CssClass="mt-3 mb-3" Visible=" false" runat="server"></asp:DropDownList>
+                    <br />
+                    <asp:Button ID="btnAgregarTurno" Visible="false" CssClass="btn btn-success mt-3" OnClick="btnAgregarTurno_Click" Text="Confirmar" runat="server" />
                 </div>
+                
             </div>
-
-
-
+             <div class="row justify-content-center">
+                <div class="col-md-" style="text-align:center">
+                    <asp:Button ID="btnCancelar" CssClass="btn btn-danger mt-5" Visible="false" OnClick="btnCancelar_Click"  Text="Cancelar" runat="server" />
+                </div>  
+            </div>
         </div>
+        
+
          <script src="../JavaScript/FuncionesValidaciones.js"></script>
          <script src="../JavaScript/ValidacionesTurnos.js"></script>
 </asp:Content>
