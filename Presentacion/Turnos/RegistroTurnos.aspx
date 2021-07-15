@@ -16,6 +16,7 @@
                             <th scope="col">Numero</th>
                             <th scope="col">Paciente</th>
                             <th scope="col">Medico</th>
+                            <th scope="col">Especialidad</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Hora</th>
                             <th scope="col">Estado</th>                     
@@ -31,10 +32,11 @@
                                          <th><%= item.ID %> </th> 
                                          <th><%= item.Paciente.Nombre  %>  <% = item.Paciente.Apellido %></th>
                                          <th><%= item.Medico.Nombre  %>  <% = item.Medico.Apellido %></th> 
+                                        <th><%= item.Especialidad.Nombre  %>  </th> 
                                         <th><%= item.Fecha.ToShortDateString() %> </th> 
                                         <th><%= item.Hora %> Hs </th> 
                                         <th><%= item.Estado %> </th>                                       
-                                         <th> <a href=" "> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /> </a> </th> 
+                                         <th> <a href="ReprogramarTurnos.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /> </a> </th> 
                                           <th> <a href="CancelarTurno.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/remove.png" alt="Alternate Text" /> </a> </th> 
                                     </tr>
                                  <%

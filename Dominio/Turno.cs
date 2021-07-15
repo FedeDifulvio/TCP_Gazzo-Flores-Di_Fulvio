@@ -14,9 +14,13 @@ namespace Dominio
 
         public Paciente Paciente { get; set; }
 
+        public Especialidad Especialidad { get; set; }
+
         public DateTime Fecha { get; set; }
 
         public string Hora { get; set; }
+
+        public string Observacion { get; set; }
         public string Estado { get; set; }
     }
 }

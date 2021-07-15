@@ -285,6 +285,9 @@ namespace Presentacion
                 aux.Paciente = (Paciente)Session["PacienteTurno"];
                 aux.Fecha = Calendario.SelectedDate;
                 aux.Hora = ddlHorarios.SelectedItem.ToString();
+                aux.Especialidad = new Especialidad();
+                aux.Especialidad.ID = int.Parse(DdlEspecialidades.SelectedValue);
+                aux.Observacion = "Prueba de Observacion";
                 aux.Estado = "Asignado";
 
                 negocio.Agregar(aux);
