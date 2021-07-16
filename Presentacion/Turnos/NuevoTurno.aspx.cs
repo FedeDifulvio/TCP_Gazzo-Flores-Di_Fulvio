@@ -223,6 +223,7 @@ namespace Presentacion
             lblFecha.Text = "Horarios disponibles para el día " + Calendario.SelectedDate.ToShortDateString(); 
             ddlHorarios.Visible = true;
             btnAgregarTurno.Visible = true;
+            txtObservaciones.Visible = true;
             HorariosDisponibles = Horario_Disponibles(int.Parse(DdlMedicos.SelectedValue), Calendario.SelectedDate);
 
             int cont=0;
@@ -278,6 +279,7 @@ namespace Presentacion
         {
             Turno aux = new Turno();
             TurnoNegocio negocio = new TurnoNegocio();
+            EnvioMail envioMail = new EnvioMail();
             try
             {
                 aux.Medico = new Medico();
@@ -287,11 +289,13 @@ namespace Presentacion
                 aux.Hora = ddlHorarios.SelectedItem.ToString();
                 aux.Especialidad = new Especialidad();
                 aux.Especialidad.ID = int.Parse(DdlEspecialidades.SelectedValue);
-                aux.Observacion = "Prueba de Observacion";
+                aux.Observacion = txtObservaciones.Text;
                 aux.Estado = "Asignado";
 
                 negocio.Agregar(aux);
 
+                envioMail.armarCorreo(aux);
+                envioMail.enviarEmail();
                 Response.Redirect("../Home.aspx");
             }
             catch (Exception)

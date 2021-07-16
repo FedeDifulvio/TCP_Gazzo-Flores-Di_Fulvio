@@ -61,7 +61,7 @@
             </div>
              <div class="row justify-content-center">
                 <div class="col-md-" style="text-align:center">
-                    <asp:Button ID="btnCancelar" OnClick="btnCancelar_Click" CssClass="btn btn-danger mt-5" Visible="false"  Text="Cancelar" runat="server" />
+                    <asp:Button ID="btnCancelar" OnClick="btnCancelar_Click" CssClass="btn btn-danger mt-5"  Text="Cancelar" runat="server" />
                 </div>  
             </div>
         </div>

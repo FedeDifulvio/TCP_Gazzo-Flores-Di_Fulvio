@@ -164,6 +164,7 @@ namespace Presentacion.Turnos
             lblFecha.Text = "Horarios disponibles para el día " + Calendario.SelectedDate.ToShortDateString();
             ddlHorarios.Visible = true;
             btnAlterarTurno.Visible = true;
+            
             HorariosDisponibles = Horario_Disponibles(turno.Medico.ID, Calendario.SelectedDate);
 
             int cont = 0;
