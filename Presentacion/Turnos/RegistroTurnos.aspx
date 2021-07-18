@@ -19,6 +19,7 @@
                             <th scope="col">Especialidad</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Hora</th>
+                            <th scope="col">Observaciones</th>
                             <th scope="col">Estado</th>                     
                             <th></th>
                             <th></th>
@@ -35,6 +36,7 @@
                                         <th><%= item.Especialidad.Nombre  %>  </th> 
                                         <th><%= item.Fecha.ToShortDateString() %> </th> 
                                         <th><%= item.Hora %> Hs </th> 
+                                        <th> <span class="btn btn-success" onClick="verObservacion('<%=item.Observacion %>')">Observaciones</span> </th> 
                                         <th><%= item.Estado %> </th>                                       
                                          <th> <a href="ReprogramarTurnos.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /> </a> </th> 
                                           <th> <a href="CancelarTurno.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/remove.png" alt="Alternate Text" /> </a> </th> 
@@ -56,10 +58,13 @@
                        <a class="btn btn-secondary" href="../Home.aspx"> ← Volver </a>
                  </div>
               </div>
+            <div class="modal-contenedor">
+
+        </div>
         </div>
     </div>
   
-
+    <script src="../JavaScript/popup.js"></script> 
 
 
 </asp:Content>

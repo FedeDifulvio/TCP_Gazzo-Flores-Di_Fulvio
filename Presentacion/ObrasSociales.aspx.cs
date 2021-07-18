@@ -48,7 +48,7 @@ namespace Presentacion
 
             BtnModificar.Style["Visibility"] = "hidden";
             cancelarMod.Style["Visibility"] = "hidden";
-            labelMod.Style["Visibility"] = "hidden"; 
+            LabelTitulo.Text = "Alta Obra Social";  
 
             try
             {
@@ -83,10 +83,9 @@ namespace Presentacion
         {
             int id = int.Parse(Request.QueryString["id"]);
             BtnAgregar.Style["Visibility"] = "hidden";
-            LabelAlta.Style["Visibility"] = "hidden";
             BtnModificar.Style["Visibility"] = "visible";
             cancelarMod.Style["Visibility"] = "visible";
-            labelMod.Style["Visibility"] = "visible";
+            LabelTitulo.Text = "Modificar Obra Social"; 
             ListaObrasSociales = (List<ObraSocial>)Session["ListaObrasSociales"];
             ObraSocial aModificar = ListaObrasSociales.Find(x => x.ID == id);
             TextBoxNombre.Text = aModificar.Nombre;
@@ -102,7 +101,10 @@ namespace Presentacion
             {
                 aux.Nombre=TextBoxNombre.Text;
                 negocio.Agregar(aux);
-                Response.Redirect("ObrasSociales.aspx");
+                lblExito.Visible = true;
+                lblExito.Text = "Dado de alta correctamente";
+                string script = "Redireccionar('../ObrasSociales.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
 
             }
             catch (Exception)
@@ -120,8 +122,12 @@ namespace Presentacion
           
             try
             {
-                negocio.modificar(aux); 
-                Response.Redirect("ObrasSociales.aspx");
+                negocio.modificar(aux);
+                lblExito.Visible = true;
+                lblExito.Text = "Modificado correctamente";
+                string script = "Redireccionar('../ObrasSociales.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
+
 
             }
             catch (Exception)

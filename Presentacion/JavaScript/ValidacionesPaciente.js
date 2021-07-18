@@ -36,7 +36,6 @@ const validarFormularioPaciente = () => {
 } 
 
 
-
 nombre.addEventListener('click', (e) => {
     nombre.classList.remove("is-invalid")
     const invalid = document.getElementById("TextBoxNombre-inv")

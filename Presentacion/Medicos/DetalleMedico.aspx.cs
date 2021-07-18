@@ -93,10 +93,11 @@ namespace Presentacion.Medicos
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx"); 
             }
 
         }
@@ -114,10 +115,11 @@ namespace Presentacion.Medicos
                 ddlObraSocial.DataBind();
 
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
 
         }  
@@ -153,10 +155,11 @@ namespace Presentacion.Medicos
 
                  
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
 
@@ -182,10 +185,11 @@ namespace Presentacion.Medicos
                 ddlEspecialidades.DataBind();
 
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
 
@@ -224,10 +228,11 @@ namespace Presentacion.Medicos
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             } 
 
             
@@ -331,10 +336,11 @@ namespace Presentacion.Medicos
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
     }

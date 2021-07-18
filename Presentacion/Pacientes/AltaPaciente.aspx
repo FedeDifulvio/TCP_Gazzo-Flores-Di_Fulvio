@@ -76,9 +76,13 @@
                        <a class="btn btn-danger" href="RegistrosPaciente.aspx"> ← Cancelar  </a>
                  </div>
               </div>
+            <div class="modal-contenedor">
+
+        </div>
                      
         </div>
     </div>
      <script src="../JavaScript/FuncionesValidaciones.js"></script>
     <script src="../JavaScript/ValidacionesPaciente.js"></script>
+    <script src="../JavaScript/popup.js"></script> 
 </asp:Content>

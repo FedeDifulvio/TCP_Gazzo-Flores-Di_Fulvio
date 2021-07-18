@@ -45,10 +45,22 @@ namespace Presentacion.Turnos
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            TurnoNegocio negocio = new TurnoNegocio();
-            negocio.CancelarTurno(turno.ID);
+            try
+            {
+                TurnoNegocio negocio = new TurnoNegocio();
+                negocio.CancelarTurno(turno.ID);
+                string script = "confirmarAccion( 5, 'RegistroTurnos.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true);
 
-            Response.Redirect("../Turnos/RegistroTurnos.aspx");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+
+           
 
         }
     }

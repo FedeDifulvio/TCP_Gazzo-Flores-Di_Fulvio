@@ -30,10 +30,10 @@ namespace Presentacion.Medicos
                 Session.Add("ListaMedicos", Lista); 
 
             }
-            catch (Exception)
+            catch (Exception ex )
             {
-
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
 

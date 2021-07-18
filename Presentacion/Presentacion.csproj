@@ -74,6 +74,7 @@
     <Content Include="Medicos\EliminarMedico.aspx" />
     <Content Include="Medicos\ModificarMedico.aspx" />
     <Content Include="Pacientes\AltaPaciente.aspx" />
+    <Content Include="PagError.aspx" />
     <Content Include="Turnos\CalendarioTurnos.aspx" />
     <Content Include="Configuracion.aspx" />
     <Content Include="Contacto.aspx" />
@@ -81,7 +82,7 @@
     <Content Include="Especialidades.aspx" />
     <Content Include="Favoritos.aspx" />
     <Content Include="Home.aspx" />
-    <Content Include="JavaScript\FuncionesValidaciones.js" />
+    <Content Include="JavaScript\Funciones.js" />
     <Content Include="JavaScript\navLateral.js" />
     <Content Include="JavaScript\popup.js" />
     <Content Include="JavaScript\ValidacionesPaciente.js" />
@@ -134,6 +135,13 @@
     </Compile>
     <Compile Include="Pacientes\AltaPaciente.aspx.designer.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagError.aspx.cs">
+      <DependentUpon>PagError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagError.aspx.designer.cs">
+      <DependentUpon>PagError.aspx</DependentUpon>
     </Compile>
     <Compile Include="Turnos\CalendarioTurnos.aspx.cs">
       <DependentUpon>CalendarioTurnos.aspx</DependentUpon>

@@ -46,10 +46,14 @@
        <div class="row justify-content-center">
                  <div class="col-md-4 mt-5" style="text-align:center">
                        <a class="btn btn-secondary" href="RegistroMedicos.aspx"> ← Cancelar  </a>
-                 </div>
+                 </div> 
+           <div class="modal-contenedor">
+
+        </div>
+
               </div>
 
     </div>
-
+    <script src="../JavaScript/popup.js"></script>  
 </asp:Content>
  

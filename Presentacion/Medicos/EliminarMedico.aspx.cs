@@ -40,14 +40,16 @@ namespace Presentacion.Medicos
             {
 
                 negocio.Eliminar(int.Parse(Request.QueryString["id"]));
-              
-                Response.Redirect("RegistroMedicos.aspx");
+
+                string script = "confirmarAccion( 3 , 'RegistroMedicos.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
     }

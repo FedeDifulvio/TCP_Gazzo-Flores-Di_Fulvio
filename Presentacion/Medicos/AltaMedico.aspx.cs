@@ -29,11 +29,20 @@ namespace Presentacion.Medicos
             LegajosEnSesion = (List<Medico>)Session["ListaMedicos"];
 
             if (LegajosEnSesion.Find(x => x.Legajo == aux.Legajo)==null) {
-                negocio.Agregar(aux);
-                lista = negocio.Listar();
-                Session.Add("ListaMedicos", lista);
-                int id = lista.Find(x => x.Legajo == aux.Legajo).ID;
-                Response.Redirect("DetalleMedico.aspx?idMedico=" + id);
+                try
+                {
+                    negocio.Agregar(aux);
+                    lista = negocio.Listar();
+                    Session.Add("ListaMedicos", lista);
+                    int id = lista.Find(x => x.Legajo == aux.Legajo).ID;
+                    Response.Redirect("DetalleMedico.aspx?idMedico=" + id);
+                }
+                catch (Exception ex )
+                {
+                    Session.Add("error", ex.Message.ToString());
+                    Response.Redirect("../PagError.aspx");
+
+                }  
             }
             else 
             {

@@ -64,12 +64,15 @@ namespace Presentacion
                 aux.FechaNacimiento = DateTime.Parse(txtDate.Text);
                 aux.ObraSocial = new ObraSocial(int.Parse(DdlObraSocial.SelectedValue));
 
-                DNIEnSesion = (List<Paciente>)Session["ListaPacientes"]; 
+                DNIEnSesion = (List<Paciente>)Session["ListaPacientes"];
 
-                if(DNIEnSesion.Find(x=>x.DNI == aux.DNI) == null)
-                {
+                if (DNIEnSesion.Find(x => x.DNI == aux.DNI) == null)
+                { 
+                     
                     negocio.Agregar(aux);
-                    Response.Redirect("RegistrosPaciente.aspx");
+                    string script = "confirmarAccion( 1 , 'RegistrosPaciente.aspx')";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true); 
+                    
                 }
                 else
                 {

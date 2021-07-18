@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -42,6 +43,8 @@ namespace Presentacion
                 return;
             }
 
+            DniLBL.Visible = false;
+
             NombreTxt.Text = Paciente.Nombre;
             ApellidoTxt.Text = Paciente.Apellido;
             dniTextBox.Text = Paciente.DNI;
@@ -70,7 +73,7 @@ namespace Presentacion
 
 
             DdlEspecialidades.Items.Clear();
-            DdlEspecialidades.Items.Insert(0 , "--Seleccione Dato--" );
+            DdlEspecialidades.Items.Insert(0 , new ListItem("--Seleccione Especialidad--", "0"));
             DdlEspecialidades.DataSource = EspecialidadesDDL.Listar();
             DdlEspecialidades.DataValueField = "ID";
             DdlEspecialidades.DataTextField = "Nombre";
@@ -87,19 +90,27 @@ namespace Presentacion
                 Calendario.Visible = false;
                 ddlHorarios.Visible = false;
                 btnAgregarTurno.Visible = false;
+                txtObservaciones.Visible = false;
                 lblFecha.Visible = false;
                 int idEspecialidad = int.Parse(DdlEspecialidades.SelectedItem.Value);
+
+                if(idEspecialidad == 0 )
+                {
+                    DdlMedicos.Items.Clear();
+                    return; 
+                }
+
                 DdlMedicos.Items.Clear();
-                DdlMedicos.Items.Insert(0, "--Seleccione Médico--");
+                DdlMedicos.Items.Insert(0, new ListItem("--Seleccione Médico--", "0"));
                 DdlMedicos.DataSource = MedicoNegocio.Listar().FindAll(x => validadEspecialidad(x.ID, idEspecialidad));
                 DdlMedicos.DataValueField = "ID";
                 DdlMedicos.DataTextField = "Apellido";
                 DdlMedicos.DataBind();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
             
 
@@ -111,13 +122,14 @@ namespace Presentacion
         {
            
             List<ObraSocialDeMedico> ObrasDeMedico = MedicoNegocio.ListarObrasSocialesMedico(idMedico);
+            
             Paciente paciente = (Paciente)Session["PacienteTurno"]; 
            if( ObrasDeMedico.Find(x=>x.obraSocial.ID == paciente.ObraSocial.ID)== null)
            {
                 return false; 
            }
 
-            List<EspecialidadDeMedico> EspecialidadesMedico = MedicoNegocio.ListarEspecialidadesMedico(idMedico);
+            List<EspecialidadDeMedico> EspecialidadesMedico = MedicoNegocio.ListarEspecialidadesMedico(idMedico); 
 
             if (EspecialidadesMedico.Find(x => x.especialidad.ID == idEspecialidad) == null)
             {
@@ -136,9 +148,25 @@ namespace Presentacion
             ddlHorarios.Visible = false;
             btnAgregarTurno.Visible = false;
             lblFecha.Visible = false;
+            txtObservaciones.Visible = false;
 
             int idMedico =int.Parse(DdlMedicos.SelectedValue);
-            List<DiaHorarioTrabajo> DiasMedico = MedicoNegocio.ListarDiasHorariosMedicos(idMedico); 
+
+            if (idMedico == 0)
+            {
+                return;
+            }
+            try
+            {
+                List<DiaHorarioTrabajo> DiasMedico = MedicoNegocio.ListarDiasHorariosMedicos(idMedico);
+            }
+            catch (Exception ex )
+            {
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
+
+            }
+           
 
        
         }
@@ -146,71 +174,84 @@ namespace Presentacion
         protected void Calendario_DayRender(object sender, DayRenderEventArgs e)
         {
             int idMedico = int.Parse(DdlMedicos.SelectedValue);
-            List<DiaHorarioTrabajo> DiasMedico = MedicoNegocio.ListarDiasHorariosMedicos(idMedico);
+            List<DiaHorarioTrabajo> DiasMedico;
 
-            if(e.Day.Date < DateTime.Today)
+            try
             {
-                e.Day.IsSelectable = false; 
-            }
+                DiasMedico = MedicoNegocio.ListarDiasHorariosMedicos(idMedico);
 
 
-            foreach (var item in DiasMedico)
-             {
-                 switch (item.idDia)
-                 {
-                    case 1:
-                        if ( e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Monday )
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-                        
-                        break;
-                    case 2:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Tuesday )
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-                       
-                        break;
-                    case 3:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Wednesday)
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-                      
-                        break;
-                    case 4:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Thursday )
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
-
-                    case 5:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Friday)
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
-
-                    case 6:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Saturday )
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
-
-
+                if (e.Day.Date < DateTime.Today)
+                {
+                    e.Day.IsSelectable = false;
                 }
-             } 
 
-            if(e.Cell.BackColor != System.Drawing.Color.Yellow)
-            {
-                e.Day.IsSelectable = false;
+
+                foreach (var item in DiasMedico)
+                {
+                    switch (item.idDia)
+                    {
+                        case 1:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Monday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+                        case 2:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Tuesday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+                        case 3:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Wednesday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+                        case 4:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Thursday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+
+                        case 5:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Friday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+
+                        case 6:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Saturday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+
+
+                    }
+                }
+
+                if (e.Cell.BackColor != System.Drawing.Color.Yellow)
+                {
+                    e.Day.IsSelectable = false;
+                }
             }
+            catch (Exception ex )
+            {
+
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
+            }
+               
     
         }
 
@@ -218,22 +259,28 @@ namespace Presentacion
         {
             List<string> HorariosDisponibles = new List<string>();
 
-
-            lblFecha.Visible = true;
-            lblFecha.Text = "Horarios disponibles para el día " + Calendario.SelectedDate.ToShortDateString(); 
-            ddlHorarios.Visible = true;
-            btnAgregarTurno.Visible = true;
-            txtObservaciones.Visible = true;
-            HorariosDisponibles = Horario_Disponibles(int.Parse(DdlMedicos.SelectedValue), Calendario.SelectedDate);
-
-            int cont=0;
-            ddlHorarios.Items.Clear();
-            foreach (var item in HorariosDisponibles)
+            try
             {
-                ddlHorarios.Items.Add(new ListItem(item,cont++.ToString()));
-                
-            } 
+                lblFecha.Visible = true;
+                lblFecha.Text = "Horarios disponibles para el día " + Calendario.SelectedDate.ToShortDateString();
+                ddlHorarios.Visible = true;
+                btnAgregarTurno.Visible = true;
+                txtObservaciones.Visible = true;
+                HorariosDisponibles = Horario_Disponibles(int.Parse(DdlMedicos.SelectedValue), Calendario.SelectedDate);
 
+                int cont = 0;
+                ddlHorarios.Items.Clear();
+                foreach (var item in HorariosDisponibles)
+                {
+                    ddlHorarios.Items.Add(new ListItem(item, cont++.ToString()));
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
+            }
 
         }
 
@@ -242,7 +289,7 @@ namespace Presentacion
             TurnoNegocio Negocio = new TurnoNegocio();
             List<Turno> ListaTurnos = new List<Turno>();
             DiaHorarioTrabajo HoraTrabajo = new DiaHorarioTrabajo();
-            List<string> HorariosDisponibles = new List<string>();
+            List<string> HorariosDisponibles = new List<string>(); 
 
             ///Lista turnos: Guardamos todos los turnos que tiene ese medico en ese Fecha
             ListaTurnos = Negocio.Listar().FindAll(x => x.Medico.ID == IdMedico && x.Fecha == Fecha && x.Estado != "Cancelado"); 
@@ -280,10 +327,12 @@ namespace Presentacion
             Turno aux = new Turno();
             TurnoNegocio negocio = new TurnoNegocio();
             EnvioMail envioMail = new EnvioMail();
+
             try
             {
                 aux.Medico = new Medico();
                 aux.Medico.ID = int.Parse(DdlMedicos.SelectedValue);
+                aux.Medico.Apellido = DdlMedicos.SelectedItem.ToString(); 
                 aux.Paciente = (Paciente)Session["PacienteTurno"];
                 aux.Fecha = Calendario.SelectedDate;
                 aux.Hora = ddlHorarios.SelectedItem.ToString();
@@ -291,17 +340,21 @@ namespace Presentacion
                 aux.Especialidad.ID = int.Parse(DdlEspecialidades.SelectedValue);
                 aux.Observacion = txtObservaciones.Text;
                 aux.Estado = "Asignado";
-
+               
                 negocio.Agregar(aux);
 
-                envioMail.armarCorreo(aux);
-                envioMail.enviarEmail();
-                Response.Redirect("../Home.aspx");
+                envioMail.armarCorreo(aux, 1);
+                envioMail.EnviarEmail();
+
+
+                string script = "confirmarAccion( 4 , 'RegistroTurnos.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true); 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
             
         }
@@ -310,5 +363,7 @@ namespace Presentacion
         {
             Response.Redirect("../Turnos/NuevoTurno.aspx");
         }
+
+        
     }
 }

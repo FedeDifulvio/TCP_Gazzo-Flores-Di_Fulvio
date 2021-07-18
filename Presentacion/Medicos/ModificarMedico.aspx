@@ -55,7 +55,10 @@
                 <div class="col-md-4 mt-2 mb-4" style="text-align: center">
                     <asp:Button ID="btnAgregar" CssClass="btn btn-primary" onclick="btnAgregar_Click" OnClientClick="return validarFormularioMedico()" Text="Modificar" runat="server" />
                 </div>
-            </div>
+            </div> 
+            <div class="modal-contenedor">
+
+        </div>
 
         </div>
 
@@ -64,8 +67,9 @@
 
 
 
-    <script src="../JavaScript/FuncionesValidaciones.js"></script>
+    <script src="../JavaScript/Funciones.js"></script>
     <script src="../JavaScript/ValidacionesMedico.js"></script>
+    <script src="../JavaScript/popup.js"></script>  
     </div>
 
 

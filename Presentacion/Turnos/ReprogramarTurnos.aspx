@@ -55,7 +55,12 @@
                     <br />
                     <asp:DropDownList ID="ddlHorarios" CssClass="mt-3 mb-3" Visible=" false" runat="server"></asp:DropDownList>
                     <br />
-                    <asp:Button ID="btnAlterarTurno" OnClick="btnAlterarTurno_Click" Visible="false" CssClass="btn btn-success mt-3"  Text="Reprogramar" runat="server" />
+                    <br />
+                    <asp:TextBox ID="txtObservaciones" TextMode="MultiLine" runat="server" Visible="false" CssClass="form-control mb-3" ClientIDMode="Static" MaxLength="300"></asp:TextBox>
+                    <div>
+                        <h1 class="error-form" id="txtObservaciones-inv"></h1>
+                    </div>
+                    <asp:Button ID="btnAlterarTurno" OnClientClick="return ValidarObservacion()" OnClick="btnAlterarTurno_Click" Visible="false" CssClass="btn btn-success mt-3"  Text="Reprogramar" runat="server" />
                 </div>
                 
             </div>
@@ -64,9 +69,10 @@
                     <asp:Button ID="btnCancelar" OnClick="btnCancelar_Click" CssClass="btn btn-danger mt-5"  Text="Cancelar" runat="server" />
                 </div>  
             </div>
+            <div class="modal-contenedor"></div>
         </div>
         
-
-         <script src="../JavaScript/FuncionesValidaciones.js"></script>
+         <script src="../JavaScript/popup.js"></script>  
+         <script src="../JavaScript/Funciones.js"></script>
          <script src="../JavaScript/ValidacionesTurnos.js"></script>
 </asp:Content>

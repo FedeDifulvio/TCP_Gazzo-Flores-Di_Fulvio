@@ -104,4 +104,17 @@ const chequearLegajo = dato => {
     valor.classList.add("is-valid")
     return 0
 
+} 
+
+
+function Redireccionar (pag) {
+    setTimeout(() => {
+        window.location.replace(pag)
+    }, 1500) 
+} 
+
+function activarProcesando() {
+    procesando = document.getElementById('procesando');
+    procesando.style.visibility = 'visible';
+     
 }

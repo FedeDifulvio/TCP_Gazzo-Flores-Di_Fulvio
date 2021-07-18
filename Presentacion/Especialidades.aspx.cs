@@ -44,7 +44,7 @@ namespace Presentacion
             EspecialidadesNegocio negocio = new EspecialidadesNegocio();
             try
             {
-                labelModificar.Style["Visibility"] = "hidden";
+                labelTitulo.Text = "Alta Especialidad"; 
                 BtnModificar.Style["Visibility"] = "hidden";
                 BtnCancelar.Style["Visibility"] = "hidden";
                 ListaEspecialidades = negocio.Listar();
@@ -80,10 +80,9 @@ namespace Presentacion
         {
             int id = int.Parse(Request.QueryString["id"]);
             BtnAgregar.Style["Visibility"] = "hidden";
-            labelAlta.Style["Visibility"] = "hidden";
             BtnModificar.Style["Visibility"] = "visible";
             BtnCancelar.Style["Visibility"] = "visible";
-            labelModificar.Style["Visibility"] = "visible";
+            labelTitulo.Text = "Modificar Especialidad";
             ListaEspecialidades = (List<Especialidad>)Session["ListaEspecialidades"];
             Especialidad aModificar = ListaEspecialidades.Find(x => x.ID == id);
             TextBoxNombre.Text = aModificar.Nombre;
@@ -95,9 +94,24 @@ namespace Presentacion
             EspecialidadesNegocio negocio = new EspecialidadesNegocio();
             Especialidad aux = new Especialidad();
 
-            aux.Nombre=TextBoxNombre.Text;
-            negocio.Agregar(aux);
-            Response.Redirect("Especialidades.aspx");
+            try
+            {
+                aux.Nombre = TextBoxNombre.Text;
+      
+                negocio.Agregar(aux);
+
+                lblExito.Text = "Agregado correctamente";
+                lblExito.Visible = true;
+                string script = "Redireccionar('../Especialidades.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+           
+
         } 
 
         protected void BtnModificar_Click(object sender, EventArgs e)
@@ -108,7 +122,10 @@ namespace Presentacion
             try
             {
                 negocio.modificar(aux);
-                Response.Redirect("Especialidades.aspx");
+                lblExito.Visible = true;
+                lblExito.Text = "Modificado correctamente"; 
+                string script = "Redireccionar('../Especialidades.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
 
             }
             catch (Exception)

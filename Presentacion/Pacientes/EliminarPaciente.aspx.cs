@@ -51,10 +51,11 @@ namespace Presentacion
                 DdlObraSocial.DataBind();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
 
         }
@@ -68,14 +69,16 @@ namespace Presentacion
             {
 
                 negocio.bajaLogica(int.Parse(Request.QueryString["id"]));
-              
-                Response.Redirect("RegistrosPaciente.aspx");
+                string script = "confirmarAccion( 3 , 'RegistrosPaciente.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true);
+
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
     }

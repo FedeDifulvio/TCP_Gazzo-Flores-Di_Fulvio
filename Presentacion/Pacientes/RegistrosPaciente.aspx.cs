@@ -29,10 +29,11 @@ namespace Presentacion
                 Session.Add("ListaPacientes", Lista);
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
 

@@ -182,8 +182,8 @@ SET IDENTITY_INSERT [dbo].[ObraSocialesPorMedico] OFF
 
 SET IDENTITY_INSERT [dbo].[turnos] ON 
 INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (1,1,18,1,CAST(N'2021-07-15' AS Date),N'13',N'Solicitud de Turno',N'Asignado')
-INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (2,1,19,1,CAST(N'1998-07-16' AS Date),N'13',N'Turno Urgente',N'Asignado')
-INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (3,1,32,1,CAST(N'1998-07-23' AS Date),N'10',N'Lo mas pronto posible',N'Asignado')
-INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (4,1,32,1,CAST(N'1998-07-24' AS Date),N'11',N'Sin Comentarios',N'Asignado')
-INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (5,1,19,1,CAST(N'1998-07-17' AS Date),N'9' ,N'Solicito este turno',N'Asignado')
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (2,1,19,1,CAST(N'2021-07-16' AS Date),N'13',N'Turno Urgente',N'Asignado')
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (3,1,32,1,CAST(N'2021-07-23' AS Date),N'10',N'Lo mas pronto posible',N'Asignado')
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (4,1,32,1,CAST(N'2021-07-24' AS Date),N'11',N'Sin Comentarios',N'Asignado')
+INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (5,1,19,1,CAST(N'2021-07-17' AS Date),N'9' ,N'Solicito este turno',N'Asignado')
 SET IDENTITY_INSERT [dbo].[turnos] OFF

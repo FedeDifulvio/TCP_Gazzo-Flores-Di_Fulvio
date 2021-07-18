@@ -27,6 +27,7 @@ namespace Presentacion.Turnos
                 id = int.Parse(Request.QueryString["id"]);
                 lista = (List<Turno>)Session["ListaTurnos"];
                 turno = lista.Find(x => x.ID == id);
+                Session.Add("turno", turno); 
 
                 paciente = pacienteNegocio.Listar().Find(x => x.ID == turno.Paciente.ID);
 
@@ -36,12 +37,14 @@ namespace Presentacion.Turnos
                 ObraSocialTxt.Text = paciente.ObraSocial.Nombre;
                 LblEspecialidad.Text = "Especialidad: " + turno.Especialidad.Nombre;
                 LblMedico.Text = "Médico: " + turno.Medico.Nombre + " " + turno.Medico.Apellido;
+                
 
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
             
 
@@ -49,71 +52,79 @@ namespace Presentacion.Turnos
 
         protected void Calendario_DayRender(object sender, DayRenderEventArgs e)
         {
-            int idMedico = turno.Medico.ID;
-            List<DiaHorarioTrabajo> DiasMedico = medicoNegocio.ListarDiasHorariosMedicos(idMedico);
-
-            if (e.Day.Date < DateTime.Today)
+            try
             {
-                e.Day.IsSelectable = false;
-            }
+                int idMedico = turno.Medico.ID;
+                List<DiaHorarioTrabajo> DiasMedico = medicoNegocio.ListarDiasHorariosMedicos(idMedico);
 
-
-            foreach (var item in DiasMedico)
-            {
-                switch (item.idDia)
+                if (e.Day.Date < DateTime.Today)
                 {
-                    case 1:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Monday)
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
-                    case 2:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Tuesday)
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
-                    case 3:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Wednesday)
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
-                    case 4:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Thursday)
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
-
-                    case 5:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Friday)
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
-
-                    case 6:
-                        if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Saturday)
-                        {
-                            e.Cell.BackColor = System.Drawing.Color.Yellow;
-                        }
-
-                        break;
+                    e.Day.IsSelectable = false;
+                }
 
 
+                foreach (var item in DiasMedico)
+                {
+                    switch (item.idDia)
+                    {
+                        case 1:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Monday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+                        case 2:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Tuesday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+                        case 3:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Wednesday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+                        case 4:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Thursday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+
+                        case 5:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Friday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+
+                        case 6:
+                            if (e.Day.Date > DateTime.Today && e.Day.Date.DayOfWeek == DayOfWeek.Saturday)
+                            {
+                                e.Cell.BackColor = System.Drawing.Color.Yellow;
+                            }
+
+                            break;
+
+
+                    }
+                }
+
+                if (e.Cell.BackColor != System.Drawing.Color.Yellow)
+                {
+                    e.Day.IsSelectable = false;
                 }
             }
-
-            if (e.Cell.BackColor != System.Drawing.Color.Yellow)
+            catch (Exception ex)
             {
-                e.Day.IsSelectable = false;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
 
@@ -159,42 +170,65 @@ namespace Presentacion.Turnos
         {
             List<string> HorariosDisponibles = new List<string>();
 
-
             lblFecha.Visible = true;
             lblFecha.Text = "Horarios disponibles para el día " + Calendario.SelectedDate.ToShortDateString();
             ddlHorarios.Visible = true;
             btnAlterarTurno.Visible = true;
-            
-            HorariosDisponibles = Horario_Disponibles(turno.Medico.ID, Calendario.SelectedDate);
+            txtObservaciones.Visible = true;
+            txtObservaciones.Text = turno.Observacion;
 
-            int cont = 0;
-            ddlHorarios.Items.Clear();
-            foreach (var item in HorariosDisponibles)
+            try
             {
-                ddlHorarios.Items.Add(new ListItem(item, cont++.ToString()));
+                HorariosDisponibles = Horario_Disponibles(turno.Medico.ID, Calendario.SelectedDate);
+
+                int cont = 0;
+                ddlHorarios.Items.Clear();
+                foreach (var item in HorariosDisponibles)
+                {
+                    ddlHorarios.Items.Add(new ListItem(item, cont++.ToString()));
+
+                }
+            }
+            catch (Exception ex )
+            {
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
 
             }
+
+            
         }
 
         protected void btnAlterarTurno_Click(object sender, EventArgs e)
         {
+           
+         
+            EnvioMail envioMail = new EnvioMail();
             
+             Turno aux = (Turno)Session["turno"]; 
             try
-            {
-                int id = turno.ID;
-                DateTime fecha = Calendario.SelectedDate;
-                string hora = ddlHorarios.SelectedItem.ToString();
-                string observacion = "Turno Reprogramado para lo antes posible";
+            {   
+                aux.Fecha = Calendario.SelectedDate; 
+                aux.Hora = ddlHorarios.SelectedItem.ToString();
+                aux.Observacion = txtObservaciones.Text;
+                
 
-                turnoNegocio.ReprogramarTurno(id,fecha,hora,observacion);
+                turnoNegocio.ReprogramarTurno(aux.ID,aux.Fecha,aux.Hora, aux.Observacion);
 
-                Response.Redirect("../Turnos/RegistroTurnos.aspx");
+
+                envioMail.armarCorreo(aux, 2);
+                envioMail.EnviarEmail();
+
+
+                string script = "confirmarAccion( 2, 'RegistroTurnos.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true);
 
             }
-            catch (Exception)
+            catch (Exception ex )
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
             }
         }
 
@@ -202,5 +236,6 @@ namespace Presentacion.Turnos
         {
             Response.Redirect("../Turnos/RegistroTurnos.aspx");
         }
+
     }
 }

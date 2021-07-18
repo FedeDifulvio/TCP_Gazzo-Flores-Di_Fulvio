@@ -156,22 +156,41 @@ th {
 .modales-header {
     padding: 10px 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     border-bottom: 1px solid black;
 }
+
+    .modales-header .titulo2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: forestgreen; 
+    }
 
     .modales-header .titulo {
         font-size: 1.25rem;
         font-weight: bold;
     }
 
-    
 
-.modales-body {
+
+    .modales-body {
+        padding: 10px 15px;
+        text-align: center;
+       /* display: flex;
+        justify-content: center;
+        align-items: center;*/
+    }
+
+.modales-body2 {
     padding: 10px 15px;
     text-align: center;
-}
+     display: flex;
+     justify-content: center;
+     align-items: center;
+} 
+
+
 
 
 #overlay {
@@ -191,6 +210,10 @@ th {
         pointer-events: all;
     }  
 
+
+
+
+
     .labels{
         font-size: 30px; 
         color:darkgreen;
@@ -202,7 +225,31 @@ th {
 
 .label-turno2 {
     color: purple;
+} 
+
+ /*spinner*/
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #09f;
+    animation: spin 1s ease infinite;
 }
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
 
 
 

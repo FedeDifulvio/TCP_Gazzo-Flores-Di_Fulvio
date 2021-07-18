@@ -12,16 +12,21 @@
         </div>
             <div class="row">
                 <div class="col-md-6" style="padding:0px 70px">
-                    <asp:Label ID="labelAlta" CssClass="labels" Text="Alta Especialidad" runat="server" />
+                    <asp:Label ID="labelTitulo" CssClass="labels" Text="Alta Especialidad" runat="server" />
                     <br />
-                    <asp:Label ID="labelModificar"  CssClass="labels"  Text="Modificar Especialidad" runat="server" />
+                    <br />
                     <asp:TextBox id="TextBoxNombre" CssClass="form-control mb-3" MaxLength="30" ClientIdMode="Static" PlaceHolder="Especialidad" runat="server" />
                     <div>
                         <h1 class="error-form" id="TextBoxNombre-inv"></h1>
                     </div>
                     <asp:Button ID="BtnAgregar" CssClass="btn btn-primary" OnClick="BtnAgregar_Click" OnClientClick="return ValidarNombre()"  Text="Agregar" runat="server" />
+                    <br />
                     <asp:Button ID="BtnModificar"  CssClass="btn btn-primary" Text="Modificar" OnClientClick="return ValidarNombre()" OnClick="BtnModificar_Click" runat="server" />
                     <asp:Button ID="BtnCancelar" Text="Cancelar" CssClass="btn btn-danger" OnClick="BtnCancelar_Click" runat="server" />
+                    <br />
+                    <br />
+                    <br />
+                    <asp:Label ID="lblExito" CssClass="alert alert-success" Text="Agregado Correctamente" Visible="false" runat="server" />
                 </div>
                 <div class="col-md-6 mb-3">
                     <table id="example" class="display table table-light table-hover">
@@ -57,9 +62,9 @@
 
         </div>
 
-        <script src="../JavaScript/FuncionesValidaciones.js"></script>
+        <script src="../JavaScript/Funciones.js"></script>
         <script src="../JavaScript/Validaciones_ObraSocial_Especialidades.js"></script>
-         <script src="../JavaScript/popup.js"></script> v
+         <script src="../JavaScript/popup.js"></script> 
     </div>
 
 

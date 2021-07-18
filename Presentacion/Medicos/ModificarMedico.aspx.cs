@@ -55,10 +55,21 @@ namespace Presentacion.Medicos
             aux.ID =  int.Parse(Request.QueryString["id"]) ; 
             LegajosEnSesion = (List<Medico>)Session["ListaMedicos"];
 
-            negocio.Modificar(aux);
-            lista = negocio.Listar();
-            Session.Add("ListaMedicos", lista);
-            Response.Redirect("RegistroMedicos.aspx");
+            try
+            {
+                negocio.Modificar(aux);
+                lista = negocio.Listar();
+                Session.Add("ListaMedicos", lista);
+                string script = "confirmarAccion( 2 , 'RegistroMedicos.aspx')";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true);
+            }
+            catch (Exception ex )
+            {
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../PagError.aspx");
+
+            }
+            
 
 
         }

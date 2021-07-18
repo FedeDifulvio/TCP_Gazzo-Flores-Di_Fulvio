@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="col-md-3" style="text-align: center;">
-                    <asp:TextBox ID="DniTxt" PlaceHolder="Dni del paciente" MaxLength="8" ClientIDMode="Static" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="DniTxt" PlaceHolder="Dni del paciente" MaxLength="8" ClientIDMode="Static"  runat="server" CssClass="form-control" />
 
                     <div>
                         <h1 class="error-form" id="DniTxt-inv"></h1>
@@ -83,7 +83,7 @@
                 <div class="col-md-6 mt-5"> 
                     <asp:Label ID="lblFecha" CssClass="label-turno2 mb-3"  visible ="false" Text="" runat="server" />
                     <br />
-                    <asp:DropDownList ID="ddlHorarios" CssClass="mt-3 mb-3" Visible=" false" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlHorarios" CssClass="mt-3 mb-3" Visible="false" runat="server"></asp:DropDownList>
                     <br />
                     <asp:TextBox ID="txtObservaciones" TextMode="MultiLine" runat="server" Visible="false" CssClass="form-control mb-3" ClientIDMode="Static" MaxLength="300"></asp:TextBox>
 
@@ -93,6 +93,7 @@
 
                     <asp:Button ID="btnAgregarTurno" Visible="false" CssClass="btn btn-success mt-3" Text="Confirmar"  
                         OnClientClick="return ValidarObservacion()"  OnClick="btnAgregarTurno_Click" runat="server"  />
+                    
 
                 </div>
                 
@@ -100,11 +101,14 @@
              <div class="row justify-content-center">
                 <div class="col-md-" style="text-align:center">
                     <asp:Button ID="btnCancelar" CssClass="btn btn-danger mt-5 mb-4" Visible="false" OnClick="btnCancelar_Click"  Text="Cancelar" runat="server" />
-                </div>  
+                </div> 
             </div>
+
+            <div class="modal-contenedor"> </div>
         </div>
         
      
-         <script src="../JavaScript/FuncionesValidaciones.js"></script>
+         <script src="../JavaScript/Funciones.js"></script>
          <script src="../JavaScript/ValidacionesTurnos.js"></script>
+         <script src="../JavaScript/popup.js"></script>  
 </asp:Content>
