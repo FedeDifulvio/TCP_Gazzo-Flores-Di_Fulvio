@@ -103,6 +103,11 @@
                     <asp:Button ID="btnCancelar" CssClass="btn btn-danger mt-5 mb-4" Visible="false" OnClick="btnCancelar_Click"  Text="Cancelar" runat="server" />
                 </div> 
             </div>
+             <div class="row justify-content-center">
+                 <div class="col-md-4 mb-3" style="text-align:center">
+                       <a class="btn btn-secondary" href="../Home.aspx"> ← Volver </a>
+                 </div>
+              </div>
 
             <div class="modal-contenedor"> </div>
         </div>

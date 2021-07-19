@@ -57,6 +57,18 @@ footer .foot {
     cursor: pointer;
 }
 
+.card-menu {
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    background-color: #f3e9d2;
+}
+
+.img-card-menu {
+    width: 90px;
+    height: 90px;
+}
+
 .cont-menu {
     background-color: grey;
     box-shadow: 2px 0px 5px 2px grb(66,66,66);

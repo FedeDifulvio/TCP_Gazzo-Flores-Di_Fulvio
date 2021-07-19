@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="JavaScript\ValidacionesMedico.js" />
     <Content Include="JavaScript\ValidacionesTurnos.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Medicos\AltaMedico.aspx" />
     <Content Include="Medicos\DetalleMedico.aspx" />
     <Content Include="Medicos\EliminarMedico.aspx" />
@@ -101,6 +102,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Medicos\AltaMedico.aspx.cs">
       <DependentUpon>AltaMedico.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

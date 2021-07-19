@@ -100,5 +100,7 @@ function crearModal(param, pag) {
     modals.appendChild(innerModal)
 
 
-}  
+}   
+
+
 

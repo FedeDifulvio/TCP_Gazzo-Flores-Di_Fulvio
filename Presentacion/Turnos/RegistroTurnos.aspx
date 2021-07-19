@@ -37,9 +37,47 @@
                                         <th><%= item.Fecha.ToShortDateString() %> </th> 
                                         <th><%= item.Hora %> Hs </th> 
                                         <th> <span class="btn btn-success" onClick="verObservacion('<%=item.Observacion %>')">Observaciones</span> </th> 
-                                        <th><%= item.Estado %> </th>                                       
-                                         <th> <a href="ReprogramarTurnos.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /> </a> </th> 
-                                          <th> <a href="CancelarTurno.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/remove.png" alt="Alternate Text" /> </a> </th> 
+                                        <%
+                                            switch (item.Estado)
+                                            {
+                                                case "Asignado": %><th> <label style="color: green; border: 2px solid green; border-radius:5px; padding: 5px; text-align: center;" > <%= item.Estado %></label> </th>    <%
+                                                break;
+                                                case "Reprogramado": %><th><label style="color: rebeccapurple; border: 2px solid purple; border-radius:5px; padding: 5px; text-align: center;" > <%= item.Estado %></label> </th>    <%
+                                                break;
+                                                case "Cancelado": %><th> <label style="color: red; border: 2px solid red; border-radius:5px; padding: 5px; text-align: center;" > <%= item.Estado %></label> </th>    <%
+                                                break;
+                                               
+                                            }
+
+                                            %>
+                                                                            
+                                         <th><%if ( item.Fecha >= DateTime.Today)
+                                                 {
+                                                     if(item.Estado != "Cancelado")
+                                                     {
+                                                         %>
+                                                        <a href="ReprogramarTurnos.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /> </a> 
+                                                        <%
+                                                     }
+                                                   
+                                                 }
+                                                     %>
+                                           
+                                         </th> 
+                                          <th> 
+                                              <%if (item.Fecha >= DateTime.Today)
+                                                  {
+                                                      if(item.Estado != "Cancelado")
+                                                      {
+                                                          %>
+                                                          <a href="CancelarTurno.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/remove.png" alt="Alternate Text" /> </a> 
+                                                          <%
+                                                      }
+                                                    
+                                                 }
+                                                     %>
+
+                                          </th> 
                                     </tr>
                                  <%
 

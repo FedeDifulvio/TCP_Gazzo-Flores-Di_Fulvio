@@ -16,8 +16,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
 </head>
-<body style="background-color: #DDDDDD">
-    <nav class="navbar navbar-light" style="background-color: #ace6f6">
+<body style="background-color: #DDDDDD"> 
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-light" style="background-color: #ace6f6">
         <div class="container-fluid"> 
             <div class="icono-menu">
                 <img src="../img/desplegable.png" alt="" id="icono-menu"> 
@@ -26,7 +27,8 @@
                 <img src="../img/logotipo.png" alt="Alternate Text" />
             </div> 
             <div>
-                <h2>Iniciar Sesión</h2>
+                <h5>Nombre de Usuario</h5>
+                <asp:Button CssClass="btn btn-danger" Text="Cerrar Sesión" runat="server" />
              </div>
         </div>
       </nav>
@@ -50,9 +52,8 @@
             <li><a class="item-nav" href="../Especialidades.aspx" >Especialidades</a></li>
             <li><a class="item-nav" href="../ObrasSociales.aspx" >Obras Sociales</a></li>
         </ul>
-    </div> 
-    
-    <form id="form1" runat="server">
+    </div>
+        <%-- <button style="float: right"  class="btn btn-danger">Cerrar Sesión</button>--%>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
