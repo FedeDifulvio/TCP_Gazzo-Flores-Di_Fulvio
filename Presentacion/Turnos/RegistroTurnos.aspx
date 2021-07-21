@@ -26,8 +26,8 @@
                         </tr>
                    </thead>
                     <tbody>
-                        <%foreach (Dominio.Turno item in lista) { 
-                            
+                        <%foreach (Dominio.Turno item in lista) {
+                                if ( (item.Estado == "Asignado" || item.Estado == "Reprogramado" ) && item.Fecha < DateTime.Today) item.Estado = "Vencido";
                                 %>   
                                     <tr >
                                          <th><%= item.ID %> </th> 
@@ -46,14 +46,17 @@
                                                 break;
                                                 case "Cancelado": %><th> <label style="color: red; border: 2px solid red; border-radius:5px; padding: 5px; text-align: center;" > <%= item.Estado %></label> </th>    <%
                                                 break;
-                                               
+                                                case "Atendido": %><th><label style="color: blue; border: 2px solid blue; border-radius:5px; padding: 5px; text-align: center;" > <%= item.Estado %></label> </th>    <%
+                                                break;
+                                                case "Vencido": %><th><label style="color: orangered; border: 2px solid orangered; border-radius:5px; padding: 5px; text-align: center;" > <%= item.Estado %></label> </th>    <%
+                                                break;
                                             }
 
                                             %>
                                                                             
                                          <th><%if ( item.Fecha >= DateTime.Today)
                                                  {
-                                                     if(item.Estado != "Cancelado")
+                                                     if(item.Estado != "Cancelado" && item.Estado!= "Atendido" && item.Estado!= "Vencido")
                                                      {
                                                          %>
                                                         <a href="ReprogramarTurnos.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/edit.png" alt="Alternate Text" /> </a> 
@@ -67,7 +70,7 @@
                                           <th> 
                                               <%if (item.Fecha >= DateTime.Today)
                                                   {
-                                                      if(item.Estado != "Cancelado")
+                                                      if(item.Estado != "Cancelado" && item.Estado!= "Atendido" && item.Estado!= "Vencido")
                                                       {
                                                           %>
                                                           <a href="CancelarTurno.aspx?id=<%= item.ID %> "> <img style="width:30px; height:30px;" src="../img/remove.png" alt="Alternate Text" /> </a> 

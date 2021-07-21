@@ -27,8 +27,8 @@
                 <img src="../img/logotipo.png" alt="Alternate Text" />
             </div> 
             <div>
-                <h5>Nombre de Usuario</h5>
-                <asp:Button CssClass="btn btn-danger" Text="Cerrar Sesión" runat="server" />
+                <h5><%= nombre %></h5>
+                <asp:Button ID="btnCerrar" CssClass="btn btn-danger" OnClick="btnCerrar_Click"  Text="Cerrar Sesión" runat="server" />
              </div>
         </div>
       </nav>
@@ -38,19 +38,17 @@
              <img src="../img/arrow-pointing-left.png" class="arrowLeft" alt="Alternate Text" id="arrow" />
         </div>
         <ul> 
-            <li><a class="item-nav" href="../Home.aspx">Home</a></li> <!-- Todos-->
+            <li><a class="item-nav" href="../Info/Home.aspx">Home</a></li> <!-- Todos-->
             <li><a class="item-nav" href="../Turnos/NuevoTurno.aspx">Nuevo Turno</a></li> <!--Paciente-->
             <li> <a class="item-nav" href="../Turnos/MisTurnos.aspx">Mis Turnos</a></li> <!--Paciente, Medico-->
-            <li><a class="item-nav" href="../Turnos/CalendarioTurnos.aspx" >Calendario de Turnos</a></li> <!--Secretaria-->
+            <li><a class="item-nav" href="../Turnos/TurnosMedico.aspx" >Turnos Médico</a></li> <!--Medico-->
             <li><a class="item-nav" href="../Turnos/RegistroTurnos.aspx" >Registro de Turnos</a></li> 
             <li><a class="item-nav" href="../Pacientes/RegistrosPaciente.aspx" >Registro de Pacientes</a></li> 
             <li><a class="item-nav" href="../Medicos/RegistroMedicos.aspx" >Registro de Médicos</a></li> 
-            <li><a class="item-nav" href="../Favoritos.aspx" >Favoritos</a></li> <!--Paciente-->
-            <li><a class="item-nav" href="../SobreNosotros.aspx" >Sobre Nosotros</a></li>  <!--Lista de medicos y obras sociales -->
-            <li><a class="item-nav" href="../Contacto.aspx" >Contacto</a></li> 
-            <li><a class="item-nav" href="../Configuracion.aspx" >Configuración</a></li>  <!--Solo administrador-->
-            <li><a class="item-nav" href="../Especialidades.aspx" >Especialidades</a></li>
-            <li><a class="item-nav" href="../ObrasSociales.aspx" >Obras Sociales</a></li>
+            <li><a class="item-nav" href="../Info/SobreNosotros.aspx" >Sobre Nosotros</a></li>  <!--Lista de medicos y obras sociales -->
+            <li><a class="item-nav" href="../Info/Contacto.aspx" >Contacto</a></li> 
+            <li><a class="item-nav" href="../Especialidades/Especialidades.aspx" >Especialidades</a></li>
+            <li><a class="item-nav" href="../ObrasSociales/ObrasSociales.aspx" >Obras Sociales</a></li>
         </ul>
     </div>
         <%-- <button style="float: right"  class="btn btn-danger">Cerrar Sesión</button>--%>

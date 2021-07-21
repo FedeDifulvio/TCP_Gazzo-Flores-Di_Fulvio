@@ -18,7 +18,7 @@
                 <img src="../img/logotipo.png" alt="Alternate Text" />
                 <h3>Usuario</h3>
                 
-                <asp:TextBox CssClass="form-control" runat="server" />
+                <asp:TextBox ID="txtUserName" CssClass="form-control" runat="server" />
                 <br />
                 <h3>Contraseña</h3>
                 <asp:TextBox ID="txtPassword" CssClass="form-control" type="password" runat="server" />

@@ -211,9 +211,9 @@ namespace Presentacion.Turnos
                 aux.Fecha = Calendario.SelectedDate; 
                 aux.Hora = ddlHorarios.SelectedItem.ToString();
                 aux.Observacion = txtObservaciones.Text;
-                
+                aux.Estado = "Reprogramado";
 
-                turnoNegocio.ReprogramarTurno(aux.ID,aux.Fecha,aux.Hora, aux.Observacion);
+                turnoNegocio.ModificarTurno(aux.ID,aux.Fecha,aux.Hora, aux.Observacion, aux.Estado);
 
 
                 envioMail.armarCorreo(aux, 2);

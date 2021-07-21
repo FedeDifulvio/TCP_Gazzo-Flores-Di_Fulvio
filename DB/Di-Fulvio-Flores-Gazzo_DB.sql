@@ -3,7 +3,22 @@ Create database DiFulvio_Flores_Gazzo_DB
 GO 
 Use DiFulvio_Flores_Gazzo_DB
 Go
+Create Table TipoUsuario(
+ID int primary key not null identity(1,1),
+Nombre varchar(30) not null
+)
 
+
+Go
+Create Table Usuarios(
+ID int primary key not null identity(1,1),
+Username varchar(20) not null,
+Pass varchar(20) not null,
+TipoUsuario int not null foreign key references TipoUsuario(ID),
+Token varchar(15) null
+)
+
+Go
 Create Table ObraSocial(
     ID int primary key not null identity(1,1),
     Nombre varchar(50) not null,
@@ -187,3 +202,17 @@ INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[H
 INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (4,1,32,1,CAST(N'2021-07-24' AS Date),N'11',N'Sin Comentarios',N'Asignado')
 INSERT [dbo].[Turnos] ([ID], [IdMedico],[IdPaciente],[IdEspecialidad],[Fecha],[Hora],[Observacion],[Estado]) VALUES (5,1,19,1,CAST(N'2021-07-17' AS Date),N'9' ,N'Solicito este turno',N'Asignado')
 SET IDENTITY_INSERT [dbo].[turnos] OFF
+
+SET IDENTITY_INSERT [dbo].[TipoUsuario] ON 
+INSERT [dbo].[TipoUsuario] ([ID], [Nombre]) VALUES (1,N'Admin')
+INSERT [dbo].[TipoUsuario] ([ID], [Nombre]) VALUES (2,N'Secretario')
+INSERT [dbo].[TipoUsuario] ([ID], [Nombre]) VALUES (3,N'Medico')
+SET IDENTITY_INSERT [dbo].[TipoUsuario] OFF
+
+SET IDENTITY_INSERT [dbo].[Usuarios] ON 
+INSERT [dbo].[Usuarios] ([ID], [Username],[Pass],[TipoUsuario]) VALUES (1,N'Admin',N'1234',1)
+INSERT [dbo].[Usuarios] ([ID], [Username],[Pass],[TipoUsuario]) VALUES (2,N'Secretario',N'1234',2)
+SET IDENTITY_INSERT [dbo].[Usuarios] OFF
+
+
+

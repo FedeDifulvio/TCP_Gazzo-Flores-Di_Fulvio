@@ -69,20 +69,20 @@
   <ItemGroup>
     <Content Include="JavaScript\ValidacionesMedico.js" />
     <Content Include="JavaScript\ValidacionesTurnos.js" />
-    <Content Include="Login.aspx" />
+    <Content Include="Login\Login.aspx" />
     <Content Include="Medicos\AltaMedico.aspx" />
     <Content Include="Medicos\DetalleMedico.aspx" />
     <Content Include="Medicos\EliminarMedico.aspx" />
     <Content Include="Medicos\ModificarMedico.aspx" />
+    <Content Include="Turnos\TurnoAtendido.aspx" />
+    <Content Include="Turnos\TurnosMedico.aspx" />
     <Content Include="Pacientes\AltaPaciente.aspx" />
-    <Content Include="PagError.aspx" />
+    <Content Include="Info\PagError.aspx" />
     <Content Include="Turnos\CalendarioTurnos.aspx" />
-    <Content Include="Configuracion.aspx" />
-    <Content Include="Contacto.aspx" />
+    <Content Include="Info\Contacto.aspx" />
     <Content Include="Pacientes\EliminarPaciente.aspx" />
-    <Content Include="Especialidades.aspx" />
-    <Content Include="Favoritos.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="Especialidades\Especialidades.aspx" />
+    <Content Include="Info\Home.aspx" />
     <Content Include="JavaScript\Funciones.js" />
     <Content Include="JavaScript\navLateral.js" />
     <Content Include="JavaScript\popup.js" />
@@ -93,20 +93,20 @@
     <Content Include="Turnos\MisTurnos.aspx" />
     <Content Include="Pacientes\ModificarPaciente.aspx" />
     <Content Include="Turnos\NuevoTurno.aspx" />
-    <Content Include="ObrasSociales.aspx" />
+    <Content Include="ObrasSociales\ObrasSociales.aspx" />
     <Content Include="Pacientes\RegistrosPaciente.aspx" />
-    <Content Include="SobreNosotros.aspx" />
+    <Content Include="Info\SobreNosotros.aspx" />
     <Content Include="Styles\Styles.css" />
     <Content Include="Turnos\RegistroTurnos.aspx" />
     <Content Include="Turnos\ReprogramarTurnos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="Login\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="Login\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Medicos\AltaMedico.aspx.cs">
@@ -137,6 +137,20 @@
     <Compile Include="Medicos\ModificarMedico.aspx.designer.cs">
       <DependentUpon>ModificarMedico.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Turnos\TurnoAtendido.aspx.cs">
+      <DependentUpon>TurnoAtendido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Turnos\TurnoAtendido.aspx.designer.cs">
+      <DependentUpon>TurnoAtendido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Turnos\TurnosMedico.aspx.cs">
+      <DependentUpon>TurnosMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Turnos\TurnosMedico.aspx.designer.cs">
+      <DependentUpon>TurnosMedico.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pacientes\AltaPaciente.aspx.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -144,11 +158,11 @@
     <Compile Include="Pacientes\AltaPaciente.aspx.designer.cs">
       <DependentUpon>AltaPaciente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PagError.aspx.cs">
+    <Compile Include="Info\PagError.aspx.cs">
       <DependentUpon>PagError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PagError.aspx.designer.cs">
+    <Compile Include="Info\PagError.aspx.designer.cs">
       <DependentUpon>PagError.aspx</DependentUpon>
     </Compile>
     <Compile Include="Turnos\CalendarioTurnos.aspx.cs">
@@ -158,18 +172,11 @@
     <Compile Include="Turnos\CalendarioTurnos.aspx.designer.cs">
       <DependentUpon>CalendarioTurnos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion.aspx.cs">
-      <DependentUpon>Configuracion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Configuracion.aspx.designer.cs">
-      <DependentUpon>Configuracion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contacto.aspx.cs">
+    <Compile Include="Info\Contacto.aspx.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contacto.aspx.designer.cs">
+    <Compile Include="Info\Contacto.aspx.designer.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pacientes\EliminarPaciente.aspx.cs">
@@ -179,25 +186,18 @@
     <Compile Include="Pacientes\EliminarPaciente.aspx.designer.cs">
       <DependentUpon>EliminarPaciente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Especialidades.aspx.cs">
+    <Compile Include="Especialidades\Especialidades.aspx.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Especialidades.aspx.designer.cs">
+    <Compile Include="Especialidades\Especialidades.aspx.designer.cs">
       <DependentUpon>Especialidades.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Favoritos.aspx.cs">
-      <DependentUpon>Favoritos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Favoritos.aspx.designer.cs">
-      <DependentUpon>Favoritos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Home.aspx.cs">
+    <Compile Include="Info\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
+    <Compile Include="Info\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
@@ -242,11 +242,11 @@
     <Compile Include="Turnos\NuevoTurno.aspx.designer.cs">
       <DependentUpon>NuevoTurno.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ObrasSociales.aspx.cs">
+    <Compile Include="ObrasSociales\ObrasSociales.aspx.cs">
       <DependentUpon>ObrasSociales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ObrasSociales.aspx.designer.cs">
+    <Compile Include="ObrasSociales\ObrasSociales.aspx.designer.cs">
       <DependentUpon>ObrasSociales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -257,11 +257,11 @@
     <Compile Include="Pacientes\RegistrosPaciente.aspx.designer.cs">
       <DependentUpon>RegistrosPaciente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SobreNosotros.aspx.cs">
+    <Compile Include="Info\SobreNosotros.aspx.cs">
       <DependentUpon>SobreNosotros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SobreNosotros.aspx.designer.cs">
+    <Compile Include="Info\SobreNosotros.aspx.designer.cs">
       <DependentUpon>SobreNosotros.aspx</DependentUpon>
     </Compile>
     <Compile Include="Turnos\RegistroTurnos.aspx.cs">

@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Presentacion
+namespace Presentacion.Medicos
 {
 
 
-    public partial class Configuracion
+    public partial class TurnosMedico
     {
     }
 }

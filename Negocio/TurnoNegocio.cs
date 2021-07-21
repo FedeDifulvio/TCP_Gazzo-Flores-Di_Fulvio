@@ -15,7 +15,7 @@ namespace Negocio
             List<Turno> lista = new List<Turno>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "select t.ID,t.Fecha,t.Hora,t.Estado,m.ID as IdMedico,m.Nombre as NombreMedico,m.Apellido as ApellidoMedico,p.Apellido as ApellidoPaciente,p.Nombre as NombrePaciente, p.Mail as MailPaciente, e.ID as IdEspecialidad,e.Nombre as NombreEspecialidad,p.ID as IdPaciente,T.Observacion from turnos t inner join medicos m on t.IdMedico = m.ID inner join Pacientes p on  t.IdPaciente= p.ID inner join Especialidades e on e.ID=t.IdEspecialidad";
+            string consulta = "select t.ID,t.Fecha,t.Hora,t.Estado,m.ID as IdMedico,m.Nombre as NombreMedico,m.Apellido as ApellidoMedico,m.Legajo as LegajoMedico,p.Apellido as ApellidoPaciente,p.Nombre as NombrePaciente, p.Mail as MailPaciente, e.ID as IdEspecialidad,e.Nombre as NombreEspecialidad,p.ID as IdPaciente,T.Observacion from turnos t inner join medicos m on t.IdMedico = m.ID inner join Pacientes p on  t.IdPaciente= p.ID inner join Especialidades e on e.ID=t.IdEspecialidad";
 
             try
             {
@@ -37,6 +37,7 @@ namespace Negocio
                     aux.Medico.ID = (int)datos.Lector["IdMedico"];
                     aux.Medico.Nombre = (string)datos.Lector["NombreMedico"];
                     aux.Medico.Apellido = (string)datos.Lector["ApellidoMedico"];
+                    aux.Medico.Legajo = (string)datos.Lector["LegajoMedico"];
 
                     aux.Paciente = new Paciente();
                     aux.Paciente.Apellido = (string)datos.Lector["ApellidoPaciente"];
@@ -130,12 +131,12 @@ namespace Negocio
 
         }
 
-        public void ReprogramarTurno(int id, DateTime fecha, string hora, string observacion)
+        public void ModificarTurno(int id, DateTime fecha, string hora, string observacion, string estado)
         {
             List<Turno> lista = new List<Turno>();
             AccesoDatos datos = new AccesoDatos();
 
-            string consulta = "Update Turnos Set Fecha=@Fecha, Hora=@Hora, Observacion=@Observacion, Estado='Reprogramado' Where ID=@IdTurno";
+            string consulta = "Update Turnos Set Fecha=@Fecha, Hora=@Hora, Observacion=@Observacion, Estado=@Estado Where ID=@IdTurno";
 
             try
             {
@@ -144,6 +145,7 @@ namespace Negocio
                 datos.AgregarParametro("@IdTurno", id);
                 datos.AgregarParametro("@Hora", hora);
                 datos.AgregarParametro("@Observacion", observacion);
+                datos.AgregarParametro("@Estado", estado);
 
                 datos.EjecutarAccion();
 

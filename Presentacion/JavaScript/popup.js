@@ -54,6 +54,8 @@ function confirmarAccion(accion, pag) {
             break;
         case 5: MensajeOK('Turno cancelado exitosamente.')
             break;
+        case 6: MensajeOK('Turno Finalizado con éxito.')
+            break;
     }
   
     setTimeout(() => {

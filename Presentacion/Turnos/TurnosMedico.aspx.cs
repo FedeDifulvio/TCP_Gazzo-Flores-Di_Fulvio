@@ -7,19 +7,19 @@ using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
 
-namespace Presentacion.Turnos
+namespace Presentacion.Medicos
 {
-    public partial class RegistroTurnos : System.Web.UI.Page
+    public partial class TurnosMedico : System.Web.UI.Page
     {
-        public List<Turno> lista;
-        public TurnoNegocio negocio = new TurnoNegocio();
+       
+        public string legajoMedico = "D1111";
+        public TurnoNegocio turnoNegocio = new TurnoNegocio();
+        public List<Turno> lista = new List<Turno>();
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                lista = negocio.Listar();
-                Session.Add("ListaTurnos", lista);
-
+                lista = turnoNegocio.Listar().FindAll(x => x.Medico.Legajo == legajoMedico && x.Estado != "Cancelado" && x.Fecha >= DateTime.Today);
             }
             catch (Exception ex)
             {
@@ -27,7 +27,7 @@ namespace Presentacion.Turnos
                 Session.Add("error", ex.Message.ToString());
                 Response.Redirect("../PagError.aspx");
             }
-           
+
         }
     }
 }

@@ -67,7 +67,7 @@ namespace Presentacion
             try
             {
                 negocio.eliminarEspecialidad(id);
-                Response.Redirect("Especialidades.aspx");
+                Response.Redirect("../Especialidades/Especialidades.aspx");
             }
             catch (Exception)
             {
@@ -102,7 +102,7 @@ namespace Presentacion
 
                 lblExito.Text = "Agregado correctamente";
                 lblExito.Visible = true;
-                string script = "Redireccionar('../Especialidades.aspx')";
+                string script = "Redireccionar('../Especialidades/Especialidades.aspx')";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
             }
             catch (Exception)
@@ -124,7 +124,7 @@ namespace Presentacion
                 negocio.modificar(aux);
                 lblExito.Visible = true;
                 lblExito.Text = "Modificado correctamente"; 
-                string script = "Redireccionar('../Especialidades.aspx')";
+                string script = "Redireccionar('../Especialidades/Especialidades.aspx')";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
 
             }
@@ -137,7 +137,7 @@ namespace Presentacion
 
         protected void BtnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Especialidades.aspx"); 
+            Response.Redirect("../Especialidades/Especialidades.aspx"); 
         }
     }
 }
