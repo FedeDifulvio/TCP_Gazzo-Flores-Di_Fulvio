@@ -13,9 +13,19 @@ namespace Presentacion
     {
         public List<Paciente> Lista;
         public List<Paciente> listaNoFiltrada;
+
+        public Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-           cargarPacientes();
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 1 && usuario.TipoUsuario.Id != 2)
+            {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
+
+
+            cargarPacientes();
         }
 
         public void cargarPacientes()

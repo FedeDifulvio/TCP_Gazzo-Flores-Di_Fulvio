@@ -14,10 +14,19 @@ namespace Presentacion.Medicos
     {
         int id;
         Medico MedicoModificar = new Medico();
+        public Usuario usuario = new Usuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblLegajo.Style["Visibility"] = "hidden";
-            btnOkLegajo.Style["Visibility"] = "hidden";
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 1)
+            {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
+
+
+           
 
             if (!IsPostBack)
             {

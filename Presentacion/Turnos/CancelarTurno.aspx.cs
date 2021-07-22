@@ -13,9 +13,19 @@ namespace Presentacion.Turnos
     {
         public Turno turno;
         public List <Turno> lista;
+        public Usuario usuario = new Usuario();
+
         int id;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 1 && usuario.TipoUsuario.Id != 2)
+            {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
             try
             {
                 

@@ -212,7 +212,6 @@ SET IDENTITY_INSERT [dbo].[TipoUsuario] OFF
 SET IDENTITY_INSERT [dbo].[Usuarios] ON 
 INSERT [dbo].[Usuarios] ([ID], [Username],[Pass],[TipoUsuario]) VALUES (1,N'Admin',N'1234',1)
 INSERT [dbo].[Usuarios] ([ID], [Username],[Pass],[TipoUsuario]) VALUES (2,N'Secretario',N'1234',2)
+INSERT [dbo].[Usuarios] ([ID], [Username],[Pass],[TipoUsuario],[Token]) VALUES (3,N'HernanCrespo',N'1234',3,N'D1111')
 SET IDENTITY_INSERT [dbo].[Usuarios] OFF
-
-
 

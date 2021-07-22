@@ -89,7 +89,6 @@
     <Content Include="JavaScript\Validaciones_ObraSocial_Especialidades.js" />
     <Content Include="Medicos\RegistroMedicos.aspx" />
     <Content Include="Turnos\CancelarTurno.aspx" />
-    <Content Include="Turnos\MisTurnos.aspx" />
     <Content Include="Pacientes\ModificarPaciente.aspx" />
     <Content Include="Turnos\NuevoTurno.aspx" />
     <Content Include="ObrasSociales\ObrasSociales.aspx" />
@@ -212,13 +211,6 @@
     </Compile>
     <Compile Include="Turnos\CancelarTurno.aspx.designer.cs">
       <DependentUpon>CancelarTurno.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Turnos\MisTurnos.aspx.cs">
-      <DependentUpon>MisTurnos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Turnos\MisTurnos.aspx.designer.cs">
-      <DependentUpon>MisTurnos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pacientes\ModificarPaciente.aspx.cs">
       <DependentUpon>ModificarPaciente.aspx</DependentUpon>

@@ -11,10 +11,19 @@ namespace Presentacion
 {
     public partial class EliminarPaciente : System.Web.UI.Page
     {
+        public Usuario usuario = new Usuario();
         public Paciente pacienteEliminar = new Paciente();
         int id;
         protected void Page_Load(object sender, EventArgs e)
         {
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 1 && usuario.TipoUsuario.Id != 2)
+            {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
+
+
             if (!IsPostBack)
             {
 

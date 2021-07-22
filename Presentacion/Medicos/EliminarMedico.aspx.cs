@@ -13,10 +13,18 @@ namespace Presentacion.Medicos
     {
         int id;
         Medico MedicoEliminar = new Medico();
+
+        public Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-                List<Medico> Lista = (List<Medico>)Session["ListaMedicos"];
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 1)
+            {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
+
+            List<Medico> Lista = (List<Medico>)Session["ListaMedicos"];
 
 
                 id = int.Parse(Request.QueryString["id"]);

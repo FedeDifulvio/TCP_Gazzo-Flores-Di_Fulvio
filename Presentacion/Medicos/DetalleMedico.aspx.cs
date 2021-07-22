@@ -15,11 +15,21 @@ namespace Presentacion.Medicos
         public List<ObraSocialDeMedico> ObraSocial = new List<ObraSocialDeMedico>();
         public List<DiaHorarioTrabajo> DiaHorario = new List<DiaHorarioTrabajo>();
         public MedicoNegocio Negocio = new MedicoNegocio();
-        public int IdMedico; 
+        public int IdMedico;
+        public Usuario usuario = new Usuario();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 1)
             {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
+
+           
+
                 if (Request.QueryString["table"] == "obra")
                 {
 
@@ -47,14 +57,9 @@ namespace Presentacion.Medicos
 
                 cargarDetalle();
 
-            }
-            catch (Exception ex)
-            {
+           
 
-                Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../Info/PagError.aspx");
-            } 
-            
+
         }
 
         protected void btnAgregarObra_Click(object sender, EventArgs e)

@@ -11,8 +11,18 @@ namespace Presentacion.Medicos
 {
     public partial class AltaMedico : System.Web.UI.Page
     {
+        public Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 1)
+            {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
+            
+
             lblLegajo.Style["Visibility"] = "hidden";
             btnOkLegajo.Style["Visibility"] = "hidden";
         }

@@ -11,11 +11,23 @@ namespace Presentacion
 {
     public partial class AltaPaciente : System.Web.UI.Page
     {
-        
+        public Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e) 
         {
+
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 1 && usuario.TipoUsuario.Id != 2)
+            {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
+
+
             lblDNI.Style["Visibility"] = "hidden";
             btnOK.Style["Visibility"] = "hidden";
+
+
+
 
             if (!IsPostBack)
             {  

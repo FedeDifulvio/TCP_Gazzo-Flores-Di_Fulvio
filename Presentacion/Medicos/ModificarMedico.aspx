@@ -47,8 +47,7 @@
             </div>
              <div class="row justify-content-center mb-3">
                 <div class="col-md-4 mt-2 mb-2">
-                    <asp:Label ID="lblLegajo"  Text="El legajo no se encuentra disponible" CssClass="alert alert-danger" runat="server" />
-                    <asp:Button ID="btnOkLegajo" onClick="btnOkLegajo_Click" CssClass="btn btn-danger" Text="Ok" runat="server" />
+             
                 </div>     
             </div>
             <div class="row justify-content-center mb-3">

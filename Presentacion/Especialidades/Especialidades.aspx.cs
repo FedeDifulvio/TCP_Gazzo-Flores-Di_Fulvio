@@ -12,8 +12,17 @@ namespace Presentacion
     public partial class Especialidades : System.Web.UI.Page
     {
         public List<Especialidad> ListaEspecialidades;
+        public Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            usuario = (Usuario)Session["Usuario"];
+            if (usuario.TipoUsuario.Id != 3)
+            {
+                Session.Add("error", "Permisos invalidos");
+                Response.Redirect("../Info/PagError.aspx");
+            }
+
             if (!IsPostBack)
             {
                 if (Request.QueryString["id"] == null)
