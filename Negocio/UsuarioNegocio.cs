@@ -24,7 +24,8 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     usuario.Id = (int)datos.Lector["Id"];
-                    usuario.TipoUsuario = new TipoUsuario((int)datos.Lector["TipoUsuario"], (string)datos.Lector["NombreTipo"]);                  
+                    usuario.TipoUsuario = new TipoUsuario((int)datos.Lector["TipoUsuario"], (string)datos.Lector["NombreTipo"]); 
+                    
                     if(usuario.TipoUsuario.Id != 1 && usuario.TipoUsuario.Id != 2)
                     {
                         usuario.Token =(string)datos.Lector["Token"];

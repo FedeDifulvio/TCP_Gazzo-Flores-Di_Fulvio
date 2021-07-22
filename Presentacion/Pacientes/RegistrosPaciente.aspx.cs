@@ -33,7 +33,7 @@ namespace Presentacion
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
 

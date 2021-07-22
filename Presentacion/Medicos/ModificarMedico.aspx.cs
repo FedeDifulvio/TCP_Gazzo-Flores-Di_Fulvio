@@ -39,21 +39,17 @@ namespace Presentacion.Medicos
 
         }
 
-        protected void btnOkLegajo_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             MedicoNegocio negocio = new MedicoNegocio();
             Medico aux = new Medico();
-            List<Medico> lista = new List<Medico>();
-            List<Medico> LegajosEnSesion = new List<Medico>();
+            List<Medico> lista = new List<Medico>();            
             aux.Nombre = TextBoxNombre.Text;
             aux.Apellido = TextBoxApellido.Text;
             aux.ID =  int.Parse(Request.QueryString["id"]) ; 
-            LegajosEnSesion = (List<Medico>)Session["ListaMedicos"];
+            
 
             try
             {
@@ -66,7 +62,7 @@ namespace Presentacion.Medicos
             catch (Exception ex )
             {
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
 
             }
             

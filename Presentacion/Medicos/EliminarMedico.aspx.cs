@@ -15,8 +15,7 @@ namespace Presentacion.Medicos
         Medico MedicoEliminar = new Medico();
         protected void Page_Load(object sender, EventArgs e)
         {
-                
-
+            
                 List<Medico> Lista = (List<Medico>)Session["ListaMedicos"];
 
 
@@ -49,7 +48,7 @@ namespace Presentacion.Medicos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
     }

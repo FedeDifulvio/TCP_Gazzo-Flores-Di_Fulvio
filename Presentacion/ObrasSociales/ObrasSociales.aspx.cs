@@ -56,10 +56,11 @@ namespace Presentacion
                 Session.Add("ListaObrasSociales", negocio.listar());
                 ListaObrasSociales = (List<ObraSocial>)Session["ListaObrasSociales"];
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
         } 
 
@@ -70,17 +71,20 @@ namespace Presentacion
             try
             {
                 negocio.eliminarObraSocial(id);
-                Response.Redirect("ObrasSociales.aspx");
+                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
+            Response.Redirect("../ObrasSociales/ObrasSociales.aspx");
         }
 
         public void modificacionObraSocial()
-        {
+        {           
+
             int id = int.Parse(Request.QueryString["id"]);
             BtnAgregar.Style["Visibility"] = "hidden";
             BtnModificar.Style["Visibility"] = "visible";
@@ -103,14 +107,15 @@ namespace Presentacion
                 negocio.Agregar(aux);
                 lblExito.Visible = true;
                 lblExito.Text = "Dado de alta correctamente";
-                string script = "Redireccionar('../ObrasSociales.aspx')";
+                string script = "Redireccionar('../ObrasSociales/ObrasSociales.aspx')";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
 
         }
@@ -125,15 +130,16 @@ namespace Presentacion
                 negocio.modificar(aux);
                 lblExito.Visible = true;
                 lblExito.Text = "Modificado correctamente";
-                string script = "Redireccionar('../ObrasSociales.aspx')";
+                string script = "Redireccionar('../ObrasSociales/ObrasSociales.aspx')";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
 

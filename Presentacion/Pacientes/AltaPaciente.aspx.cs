@@ -83,10 +83,11 @@ namespace Presentacion
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
             
             

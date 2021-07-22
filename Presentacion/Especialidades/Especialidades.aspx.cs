@@ -52,10 +52,11 @@ namespace Presentacion
                 Session.Add("ListaEspecialidades", ListaEspecialidades);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
         } 
 
@@ -67,13 +68,15 @@ namespace Presentacion
             try
             {
                 negocio.eliminarEspecialidad(id);
-                Response.Redirect("../Especialidades/Especialidades.aspx");
+                
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
-            } 
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
+            }
+            Response.Redirect("../Especialidades/Especialidades.aspx");
         } 
 
         public void modificarEspecialidad()
@@ -105,10 +108,11 @@ namespace Presentacion
                 string script = "Redireccionar('../Especialidades/Especialidades.aspx')";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
            
 
@@ -128,10 +132,11 @@ namespace Presentacion
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "ok", script, true);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
 

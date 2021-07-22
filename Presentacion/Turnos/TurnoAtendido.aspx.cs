@@ -16,43 +16,52 @@ namespace Presentacion.Turnos
         public int idTurno;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             try
             {
+                
+                
+                    idTurno = int.Parse(Request.QueryString["id"]);
+                    turno = turnoNegocio.Listar().Find(x => x.ID == idTurno);
 
-                idTurno = int.Parse(Request.QueryString["id"]);
-                turno = turnoNegocio.Listar().Find(x => x.ID == idTurno);
+                    NombreTxt.Text = turno.Paciente.Nombre + " " + turno.Paciente.Apellido;
+                    EspecialidadTxt.Text = turno.Especialidad.Nombre;
+                    FechaTextBox.Text = turno.Fecha.ToShortDateString();
+                    HoraTxt.Text = turno.Hora + " hs";
+                   
+                if(!IsPostBack) txtObservaciones.Text = turno.Observacion;
 
-                NombreTxt.Text = turno.Paciente.Nombre + " " + turno.Paciente.Apellido;
-                EspecialidadTxt.Text = turno.Especialidad.Nombre;
-                FechaTextBox.Text = turno.Fecha.ToShortDateString();
-                HoraTxt.Text = turno.Hora + " hs";
-                txtObservaciones.Text = turno.Observacion;
+
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
             
         }
 
         protected void btnFinalizarTurno_Click(object sender, EventArgs e)
         {
-            turno.Observacion = txtObservaciones.Text;
-            turno.Estado = "Atendido";
+            Turno aux = new Turno();
+            aux = turno;
+            aux.Observacion = txtObservaciones.Text;
+            aux.Estado = "Atendido";
 
 
             try
             {
-                turnoNegocio.ModificarTurno(turno.ID, turno.Fecha, turno.Hora, turno.Observacion, turno.Estado);
+                turnoNegocio.ModificarTurno(aux.ID, aux.Fecha, aux.Hora, aux.Observacion, aux.Estado);
                 string script = "confirmarAccion( 6, 'TurnosMedico.aspx')";
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
 
 

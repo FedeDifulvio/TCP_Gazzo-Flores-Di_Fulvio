@@ -34,10 +34,10 @@ namespace Presentacion.Turnos
                 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
            
 
@@ -53,10 +53,11 @@ namespace Presentacion.Turnos
                 ScriptManager.RegisterStartupScript(this, typeof(Page), "MensajeOk", script, true);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
             }
             
 

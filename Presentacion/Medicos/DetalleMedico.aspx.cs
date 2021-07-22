@@ -18,8 +18,8 @@ namespace Presentacion.Medicos
         public int IdMedico; 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            
+            try
+            {
                 if (Request.QueryString["table"] == "obra")
                 {
 
@@ -30,7 +30,7 @@ namespace Presentacion.Medicos
                 if (Request.QueryString["table"] == "esp")
                 {
 
-                   Negocio.ElimEspecialidadMedico(int.Parse(Request.QueryString["idEspe"]));
+                    Negocio.ElimEspecialidadMedico(int.Parse(Request.QueryString["idEspe"]));
 
                 }
 
@@ -43,10 +43,17 @@ namespace Presentacion.Medicos
 
                 ocultarDllObra();
                 ocultarDllEspecialidad();
-                ocultarDllDia(); 
+                ocultarDllDia();
 
                 cargarDetalle();
-               
+
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex.Message.ToString());
+                Response.Redirect("../Info/PagError.aspx");
+            } 
             
         }
 
@@ -97,7 +104,7 @@ namespace Presentacion.Medicos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx"); 
+                Response.Redirect("../Info/PagError.aspx");
             }
 
         }
@@ -119,7 +126,7 @@ namespace Presentacion.Medicos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
 
         }  
@@ -159,7 +166,7 @@ namespace Presentacion.Medicos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
 
@@ -189,7 +196,7 @@ namespace Presentacion.Medicos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
 
@@ -232,7 +239,7 @@ namespace Presentacion.Medicos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             } 
 
             
@@ -340,7 +347,7 @@ namespace Presentacion.Medicos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
     }

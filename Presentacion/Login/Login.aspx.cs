@@ -22,18 +22,21 @@ namespace Presentacion
         {
            usuario.User = txtUserName.Text;
            usuario.Pass= txtPassword.Text;
+            
+                if (negocio.Loguear(usuario))
+                {
+                    Session.Add("Usuario", usuario);
+                    Response.Redirect("../Info/Home.aspx");
 
-            if (negocio.Loguear(usuario))
-            {
-                Session.Add("Usuario", usuario);
-                Response.Redirect("../Info/Home.aspx");
-
-            }
-            else
-            {
-                Session.Add("error", "Usuario Incorrecto, intente nuevamente");
-                Response.Redirect("../Info/PagError.aspx");
-            }
+                }
+                else
+                {
+                    Session.Add("error", "Usuario Incorrecto, intente nuevamente");
+                    Response.Redirect("../Info/PagError.aspx");
+                }
+            
+            
+            
 
             
         }

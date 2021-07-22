@@ -44,7 +44,7 @@ namespace Presentacion.Turnos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
             
 
@@ -124,7 +124,7 @@ namespace Presentacion.Turnos
             catch (Exception ex)
             {
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
 
@@ -192,7 +192,7 @@ namespace Presentacion.Turnos
             catch (Exception ex )
             {
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
 
             }
 
@@ -228,7 +228,7 @@ namespace Presentacion.Turnos
             {
 
                 Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../PagError.aspx");
+                Response.Redirect("../Info/PagError.aspx");
             }
         }
 

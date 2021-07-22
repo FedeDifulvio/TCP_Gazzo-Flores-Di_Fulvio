@@ -54,8 +54,7 @@
 
                                             %>
                                                                             
-                                         <th><%if ( item.Fecha >= DateTime.Today)
-                                                 {
+                                         <th><%
                                                      if(item.Estado != "Cancelado" && item.Estado!= "Atendido" && item.Estado!= "Vencido")
                                                      {
                                                          %>
@@ -63,13 +62,12 @@
                                                         <%
                                                      }
                                                    
-                                                 }
+                                                 
                                                      %>
                                            
                                          </th> 
                                           <th> 
-                                              <%if (item.Fecha >= DateTime.Today)
-                                                  {
+                                              <%
                                                       if(item.Estado != "Cancelado" && item.Estado!= "Atendido" && item.Estado!= "Vencido")
                                                       {
                                                           %>
@@ -77,7 +75,7 @@
                                                           <%
                                                       }
                                                     
-                                                 }
+                                                 
                                                      %>
 
                                           </th> 
@@ -96,7 +94,7 @@
             </div> 
             <div class="row justify-content-center">
                  <div class="col-md-4 mb-3" style="text-align:center">
-                       <a class="btn btn-secondary" href="../Home.aspx"> ← Volver </a>
+                       <a class="btn btn-secondary" href="../Info/Home.aspx"> ← Volver </a>
                  </div>
               </div>
             <div class="modal-contenedor">

@@ -78,7 +78,6 @@
     <Content Include="Turnos\TurnosMedico.aspx" />
     <Content Include="Pacientes\AltaPaciente.aspx" />
     <Content Include="Info\PagError.aspx" />
-    <Content Include="Turnos\CalendarioTurnos.aspx" />
     <Content Include="Info\Contacto.aspx" />
     <Content Include="Pacientes\EliminarPaciente.aspx" />
     <Content Include="Especialidades\Especialidades.aspx" />
@@ -164,13 +163,6 @@
     </Compile>
     <Compile Include="Info\PagError.aspx.designer.cs">
       <DependentUpon>PagError.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Turnos\CalendarioTurnos.aspx.cs">
-      <DependentUpon>CalendarioTurnos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Turnos\CalendarioTurnos.aspx.designer.cs">
-      <DependentUpon>CalendarioTurnos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Info\Contacto.aspx.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
