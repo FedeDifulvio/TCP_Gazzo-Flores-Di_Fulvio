@@ -82,17 +82,27 @@ namespace Presentacion.Medicos
         protected void btnAltaObra_Click(object sender, EventArgs e)
         {
 
-            try
-            {
+          
                 int id = int.Parse(ddlObraSocial.SelectedValue);
 
                 if (ObraSocial.Find(x => x.obraSocial.ID == id) == null)
                 {
-                    Negocio.AgregarObraSocialMedico(id, IdMedico);
-                    ObraSocial = Negocio.ListarObrasSocialesMedico(IdMedico);
-                    ocultarDllObra();
-                    IdMedico = int.Parse(Request.QueryString["idMedico"]);
-                    Response.Redirect("DetalleMedico.aspx?idMedico=" + IdMedico);
+                        try
+                        {
+                            Negocio.AgregarObraSocialMedico(id, IdMedico);
+                            ObraSocial = Negocio.ListarObrasSocialesMedico(IdMedico);
+                            ocultarDllObra();
+                            IdMedico = int.Parse(Request.QueryString["idMedico"]);
+                    
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Session.Add("error", ex.Message.ToString());
+                            Response.Redirect("../Info/PagError.aspx");
+                        }
+                        Response.Redirect("DetalleMedico.aspx?idMedico=" + IdMedico);
+
                 }
                 else
                 {
@@ -104,13 +114,10 @@ namespace Presentacion.Medicos
 
 
                 }
-            }
-            catch (Exception ex )
-            {
+            
 
-                Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../Info/PagError.aspx");
-            }
+                
+            
 
         }
 
@@ -217,17 +224,27 @@ namespace Presentacion.Medicos
         protected void btnAltaEspecialidad_Click(object sender, EventArgs e)
         { 
             
-            try
-            {
+            
                 int id = int.Parse(ddlEspecialidades.SelectedValue);
 
                 if (Especialidades.Find(x => x.especialidad.ID== id) == null)
                 {
-                    Negocio.AgregarEspecialidadMedico(id, IdMedico);
-                    Especialidades = Negocio.ListarEspecialidadesMedico(IdMedico);
-                    ocultarDllEspecialidad(); 
-                    IdMedico = int.Parse(Request.QueryString["idMedico"]);
-                    Response.Redirect("DetalleMedico.aspx?idMedico=" + IdMedico);
+
+                        try
+                        {
+                            Negocio.AgregarEspecialidadMedico(id, IdMedico);
+                            Especialidades = Negocio.ListarEspecialidadesMedico(IdMedico);
+                            ocultarDllEspecialidad();
+                            IdMedico = int.Parse(Request.QueryString["idMedico"]);
+                            
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Session.Add("error", ex.Message.ToString());
+                            Response.Redirect("../Info/PagError.aspx");
+                        }
+                        Response.Redirect("DetalleMedico.aspx?idMedico=" + IdMedico);
                 }
                 else
                 {
@@ -239,13 +256,9 @@ namespace Presentacion.Medicos
 
 
                 }
-            }
-            catch (Exception ex)
-            {
-
-                Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../Info/PagError.aspx");
-            } 
+            
+             
+            
 
             
         } 
@@ -323,17 +336,28 @@ namespace Presentacion.Medicos
 
         protected void btnAgregarDia_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int id = int.Parse(ddlDias.SelectedValue);
+               int id = int.Parse(ddlDias.SelectedValue);
 
                 if (DiaHorario.Find(x => x.idDia == id) == null)
                 {
-                    Negocio.AgregarDiaMedico(id, IdMedico, ddlHoraInicio.SelectedItem.ToString(), ddlHoraFin.SelectedItem.ToString());
-                    DiaHorario = Negocio.ListarDiasHorariosMedicos(IdMedico);
-                    ocultarDllDia(); 
-                    IdMedico = int.Parse(Request.QueryString["idMedico"]);
-                    Response.Redirect("DetalleMedico.aspx?idMedico=" + IdMedico);
+
+                        try
+                        {
+                            Negocio.AgregarDiaMedico(id, IdMedico, ddlHoraInicio.SelectedItem.ToString(), ddlHoraFin.SelectedItem.ToString());
+                            DiaHorario = Negocio.ListarDiasHorariosMedicos(IdMedico);
+                            ocultarDllDia();
+                            IdMedico = int.Parse(Request.QueryString["idMedico"]);
+                    
+                        }
+                        catch (Exception ex)
+                        {
+                            Session.Add("error", ex.Message.ToString());
+                            Response.Redirect("../Info/PagError.aspx");
+
+                        }
+
+
+                        Response.Redirect("DetalleMedico.aspx?idMedico=" + IdMedico);
                 }
                 else
                 {
@@ -347,13 +371,11 @@ namespace Presentacion.Medicos
 
 
                 }
-            }
-            catch (Exception ex)
-            {
+            
+            
 
-                Session.Add("error", ex.Message.ToString());
-                Response.Redirect("../Info/PagError.aspx");
-            }
+                
+            
         }
     }
 }

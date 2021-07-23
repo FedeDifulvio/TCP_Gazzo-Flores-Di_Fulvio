@@ -11,6 +11,7 @@ namespace Presentacion.Medicos
 {
     public partial class AltaMedico : System.Web.UI.Page
     {
+        int id;
         public Usuario usuario = new Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,14 +45,15 @@ namespace Presentacion.Medicos
                     negocio.Agregar(aux);
                     lista = negocio.Listar();
                     Session.Add("ListaMedicos", lista);
-                    int id = lista.Find(x => x.Legajo == aux.Legajo).ID;
-                    Response.Redirect("DetalleMedico.aspx?idMedico=" + id);
+                    id = lista.Find(x => x.Legajo == aux.Legajo).ID;
+                    
                 }
                 catch (Exception ex )
                 {
                     Session.Add("error", ex.Message.ToString());
                     Response.Redirect("../Info/PagError.aspx");
-                }  
+                }
+                Response.Redirect("DetalleMedico.aspx?idMedico=" + id);
             }
             else 
             {
