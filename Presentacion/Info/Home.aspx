@@ -49,7 +49,7 @@
                                     <div class="card-menu">
                                         <img style=" margin-left: 15px;" class="img-card-menu" src="../img/user.png" alt="Alternate Text"; />
                                         <hr />
-                                        <a  class="btn btn-primary" href="../Usuario/AltaUsuario.aspx">Alta Usuario</a>
+                                        <a  class="btn btn-primary" href="../Usuarios/RegistroUsuario.aspx">Usuarios</a>
                                     </div>   
                                 </div>
                                 <div class="col-md-3" style="justify-content: center; display: flex">

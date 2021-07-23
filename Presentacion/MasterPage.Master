@@ -55,7 +55,7 @@
             <%if (usuario.TipoUsuario.Id == 3 )
                 {
                     %>
-
+                 
             <li><a class="item-nav" href="../Turnos/TurnosMedico.aspx">Mis Turnos</a></li>
 
             <%
@@ -69,7 +69,7 @@
             <li><a class="item-nav" href="../Medicos/RegistroMedicos.aspx" >Registro de Médicos</a></li> 
             <li><a class="item-nav" href="../Especialidades/Especialidades.aspx">Especialidades</a></li>
             <li><a class="item-nav" href="../ObrasSociales/ObrasSociales.aspx">Obras Sociales</a></li>
-             
+            <li><a class="item-nav" href="../Usuarios/RegistroUsuario.aspx">Registro Usuario</a></li>
             
             
             

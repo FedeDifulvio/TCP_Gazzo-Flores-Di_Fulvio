@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="JavaScript\ValidacionesMedico.js" />
     <Content Include="JavaScript\ValidacionesTurnos.js" />
+    <Content Include="JavaScript\ValidacionesUsuarios.js" />
     <Content Include="Login\Login.aspx" />
     <Content Include="Medicos\AltaMedico.aspx" />
     <Content Include="Medicos\DetalleMedico.aspx" />
@@ -97,6 +98,8 @@
     <Content Include="Styles\Styles.css" />
     <Content Include="Turnos\RegistroTurnos.aspx" />
     <Content Include="Turnos\ReprogramarTurnos.aspx" />
+    <Content Include="Usuarios\AltaUsuario.aspx" />
+    <Content Include="Usuarios\RegistroUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +264,20 @@
     </Compile>
     <Compile Include="Turnos\ReprogramarTurnos.aspx.designer.cs">
       <DependentUpon>ReprogramarTurnos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\AltaUsuario.aspx.cs">
+      <DependentUpon>AltaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios\AltaUsuario.aspx.designer.cs">
+      <DependentUpon>AltaUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\RegistroUsuario.aspx.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios\RegistroUsuario.aspx.designer.cs">
+      <DependentUpon>RegistroUsuario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
